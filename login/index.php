@@ -22,7 +22,8 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
     <body>
 
-      <div class="tudo rown tudoLogin">
+      <div class="tudoLogin"></div>
+      <div class="tudo rown loginTudo">
 
           <div class="navbar-fixed">
             <nav id="navbar" class="navMenus">
@@ -90,31 +91,54 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                     <span>Nome:</span>
                     <input type="text" name="nome" id="nome">
 
-                    <span>Endereço do escritório:</span>
-                    <input type="text" name="end_escritorio" id="end_escritorio">
+                    <span>Telefone:</span>
+                    <input type="number" name="telefone">
 
-                    <span>CPF:</span>
-                    <input type="text" name="cpf" id="cpf" size="12" maxlength="14"  OnKeyPress="formatar('###.###.###-##', this)">
+                    <span>Cidade do escritório:</span>
+                    <input type="text" name="cidade" >
+
+                    <span>Rua do escritório:</span>
+                    <input type="text" name="rua" >
+
+                  
+                    <span class="col l6">Complemento: (Opcional)</span>
+                    <input type="text" name="complemento" > 
 
                     <span>Email:</span>
-                    <input type="text" name="email" id="email">
+                    <input type="text" name="email">
                   </div>
 
                   <div class="col l6">
                   <span>Sobrenome:</span>
-                    <input type="text" name="sobrenome" id="sobrenome">
+                    <input type="text" name="sobrenome">
 
                     <span>Data de nascimento:</span>
-                    <input type="date" name="nascimento" id="idade">
+                    <input type="date" name="nascimento">
 
+                    <span>Ramal:</span>
+                    <input type="number" name="ramal">
+
+                    <span>Bairo do escritório:</span>
+                    <input type="text" name="bairro">
+                   
+                    <span class="col l6">Número do escritório:</span>
+                    <input type="number" name="numero">
+
+                    <span>CPF:</span>
+                    <input type="text" name="cpf" id="cpf" size="12" maxlength="14"  OnKeyPress="formatar('###.###.###-##', this)">                   
+                      
+
+                    
+
+                  </div>
+
+                  <div class="col l12">
                     <span>Nome da Empresa:</span>
                     <input type="text" name="empresa" id="empresa">
 
                     <span>Crie sua senha:</span>
                     <input type="password" name="senha" id="senha">
-                  </div>
 
-                  <div class="col l12">                    
                     <input id="salvar" class="col l6 offset-l3" type="submit" name="enviar" value="Criar conta">
                   </div>                 
 
@@ -166,7 +190,6 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
 
             var dados = $('#cadUsuario').serialize();
-            console.log(dados);
             var concluido = $.ajax({
                 type: 'POST',
                 dataType: 'json',
@@ -196,7 +219,8 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
               url:"../server/login.php",      //Arquivo php
               type:"post",        //Método de envio
               data: "email="+email+"&senha="+senha, //Dados
-                success: function (result){     //Sucesso no AJAX
+                success: function (result){
+                            //alert(result);     //Sucesso no AJAX
                             if(result==1){            
                               location.href='../dashboard/'  //Redireciona
                             }

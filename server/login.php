@@ -21,7 +21,13 @@
 		$_SESSION['nomeUsuario']=$res['nome'];
 		$_SESSION['sobrenome']=$res['sobrenome'];
 		$_SESSION['email']=$res['email'];
-		$_SESSION['endereco']=$res['end_escritorio'];
+		$_SESSION['cidade']=$res['cidade'];
+		$_SESSION['bairro']=$res['bairro'];
+		$_SESSION['rua']=$res['rua'];
+		$_SESSION['numero']=$res['numero'];
+		$_SESSION['complemento']=$res['complemento'];
+		$_SESSION['telefone']=$res['telefone'];
+		$_SESSION['ramal']=$res['ramal'];
 		$_SESSION['nascimento']=$res['nascimento'];
 		$_SESSION['cpf']=$res['cpf'];
 		$_SESSION['empresa']=$res['empresa'];

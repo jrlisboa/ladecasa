@@ -10,14 +10,27 @@
     
     $nome = utf8_decode($_POST['nome']);
     $sobrenome = utf8_decode($_POST['sobrenome']);
-    $end_escritorio = utf8_decode($_POST['end_escritorio']);
+    $cidade = utf8_decode($_POST['cidade']);
+    $bairro = utf8_decode($_POST['bairro']);
+    $rua = utf8_decode($_POST['rua']);
+    $numero = $_POST['numero'];
+    $complemento = $_POST['complemento'];
+    $telefone = $_POST['telefone'];
+    $ramal = $_POST['ramal'];
     $empresa = utf8_decode($_POST['empresa']);
     $nascimento = $_POST['nascimento'];
 
     mysql_query("
         UPDATE user
         SET nome = '$nome', sobrenome = '$sobrenome',
-        end_escritorio = '$end_escritorio', empresa = '$empresa', nascimento = '$nascimento'
+        cidade = '$cidade', 
+        bairro = '$bairro',
+        rua = '$rua',
+        numero = '$numero',
+        complemento = '$complemento',
+        telefone = '$telefone',
+        ramal = '$ramal',
+        empresa = '$empresa', nascimento = '$nascimento'
         WHERE id = ".$_SESSION['usuarioID']);
 
     $sql="select * from user where id='".$_SESSION['usuarioID']."'"; 
@@ -26,16 +39,15 @@
 
     $_SESSION['nomeUsuario']=$res['nome'];
     $_SESSION['sobrenome']=$res['sobrenome'];
-    $_SESSION['endereco']=$res['end_escritorio'];
+    $_SESSION['cidade']=$res['cidade'];
+    $_SESSION['bairro']=$res['bairro'];
+    $_SESSION['rua']=$res['rua'];
+    $_SESSION['numero']=$res['numero'];
+    $_SESSION['complemento']=$res['complemento'];
+    $_SESSION['telefone']=$res['telefone'];
+    $_SESSION['ramal']=$res['ramal'];
     $_SESSION['nascimento']=$res['nascimento'];
     $_SESSION['empresa']=$res['empresa'];
-
-
-    //$_SESSION['nomeUsuario']=$nome;
-    //$_SESSION['sobrenome']=$sobrenome;
-    //$_SESSION['endereco']=$end_escritorio;
-    //$_SESSION['nascimento']=$nascimento;
-    //$_SESSION['empresa']=$empresa;
 
     header("Location: ../dashboard/");
    

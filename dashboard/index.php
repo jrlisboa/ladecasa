@@ -77,8 +77,8 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
             <?php } ?>
             
             <li class="categoriaSide card firstCard grey darken-4 white-text row">
-              <span class="col l12 s12 tituloEditaveis">Endereço:</span>
-              <span class="col l12 s12 editaveis"><?= $_SESSION['endereco'] ?></span>
+              <span class="col l12 s12 tituloEditaveis">Rua:</span>
+              <span class="col l12 s12 editaveis"><?= $_SESSION['rua'] ?></span>
 
               <span class="col l12 s12 tituloEditaveis">Email:</span>
               <span class="col l12 s12 editaveis" id="limitarEmail"><?= $_SESSION['email'] ?></span>
@@ -144,7 +144,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                       </div>
                     </a>
                     <?php
-                  }else{
+                  }elseif ($_SESSION['plano'] == 2){
 
                     ?>
                     <a href="../server/altera_plano.php?id=1">
@@ -160,6 +160,28 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                         <span class="col l12 s12">Plano Mensal</span>
                       </div>
                     </a>
+
+
+                  <?php
+                  }else{
+
+                  ?>
+
+
+                    <a href="../server/altera_plano.php?id=1">
+                      <div class="btnItem btnItemDash primeiroBtn col l6 s12">
+                        <div class="col l12 s12"><img src="../img/icones/15.svg"></div>
+                        <span class="col l12 s12">Plano Quinzenal</span>
+                      </div>
+                    </a>
+
+                    <a href="../server/altera_plano.php?id=2">
+                      <div class="btnItem btnItemDash col l6 s12">
+                        <div class="col l12 s12"><img src="../img/icones/31.svg"></div>
+                        <span class="col l12 s12">Plano Mensal</span>
+                      </div>
+                    </a>
+
                   <?php
                   }
                ?>
@@ -196,7 +218,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                     </a>
 
                     <?php
-                  }else{
+                  }elseif ($_SESSION['periodo'] == 2){
 
                     ?>
 
@@ -215,8 +237,25 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                     </a>
 
                     <?php
+                  }else{
+                    ?>
+
+                    <a href="../server/altera_periodo.php?id=1">
+                      <div class="btnItem btnItemDash primeiroBtn col l6 s12">
+                        <div class="col l12 s12"><img src="../img/icones/am.svg"></div>
+                        <span class="col l12 s12">Durante a Manhã</span>
+                      </div>
+                    </a>
+
+                    <a href="../server/altera_periodo.php?id=2">
+                      <div class="btnItem btnItemDash col l6 s12">
+                        <div class="col l12 s12"><img src="../img/icones/pm.svg"></div>
+                        <span class="col l12 s12">Durante a Tarde</span>
+                      </div>
+                    </a>
+                  <?php
                   }
-               ?>
+                    ?>
            
               </div>
             </div>
@@ -324,6 +363,15 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                     <span>CPF:</span>
                     <input disabled type="text" name="cpf" id="cpf" required value="<?= $_SESSION['cpf'] ?>">
 
+                    <span>Cidade do escritório:</span>
+                    <input type="text" name="cidade" id="end_escritorio" required value="<?= $_SESSION['cidade'] ?>">
+
+                    <span>Bairro do escritório:</span>
+                    <input type="text" name="bairro" id="end_escritorio" required value="<?= $_SESSION['bairro'] ?>">
+
+                    <span>Rua do escritório:</span>
+                    <input type="text" name="rua" id="end_escritorio" required value="<?= $_SESSION['rua'] ?>">
+
                   </div>
 
                   <div class="col l6">
@@ -336,11 +384,22 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                     <span>Nome da Empresa:</span>
                     <input type="text" name="empresa" id="empresa" required value="<?= $_SESSION['empresa'] ?>">
 
+                    <span>Número do escritório:</span>
+                    <input type="text" name="numero" id="end_escritorio" required value="<?= $_SESSION['numero'] ?>">
+
+                    <span>Complemento: (Opcional)</span>
+                    <input type="text" name="complemento" id="end_escritorio" value="<?= $_SESSION['complemento'] ?>">
+
+                    <span>Telefone:</span>
+                    <input type="text" name="telefone" id="end_escritorio" required value="<?= $_SESSION['telefone'] ?>">
+
                   </div>
 
                   <div class="col l12">
-                    <span>Endereço do escritório:</span>
-                    <input type="text" name="end_escritorio" id="end_escritorio" required value="<?= $_SESSION['endereco'] ?>">
+                    
+
+                    <span>Ramal:</span>
+                    <input type="text" name="ramal" id="end_escritorio" required value="<?= $_SESSION['ramal'] ?>">
 
                     <input id="salvarEdit" class="col l6 offset-l3 salvarEdit" type="submit" name="enviar" value="Salvar">
                   </div>                 

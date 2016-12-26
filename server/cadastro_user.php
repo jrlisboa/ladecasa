@@ -3,7 +3,13 @@
 	include "conecta.php";
 	$nome = utf8_decode($_POST['nome']);
 	$sobrenome = utf8_decode($_POST['sobrenome']);
-	$end_escritorio = utf8_decode($_POST['end_escritorio']);
+	$cidade = utf8_decode($_POST['cidade']);
+	$bairro = utf8_decode($_POST['bairro']);
+	$rua = utf8_decode($_POST['rua']);
+	$numero = $_POST['numero'];
+	$complemento = $_POST['complemento'];
+	$telefone = $_POST['telefone'];
+	$ramal = $_POST['ramal'];
 	$empresa = utf8_decode($_POST['empresa']);
 	$cpf = $_POST['cpf'];
 	$nascimento = $_POST['nascimento'];
@@ -17,7 +23,17 @@
 		$erros++;
 	}else if (empty($sobrenome)) {
 		$erros++;
-	}else if (empty($end_escritorio)) {
+	}else if (empty($cidade)) {
+		$erros++;
+	}else if (empty($bairro)) {
+		$erros++;
+	}else if (empty($rua)) {
+		$erros++;
+	}else if (empty($numero)) {
+		$erros++;
+	}else if (empty($telefone)) {
+		$erros++;
+	}else if (empty($ramal)) {
 		$erros++;
 	}else if (empty($empresa)) {
 		$erros++;
@@ -43,8 +59,8 @@
 			if (@mysql_num_rows($resultadosEmail) == 0){
 
 				//CADASTRANDO O NOVO USUÁRIO
-				$sql = "INSERT INTO user (nome, sobrenome, end_escritorio, empresa, cpf, nascimento, imagem, email, senha) 
-			    VALUES ('$nome', '$sobrenome', '$end_escritorio', '$empresa', '$cpf', '$nascimento', '$imagem', '$email', '$senha')";
+				$sql = "INSERT INTO user (nome, sobrenome, cidade, bairro, rua, numero, complemento, telefone, ramal, empresa, cpf, nascimento, imagem, email, senha) 
+			    VALUES ('$nome', '$sobrenome', '$cidade', '$bairro', '$rua', '$numero', '$complemento', '$telefone', '$ramal', '$empresa', '$cpf', '$nascimento', '$imagem', '$email', '$senha')";
 			    mysql_query($sql) or die(error());
 
 
@@ -65,11 +81,18 @@
 					$_SESSION['nomeUsuario']=$res['nome'];
 					$_SESSION['sobrenome']=$res['sobrenome'];
 					$_SESSION['email']=$res['email'];
-					$_SESSION['endereco']=$res['end_escritorio'];
+					$_SESSION['cidade']=$res['cidade'];
+					$_SESSION['bairro']=$res['bairro'];
+					$_SESSION['rua']=$res['rua'];
+					$_SESSION['numero']=$res['numero'];
+					$_SESSION['complemento']=$res['complemento'];
+					$_SESSION['telefone']=$res['telefone'];
+					$_SESSION['ramal']=$res['ramal'];
 					$_SESSION['nascimento']=$res['nascimento'];
 					$_SESSION['cpf']=$res['cpf'];
 					$_SESSION['empresa']=$res['empresa'];
 					$_SESSION['imagem']=$res['imagem'];
+					$_SESSION['pagamento']=$res['pagamento'];
 
 					exit;	
 				}
