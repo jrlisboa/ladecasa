@@ -36,6 +36,7 @@
 		$_SESSION['plano']=$res['id_plano'];
 		$_SESSION['periodo']=$res['id_periodo'];
 		$_SESSION['pagamento']=$res['pagamento'];
+		$_SESSION['boleto']=$res['boleto'];
 
 		exit;	
 	}

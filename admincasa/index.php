@@ -89,6 +89,7 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
               type:"post",        //Método de envio
               data: "email="+email+"&senha="+senha, //Dados
                 success: function (result){     //Sucesso no AJAX
+                  //alert(result);
                             if(result==1){            
                               location.href='galeria.php'  //Redireciona
                             }

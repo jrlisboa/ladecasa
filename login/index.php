@@ -100,10 +100,10 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                     <span>Rua do escritório:</span>
                     <input type="text" name="rua" >
 
+                    <span class="col l6">Número do escritório:</span>
+                    <input type="number" name="numero">
                   
-                    <span class="col l6">Complemento: (Opcional)</span>
-                    <input type="text" name="complemento" > 
-
+                    
                     <span>Email:</span>
                     <input type="text" name="email">
                   </div>
@@ -120,9 +120,10 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
                     <span>Bairo do escritório:</span>
                     <input type="text" name="bairro">
-                   
-                    <span class="col l6">Número do escritório:</span>
-                    <input type="number" name="numero">
+
+                    <span class="col l6">Complemento: (Opcional)</span>
+                    <input type="text" name="complemento" >               
+                    
 
                     <span>CPF:</span>
                     <input type="text" name="cpf" id="cpf" size="12" maxlength="14"  OnKeyPress="formatar('###.###.###-##', this)">                   

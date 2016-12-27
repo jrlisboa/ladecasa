@@ -93,6 +93,10 @@
 					$_SESSION['empresa']=$res['empresa'];
 					$_SESSION['imagem']=$res['imagem'];
 					$_SESSION['pagamento']=$res['pagamento'];
+					$_SESSION['plano']=$res['id_plano'];
+					$_SESSION['periodo']=$res['id_periodo'];
+					$_SESSION['menu']=$res['id_menu'];
+					$_SESSION['boleto']=$res['boleto'];
 
 					exit;	
 				}

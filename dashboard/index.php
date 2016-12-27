@@ -5,8 +5,20 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
         session_destroy();            //Destroi a seção por segurança
         header("Location: ../login/"); exit; //Redireciona o visitante para login
 }
-?>
+$id_user = $_SESSION['usuarioID'];
+$seleciona = "SELECT * FROM user WHERE id = '$id_user'";
+$vai = mysql_query($seleciona) or die(mysql_error());
+$dado = mysql_fetch_array($vai);
 
+$_SESSION['pagamento']=$dado['pagamento'];
+$_SESSION['boleto']=$dado['boleto'];
+
+if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+15 days",strtotime($dado['data_pagamento'])))) {
+  $seleciona = "UPDATE user SET pagamento = 0 WHERE id = '$id_user' ";
+  $vai = mysql_query($seleciona) or die(mysql_error());
+  $_SESSION['pagamento'] = 0;
+}
+?>
 
 
 <!DOCTYPE html>
@@ -68,7 +80,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
             if ($_SESSION['pagamento'] == 0) {
             ?>
             <li>
-              <div class="btnNovoPedido"><a href="../pagamento" class="btn-small col l10 offset-l1">Pagamento</a></div>
+              <div class="btnNovoPedido"><a href="../pagamento/" class="btn-small col l10 offset-l1">Pagamento</a></div>
             </li>
             <?php }else{ ?>
             <li>
@@ -96,6 +108,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
             <?php
             if ($_SESSION['pagamento'] == 0) {
+                if ($_SESSION['boleto'] == 0) {
             ?>
 
             <div class="row">
@@ -104,19 +117,39 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                   <div class="card-content" style="height: 200px !important;">
                   <span class="card-title white-text">Olá <?= $_SESSION['nomeUsuario'] ?>, configure suas opções de pagamento!</span>
                     
-                    <span class="white-text col l8" style="margin-top: 20px;">Agora você faz parte do Lá de Casa, oferecemos diversas opções de menus e produtos para que você possa se deliciar e ainda cuidar da sua saúde, configure suas opçõoes de pagamento para começar a receber nosso produtos com todo o carinho do mundo! :)
+                    <span class="white-text col l8" style="margin-top: 20px;">Agora você faz parte do Lá de Casa, oferecemos diversas opções de menus e produtos para que você possa se deliciar e ainda cuidar da sua saúde, configure suas opçõoes de pagamento para começar a receber nosso produtos no seu escritório! :)
                     </span>
 
                     <img style="margin-top: 5px" class="col l2 offset-l1" src="../img/icones/credit-card.svg">
                   </div>
                   <div class="card-action">
-                    <a class="white-text" href="#">Vamos lá!</a>
+                    <a class="white-text" href="../pagamento/">Vamos lá!</a>
                   </div>
                 </div>
               </div>
             </div>
 
-            <?php } ?>
+            <?php }else{ ?>
+
+            <div class="row">
+              <div class="col s12">
+                <div class="card yellow darken-2 cardPagamento" align="center">
+                  <div class="card-content" style="height: 200px !important;">
+                  <span class="card-title white-text"><?= $_SESSION['nomeUsuario'] ?>, seu boleto foi gerado!</span>
+                    
+                    <span class="white-text col l8" style="margin-top: 20px;">Agora é bem simples, basta pagar antes do vencimento e faremos a verificação, depois disso, você já poderá aproveitar nossos serviços.<br>Caso queira gerar outro boleto clique no botão "Pagamento" da barra lateral!
+                    </span>
+
+                    <img style="margin-top: 5px" class="col l2 offset-l1" src="../img/icones/invoice.svg">
+                  </div>
+                  <!--<div class="card-action">
+                    <a class="white-text" href="../pagamento/">Vamos lá!</a>
+                  </div>-->
+                </div>
+              </div>
+            </div>
+
+            <?php }} ?>
 
             <div class=" col l12 plano primeiroPlano">
               <div class="tituloMenus tituloDash" align="left">

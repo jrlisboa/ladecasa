@@ -150,7 +150,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                 include('server/conecta.php');
                 $qryLista = "SELECT * FROM tipo";
                 $query = mysql_query($qryLista) or die(mysql_error());
-                $res=mysql_fetch_array($query);
+                
                 
                 while ($final = mysql_fetch_array($query)) { 
                 $tipos[] = $final;
