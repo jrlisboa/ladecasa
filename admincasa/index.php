@@ -16,6 +16,7 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
       <title>Administração | Lá de Casa</title>
+      <meta charset="utf-8">
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>

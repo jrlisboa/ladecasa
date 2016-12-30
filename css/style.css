@@ -54,7 +54,7 @@
   		padding: 0px 20px 0px 20px;
   		background-color: unset;
   		transition: background-color 0.7s;
-  		
+  		z-index: 0;
 
   	}
 
@@ -76,11 +76,22 @@
 		background-image: url('../img/imagens/topo.png');
 		height: 100vh;
 		width: 100%;
-		background-size: 100%;
+		background-size: 400%;
 		overflow: hidden;
 		margin-bottom: 0px;
 		
 	}
+
+	#mobile-demo li a{
+		color: #fff;
+	}
+
+	#mobile-demo{
+
+		width: 40%;
+	}
+
+	
 
 	.loginBtn{
 
@@ -110,7 +121,7 @@
 
 	.textTopo span{
 		color: #fff;
-		font-size: 35px;
+		font-size: 25px;
 		font-family: 'A Gentle Touch';
 	}
 
@@ -141,10 +152,10 @@
 
 	.funciona{
 
-		height: 100vh;
+		height: auto;
 		background-color: #f7f7f7;
 		top: 0px;
-		padding-top: 30px;
+		padding-top: 60px;
 		text-align: center;
 		box-shadow: 0 35px 80px 0px #ccc 10px;
 		
@@ -153,8 +164,8 @@
 
 	.tituloContainer h2{
 
-		width: 20%;
-		margin-left: 40%;
+		width: 80%;
+		margin-left: 10%;
 		font-size: 35px;
 		font-family: 'A Gentle Touch';
 		color: #000;
@@ -167,6 +178,7 @@
 	.textoContainer span{
 		font-size: 20px;
 		font-weight: 300;
+
 	}
 
 	.itemFunciona span{
@@ -233,9 +245,9 @@
 
 	.quemSomos{
 
-		height: 112vh;
+		height: auto;
 		text-align: center;
-		padding-top: 30px;
+		padding-top: 60px;
 	}
 
 
@@ -259,6 +271,7 @@
 		font-family: 'A Gentle Touch';
 		margin-top: 8vh;
 		line-height: 0.9;
+		margin-top: 30px !important;
 
 	}
 
@@ -272,7 +285,7 @@
 
 	.itemGaleria img{
 
-		width: 122%;
+		width: 152%;
 	}
 
 	.btnBottom{
@@ -306,7 +319,7 @@
 	.chamada{
 
 		background-color: #f39c12;
-		height:  20vh;
+		height:  auto;
 		padding: 20px 20px 12px 20px;
 		margin: 0;
 	}
@@ -518,11 +531,6 @@
 
 
 
-
-
-
-
-
 	/*-------------  PÁGINA MENUS ////////////////////////////////////////////////////// ---------*/
 
 
@@ -548,12 +556,20 @@
   	.btnItem{
 
   		background-color: #b7b7b7;
+  		margin-top: 10px;
   		margin-right: 10px;
   		padding-top: 20px !important;
   		height: 200px;
   		-webkit-transition: 0.2s; /* Safari */
     	transition: 0.2s;
   	}
+
+  	.linkMenu{
+
+  		padding: 0px !important;
+  	}
+
+
 
 
   	.btnItem:hover{
@@ -743,6 +759,620 @@
   		background-image: url('../img/produtos.png');
   		background-position: center;
   		background-size: 100%;
+  		display: none;
+  	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  	/*-------------  PÁGINA LOGIN ////////////////////////////////////////////////////// ---------*/
+
+
+  	.forms{
+
+  		margin-top: 5vh;
+  	}
+
+
+  	.formLogin{
+
+  		background-color: #dd8d19;
+  		height: auto;
+  		border-radius: 10px;
+  		margin-bottom: 30px;
+  	}
+
+  	.formCadastro{
+
+  		background-color: #f7f7f7;
+  		height: auto;
+  		border-radius: 10px;
+  		padding-bottom: 20px;
+  	}
+
+  	.conteudoLogin{
+
+  		padding: 20px;
+  	}
+
+  	.conteudoLogin h5{
+
+  		color: #fff;
+  		margin-bottom: 20%;
+  	}
+
+  	.conteudoLogin span{
+
+  		color: #fff;
+  	}
+
+  	.conteudoLogin input{
+
+  		color: #fff;
+  		background-color: #efa13a;
+  		padding: 10px 0px 10px 10px;
+  		height: 20px;
+  		border-bottom: 1px solid #fff;
+  	}
+
+  	.conteudoLogin input[type='submit']{
+  		color: #fff;
+  		border: 2px solid #fff;
+  		border-radius: 5px;
+  		padding: 5px 0px 5px 0px;
+  		text-align: center;
+  		background-color: unset;
+  		width: 100%;
+  		min-height: 40px;
+  		font-size: 20px;
+  		-webkit-transition: 0.4s; /* Safari */
+    	transition: 0.4s;
+    	margin-top: 30px;
+    	margin-bottom: 20px;
+  	}
+
+
+  	.conteudoLogin input[type='submit']:hover{
+  		color: #dd8d19;  		
+  		background-color: #fff;
+  		
+  	}
+
+
+
+  	.conteudoCadastro{
+
+  		padding: 20px;
+  	}
+
+  	.conteudoCadastro h5{
+
+  		color: #1a1a1a;
+  		margin-bottom: 10%;
+  	}
+
+  	.conteudoCadastro span{
+
+  		color: #1a1a1a;
+  	}
+
+  	.conteudoCadastro input{
+
+  		color: #000;
+  		background-color: #fff;
+  		border-bottom: 1px solid #dd8d19;
+  		padding: 10px 0px 10px 10px;
+  		height: 20px;
+  	}
+
+  	.conteudoCadastro input[type='submit']{
+  		color: #fff;
+  		border-radius: 5px;
+  		padding: 5px 0px 5px 0px;
+  		text-align: center;
+  		background-color: #dd8d19;
+  		width: 100%;
+  		border: 2px solid #dd8d19;
+  		min-height: 40px;
+  		font-size: 20px;
+  		-webkit-transition: 0.4s; /* Safari */
+    	transition: 0.4s;
+    	margin-top: 0px;
+    	margin-bottom: 20px;
+  	}
+
+
+  	.conteudoCadastro input[type='submit']:hover{
+  		color: #dd8d19;  		
+  		background-color: #f7f7f7;
+  		border: 1px solid #dd8d19;
+  	}
+
+
+  	.tudoLogin{
+
+  		background-image: url('../img/login.png');
+  		background-position: center;
+  		background-size: 400%;
+  		height: 130vh;
+  		position: fixed;
+  		z-index: 1;
+  		display: block;
+  		position: fixed;
+		left: 0;
+		right: 0;
+  	}
+
+  	
+
+
+  	.erroLogin{
+
+  		text-align: center;
+  		margin-bottom: 10px;
+  		background-color: #e74c3c;
+  		color: #fff;
+  		height: 30px;
+  		font-size: 14px;
+  		padding: 5px;
+  		width: 100%;
+  	}
+
+  	.loginTudo{
+
+  		position: relative;
+  		z-index: 99999;
+  	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  	/*-------------  PÁGINA DASHBOARD ////////////////////////////////////////////////////// ---------*/
+
+  	.mobileCardCurto{
+  		height: auto !important;
+  	}
+
+  	.tamanhoCard{
+  		height: 400px !important;
+  	}
+
+  	body{
+
+  		overflow-x: hidden !important;
+  	}
+
+
+  	.dashMobile{
+
+  		width: 100% !important;
+  	}
+
+  	.nopad{
+  		padding: 0px !important;
+  	}
+
+  	.btnPlano{
+  		margin-left: 0%;
+  		width: 100%;
+  	}
+
+
+  	.side-nav{
+
+  		display: block !important;
+  		z-index: 1;
+  		padding-top: 15vh !important;
+  		background-color: #1a1a1a;
+  		
+  	}
+
+  	.sideResp{
+		display: none;
+	}
+
+	.sideDash{
+
+		width: 80% !important;
+		padding-top: 5vh !important;
+	}
+
+  	.conteudoDash{
+
+  		margin-left: 0%;
+  		padding: 0px!important;
+  		margin-top: 30px;
+  	}
+
+  	.tituloDash{
+
+  		margin-left: 0px;
+  	}
+
+  	.btnDash{
+
+  		margin-top: 20px;
+  	}
+
+  	.menuDash{
+
+		width: 100% !important;
+  		margin-left: 0% !important;
+  	}
+
+  	.containerMenu{
+
+  		margin-top: 5vh;
+  	}
+
+  	.foto img{
+
+  		margin-bottom: 20px !important;
+  	}
+
+  	.primeiroPlano{
+
+  		margin-top: 0px !important;
+  	}
+
+  	.side-nav h5{
+
+  		font-weight: 300;
+  		font-size: 22px;
+  	}
+
+  	.btnNovoPedido a{
+
+  		color: #2ecc71 !important;
+  		border: 1px solid #2ecc71;
+  		border-radius: 5px;
+  		padding-top: 6px;
+  		text-align: center;
+  		font-size: 20px !important;
+  		font-weight: 300 !important;
+  		margin-top: 5px;
+  		margin-bottom: 30px;
+  		-webkit-transition: 0.4s; /* Safari */
+    	transition: 0.4s;
+
+  	}
+
+
+  	
+
+  	.btnNovoPedido a:hover{
+  		background-color: #2ecc71;
+  		color: #fff !important;
+  	}
+
+  	.categoriaSide{
+
+  		margin-top: 0px;
+  		padding-top: 10px;
+  	}
+
+  	.categoriaSide span{
+
+  		line-height: 100% !important;
+  	}
+
+
+  	.tituloEditaveis{
+  		margin-bottom: 10px;
+  		font-size: 18px;
+  		font-weight: 300;
+  		margin-top: 20px;
+  	}
+
+  	.editaveis{
+  		margin-bottom: 10px;
+
+  	}
+
+
+  	#limitarEmail{
+
+	  max-width: 20ch;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	  white-space: nowrap;
+  	}
+
+
+  	.firstCard{
+
+  		margin-top: 80px;
+  	}
+
+
+  	.plano{
+
+  		margin-top: 40px;
+  		margin-bottom: 20px;
+  	}
+
+
+  	.btnItemDash:hover{
+
+  		background-color: #ccc;
+  		cursor: pointer !important;
+  	}
+
+  	
+
+
+  	.selectDash{
+
+  		background-color: #f39c12 !important;
+  	}
+
+
+  	.imagemPerfil:hover{
+
+  		cursor: pointer;
+  	}
+
+
+  	.imagemPerfil{
+
+  		height: 22vh;
+  		margin-bottom: 20px;
+  		position: relative;
+  		margin-right: 20%;
+  	}
+
+  	.geradohehe{
+
+  		margin-bottom: -300px !important;
+  	}
+
+  	.modalPerfil{
+
+  		margin-top: 30px;
+  	}
+
+  	.modalPerfil span{
+
+  		font-size: 20px;
+  		font-weight: 300;
+  		margin-bottom: 20px;
+  	}
+
+
+  	.modalPerfil input[type='file']{
+
+  		margin-top: 20px !important;
+  		display: none;
+  	}
+
+
+  	.modalPerfil label {
+
+	  background-color: #555;
+	  border-radius: 2px;
+	  color: #fff;
+	  cursor: pointer;
+	  margin: 10px;
+	  padding: 6px 20px;
+	  font-size: 20px !important;
+	  font-weight: 300;
+	  margin-left: 0px;
+	}
+
+
+	.btnAlteraImagem{
+
+		background-color: unset;
+		border-radius: 5px;
+		border: 2px solid #F39C12;
+		color: #F39C12;
+		height: 40px;
+	}
+
+	.btnAlteraImagem:hover{
+
+		background-color: #F39C12;
+		border-radius: 5px;
+		border: 2px solid #F39C12;
+		color: #fff;
+	}
+
+
+	.editar:hover{
+
+		cursor: pointer;
+	}
+
+	.salvarEdit{
+
+		background-color: unset;
+		border-radius: 5px;
+		border: 1px solid #F39C12;
+		color: #F39C12;
+		font-size: 20px;
+		margin-top: 20px;
+		height: 40px !important;
+	}
+
+	.salvarEdit:hover{
+
+		background-color: #F39C12;
+		color: #fff;
+	}
+
+	.cardPagamento{
+
+		margin-left: -2% !important;
+		width: 100%;
+	}
+
+
+    .pgBtn{
+
+      height: 200px;
+      background-image: url("../img/icones/boleto.png");
+      background-repeat: no-repeat;
+      background-size: 50%;
+      background-position: top;
+    }
+
+
+    .boletao{
+
+      margin-bottom: -80px !important;
+      margin-top: 30px !important;
+    }
+
+
+    .segurotit{
+
+      margin-bottom: 50px !important;
+    }
+
+    .pagao{
+
+      margin-bottom: 80px;
+    }
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  	/*-------------  PÁGINA NOVO PEDIDO ////////////////////////////////////////////////////// ---------*/
+
+
+  	.tituloPedido{
+
+  		margin-left: 0%;
+  		margin-bottom: -30px;
+  	}
+
+
+  	.etapa{
+
+  		font-size: 25px;
+  		color: #2ecc71;
+  		text-align: right !important;
+  	}
+
+
+  	.btnProximo{
+
+  		margin-top: -10px !important;
+  	}
+
+
+  	.proximoBtn{
+
+  		margin-top: 20px !important;
+  		margin-bottom: 0px !important;
+  		margin-left: 20px !important;
+  	}
+
+
+
+  	.btnSelectProduto:hover{
+
+  		background-color: #ecf0f1;
+  		cursor: pointer;
+  	}
+
+  	.produtoSelecionado{
+
+  		border: 2px solid #2ecc71;
+  	}
+
+
+  	.parabens img{
+
+  		width: 100%;
+  		margin-top: 50px;
+  		margin-bottom: 50px;
   	}
 
 
@@ -797,6 +1427,14 @@
   
 	/*---------- TOPO*/
 
+	.tamanhoCard{
+  		height: 200px !important;
+  	}
+
+  	.mobileCardCurto{
+  		height: auto !important;
+  	}
+
 	nav{
   		padding: 0px 20px 0px 20px;
   		background-color: unset;
@@ -809,6 +1447,11 @@
 
   		background-color: #000;
   	}
+
+  	.sideResp{
+		display: block;
+	}
+
 
   	.menuItem:hover{
   		background-color: #d6860e;
@@ -1205,6 +1848,42 @@
 
 
 
+	/*---------- MODAL*/
+
+	#fotos{
+
+		width: 80%;
+		padding-top: 20px;
+	}
+
+	.modalTitulo{
+
+		width: 100%;
+		text-align: center;
+		font-size: 40px;
+		font-family: 'A Gentle Touch';
+	}
+
+	#fotos img{
+
+		margin-bottom: 30px;
+	}
+
+
+	.imagemModal{
+
+		height: 50vh;
+		overflow: hidden;
+		margin-bottom: 20px;
+	}
+
+
+	.imagemModal img{
+
+		width: 100%;
+
+	}
+
 
 
 
@@ -1454,6 +2133,34 @@
   		background-image: url('../img/produtos.png');
   		background-position: center;
   		background-size: 100%;
+  		display: block;
+  	}
+
+
+  	.tituloPagamentos{
+
+  		height: 20vh;margin-top: 0px; text-align: left;
+  	}
+
+  	.imagemPag{
+  		margin-top: 30px; width: 100%; background-color: white; padding: 20px 10px 20px 10px; border-radius: 5px;
+  	}
+
+  	.textoBtnPagamento{
+  		margin-top: 30px !important; font-size: 30px !important;
+  	}
+
+  	.textoPag{
+  		margin-top: 10px !important; font-size: 30px !important;
+  	}
+
+  	.pgBtn{
+
+  		height: 200px;
+  		background-image: url("../img/icones/boleto.png");
+  		background-repeat: no-repeat;
+  		background-size: 50%;
+  		background-position: top;
   	}
 
 
@@ -1687,7 +2394,14 @@
   	/*-------------  PÁGINA DASHBOARD ////////////////////////////////////////////////////// ---------*/
 
 
+  	.nopad{
+  		padding: 0px !important;
+  	}
 
+  	.btnPlano{
+  		margin-left: -5%;
+  		width: 100%;
+  	}
 
 
   	.side-nav{
@@ -1698,6 +2412,8 @@
   		background-color: #1a1a1a;
   		
   	}
+
+  	
 
   	.conteudoDash{
 
@@ -1773,6 +2489,10 @@
   	.categoriaSide span{
 
   		line-height: 100% !important;
+  	}
+
+  	.tamanholele{
+  		height: 200px !important;
   	}
 
 
@@ -1919,6 +2639,36 @@
 
 
 
+    .pgBtn{
+
+      height: 200px;
+      background-image: url("../img/icones/boleto.png");
+      background-repeat: no-repeat;
+      background-size: 50%;
+      background-position: top;
+    }
+
+
+    .boletao{
+
+      margin-bottom: -80px !important;
+      margin-top: 10vh !important;
+    }
+
+
+    .segurotit{
+
+      margin-bottom: 0px !important;
+    }
+
+    .pagao{
+
+      margin-bottom: 80px;
+      margin-top: 10vh !important;
+    }
+
+
+
 
 
 
@@ -1988,6 +2738,8 @@
   		margin-top: 50px;
   		margin-bottom: 50px;
   	}
+
+  	
 
 }
  

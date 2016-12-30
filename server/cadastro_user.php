@@ -97,6 +97,8 @@
 					$_SESSION['periodo']=$res['id_periodo'];
 					$_SESSION['menu']=$res['id_menu'];
 					$_SESSION['boleto']=$res['boleto'];
+					$_SESSION['pagseguro']=$res['pagseguro'];
+					$_SESSION['forma_pagamento']=$res['forma_pagamento'];
 
 					exit;	
 				}

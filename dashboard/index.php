@@ -10,14 +10,28 @@ $seleciona = "SELECT * FROM user WHERE id = '$id_user'";
 $vai = mysql_query($seleciona) or die(mysql_error());
 $dado = mysql_fetch_array($vai);
 
+$_SESSION['forma_pagamento']=$dado['forma_pagamento'];
 $_SESSION['pagamento']=$dado['pagamento'];
 $_SESSION['boleto']=$dado['boleto'];
 
-if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+15 days",strtotime($dado['data_pagamento'])))) {
-  $seleciona = "UPDATE user SET pagamento = 0 WHERE id = '$id_user' ";
-  $vai = mysql_query($seleciona) or die(mysql_error());
-  $_SESSION['pagamento'] = 0;
+if ($_SESSION['forma_pagamento'] == 1) {
+  if ($_SESSION['plano']== 1) {
+    if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+15 days",strtotime($dado['data_pagamento'])))) {
+      $seleciona = "UPDATE user SET pagamento = 0 WHERE id = '$id_user' ";
+      $vai = mysql_query($seleciona) or die(mysql_error());
+      $_SESSION['pagamento'] = 0;
+    }
+  }elseif ($_SESSION['plano']== 2){
+    if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+30 days",strtotime($dado['data_pagamento'])))) {
+      
+      $seleciona = "UPDATE user SET pagamento = 0 WHERE id = '$id_user' ";
+      $vai = mysql_query($seleciona) or die(mysql_error());
+      $_SESSION['pagamento'] = 0;
+    }
+  }
 }
+
+
 ?>
 
 
@@ -32,15 +46,33 @@ if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+15 days",strtotime($dado['
       <link type="text/css" rel="stylesheet" href="../css/style.css"  />
       <title>Dashboard | Lá de Casa</title>
 
+      <link rel="apple-touch-icon" sizes="57x57" href="../img/fav/apple-icon-57x57.png">
+      <link rel="apple-touch-icon" sizes="60x60" href="../img/fav/apple-icon-60x60.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="../img/fav/apple-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="76x76" href="../img/fav/apple-icon-76x76.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="../img/fav/apple-icon-114x114.png">
+      <link rel="apple-touch-icon" sizes="120x120" href="../img/fav/apple-icon-120x120.png">
+      <link rel="apple-touch-icon" sizes="144x144" href="../img/fav/apple-icon-144x144.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="../img/fav/apple-icon-152x152.png">
+      <link rel="apple-touch-icon" sizes="180x180" href="../img/fav/apple-icon-180x180.png">
+      <link rel="icon" type="image/png" sizes="192x192"  href="../img/fav/android-icon-192x192.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="../img/fav/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="96x96" href="../img/fav/favicon-96x96.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../img/fav/favicon-16x16.png">
+      <link rel="manifest" href="../img/fav/manifest.json">
+      <meta name="msapplication-TileColor" content="#ffffff">
+      <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+      <meta name="theme-color" content="#F39C12">
+
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 
     <body>
 
-      <div class="tudo row">
+      <div class="tudo tudoDash row">
 
-          <div class="navbar-fixed">
+          <div class="navbar-fixed dashMobile">
             <nav id="navbar" class="navMenus">
               <div class="nav-wrapper">
                 <a href="../" class="brand-logo">Lá de Casa</a>
@@ -53,12 +85,38 @@ if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+15 days",strtotime($dado['
                   <li><a class="menuItem" href="../menus">Cardápios</a></li>
                   <li><a class="loginBtn btn" href="../server/logout.php">Sair</a></li>
                 </ul>
-                <ul class="side-nav" id="mobile-demo">
-                  <li><a class="menuItem" href="../">Home</a></li>
-                  <li><a class="menuItem" href="../#comofunciona">Como funciona</a></li>
-                  <li><a class="menuItem" href="../#quemsomos">Quem Somos</a></li>
-                  <li><a class="menuItem" href="../#ondeestamos">Onde estamos</a></li>
-                  <li><a class="menuItem" href="../menus">Cardápios</a></li>
+                <ul class="side-nav sideDash" id="mobile-demo">
+                  <li class="foto">
+                      <img class="abreEditar imagemPerfil circle col l9 offset-l2 s6 offset-s3" src="../img/perfil/<?= $_SESSION['imagem'] ?>">
+                  </li>
+                  <li>
+                    <div class="hehezinho"><h5 class="white-text center"><?= $_SESSION['nomeUsuario'] ?> <?= $_SESSION['sobrenome'] ?></h5></div>
+                  </li>
+
+                  <?php
+                  if ($_SESSION['pagamento'] == 0) {
+                  ?>
+                  <li>
+                    <div class="btnNovoPedido"><a href="../pagamento/" class="btn-small col l10 offset-l1 s10 offset-s1">Pagamento</a></div>
+                  </li>
+                  <?php }else{ ?>
+                  <li>
+                    <div class="btnNovoPedido"><a href="../favoritos" class="btn-small col l10 offset-l1 s10 offset-s1">Favoritos</a></div>
+                  </li>
+                  <?php } ?>
+                  
+                  <li class="categoriaSide card firstCard grey darken-4 white-text row">
+                    <span class="col l12 s12 tituloEditaveis">Rua:</span>
+                    <span class="col l12 s12 editaveis"><?= $_SESSION['rua'] ?></span>
+
+                    <span class="col l12 s12 tituloEditaveis">Email:</span>
+                    <span class="col l12 s12 editaveis" id="limitarEmail"><?= $_SESSION['email'] ?></span>
+
+                    <span class="col l12 s12 tituloEditaveis">Empresa:</span>
+                    <span class="col l12 s12 editaveis"><?= $_SESSION['empresa'] ?></span>
+
+                    <a class="abreEditarInfo btn-small grey darken-3 white-text col l12 s12 editar">Editar</a>
+                  </li>
                   <li><a class="loginBtn btn" href="../server/logout.php">Sair</a></li>
                 </ul>
               </div>
@@ -68,9 +126,9 @@ if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+15 days",strtotime($dado['
 
 
 
-          <ul class="side-nav fixed col l2" >
+          <ul class="side-nav fixed col l2 sideResp" >
             <li class="foto">
-                <img id="abreEditar" class="visualizar imagemPerfil circle col l9 offset-l2 s10" src="../img/perfil/<?= $_SESSION['imagem'] ?>">
+                <img class="abreEditar visualizar imagemPerfil circle col l9 offset-l2 s10" src="../img/perfil/<?= $_SESSION['imagem'] ?>">
             </li>
             <li>
               <h5 class="white-text center"><?= $_SESSION['nomeUsuario'] ?> <?= $_SESSION['sobrenome'] ?></h5>
@@ -98,13 +156,27 @@ if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+15 days",strtotime($dado['
               <span class="col l12 s12 tituloEditaveis">Empresa:</span>
               <span class="col l12 s12 editaveis"><?= $_SESSION['empresa'] ?></span>
 
-              <a id="abreEditarInfo" class="btn-small grey darken-3 white-text col l12 s12 editar">Editar</a>
+              <a class="abreEditarInfo btn-small grey darken-3 white-text col l12 s12 editar">Editar</a>
             </li>
             
           </ul>   
 
 
           <div class="col l10 offset-l2 s12 container row menus conteudoDash">
+          <div class="row" id="avisoAltera" hidden>
+              <div class="col s12">
+                <div class="card yellow darken-2 cardPagamento" align="center">
+                  <div class="card-content mobileCardCurto">
+                    
+                    <span class="white-text col l12" style="margin-top: -10px;">Você só pode alterar seu plano após o final do período atual!
+                    </span>
+                  </div>
+                  <!--<div class="card-action">
+                    <a class="white-text" style="cursor: pointer;" id="fechaAviso">Fechar</a>
+                  </div>-->
+                </div>
+              </div>
+            </div>
 
             <?php
             if ($_SESSION['pagamento'] == 0) {
@@ -112,17 +184,17 @@ if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+15 days",strtotime($dado['
             ?>
 
             <div class="row">
-              <div class="col s12">
+              <div class="col s10 offset-s1 l12">
                 <div class="card yellow darken-2 cardPagamento" align="center">
-                  <div class="card-content" style="height: 200px !important;">
+                  <div class="card-content tamanhoCard">
                   <span class="card-title white-text">Olá <?= $_SESSION['nomeUsuario'] ?>, configure suas opções de pagamento!</span>
                     
                     <span class="white-text col l8" style="margin-top: 20px;">Agora você faz parte do Lá de Casa, oferecemos diversas opções de menus e produtos para que você possa se deliciar e ainda cuidar da sua saúde, configure suas opçõoes de pagamento para começar a receber nosso produtos no seu escritório! :)
                     </span>
 
-                    <img style="margin-top: 5px" class="col l2 offset-l1" src="../img/icones/credit-card.svg">
+                    <img style="margin-top: 5px" class="col l2 offset-l1 s4 offset-s4" src="../img/icones/credit-card.svg">
                   </div>
-                  <div class="card-action">
+                  <div class="card-action dashAction">
                     <a class="white-text" href="../pagamento/">Vamos lá!</a>
                   </div>
                 </div>
@@ -132,15 +204,15 @@ if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+15 days",strtotime($dado['
             <?php }else{ ?>
 
             <div class="row">
-              <div class="col s12">
+              <div class="col s10 offset-s1 l12">
                 <div class="card yellow darken-2 cardPagamento" align="center">
-                  <div class="card-content" style="height: 200px !important;">
+                  <div class="card-content tamanhoCard">
                   <span class="card-title white-text"><?= $_SESSION['nomeUsuario'] ?>, seu boleto foi gerado!</span>
                     
-                    <span class="white-text col l8" style="margin-top: 20px;">Agora é bem simples, basta pagar antes do vencimento e faremos a verificação, depois disso, você já poderá aproveitar nossos serviços.<br>Caso queira gerar outro boleto clique no botão "Pagamento" da barra lateral!
+                    <span class="white-text col l8 s12" style="margin-top: 20px;">Agora é bem simples, basta pagar antes do vencimento e faremos a verificação, depois disso, você já poderá aproveitar nossos serviços.<br>Caso queira gerar outro boleto clique no botão "Pagamento" da barra lateral!
                     </span>
 
-                    <img style="margin-top: 5px" class="col l2 offset-l1" src="../img/icones/invoice.svg">
+                    <img style="margin-top: 5px" class="col l2 offset-l1 s4 offset-s4" src="../img/icones/invoice.svg">
                   </div>
                   <!--<div class="card-action">
                     <a class="white-text" href="../pagamento/">Vamos lá!</a>
@@ -161,34 +233,75 @@ if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+15 days",strtotime($dado['
 
               <?php
 
-                  if ($_SESSION['plano'] == 1) {
-                    ?>
-                    <a href="../server/altera_plano.php?id=1">
-                      <div class="btnItem selectDash btnItemDash primeiroBtn col l6 s12">
+                if ($_SESSION['pagamento'] == 1) { 
+                  if ($_SESSION['plano'] == 1) {?>
+                    
+                    <div class="col l6 s12 nopad">
+                      <div class="btnItem selectDash btnItemDash abreAviso">
                         <div class="col l12 s12"><img src="../img/icones/15.svg"></div>
-                        <span class="col l12 s12">Plano Quinzenal</span>
+                        <span class="col l12 s12">Plano Quinzenal / Semanal</span>
+                      </div>
+                    </div>
+
+                    <div class="col l6 s12 nopad">
+                      <div class="btnItem btnItemDash abreAviso">
+                        <div class="col l12 s12"><img src="../img/icones/31.svg"></div>
+                        <span class="col l12 s12">Plano Mensal</span>
+                      </div>
+                    </div>
+
+                    <?php
+                  }elseif ($_SESSION['plano'] == 2){ ?>
+
+                    
+                    <div class="col l6 s12 nopad">
+                      <div class="btnItem btnItemDash abreAviso">
+                        <div class="col l12 s12"><img src="../img/icones/15.svg"></div>
+                        <span class="col l12 s12">Plano Quinzenal / Semanal</span>
+                      </div>
+                    </div>
+
+                    <div class="col l6 s12 nopad">
+                      <div class="btnItem selectDash btnItemDash abreAviso">
+                        <div class="col l12 s12"><img src="../img/icones/31.svg"></div>
+                        <span class="col l12 s12">Plano Mensal</span>
+                      </div>
+                    </div>
+
+
+                  <?php
+                  } ?>
+
+
+                <?php }else{ 
+                  if ($_SESSION['plano'] == 1) { ?>
+                    
+                    <a href="../server/altera_plano.php?id=1" class="col l6 s12 nopad">
+                      <div class="btnItem selectDash btnItemDash">
+                        <div class="col l12 s12"><img src="../img/icones/15.svg"></div>
+                        <span class="col l12 s12">Plano Quinzenal / Semanal</span>
                       </div>
                     </a>
 
-                    <a href="../server/altera_plano.php?id=2">
-                      <div class="btnItem btnItemDash col l6 s12">
+                    <a href="../server/altera_plano.php?id=2" class="col l6 s12 nopad">
+                      <div class="btnItem btnItemDash">
                         <div class="col l12 s12"><img src="../img/icones/31.svg"></div>
                         <span class="col l12 s12">Plano Mensal</span>
                       </div>
                     </a>
-                    <?php
-                  }elseif ($_SESSION['plano'] == 2){
+                    
+                  <?php }elseif ($_SESSION['plano'] == 2){ ?>
 
-                    ?>
-                    <a href="../server/altera_plano.php?id=1">
-                      <div class="btnItem btnItemDash primeiroBtn col l6 s12">
+                    
+                    <a href="../server/altera_plano.php?id=1" class="col l6 s12 nopad">
+                      <div class="btnItem btnItemDash">
                         <div class="col l12 s12"><img src="../img/icones/15.svg"></div>
-                        <span class="col l12 s12">Plano Quinzenal</span>
+                        <span class="col l12 s12">Plano Quinzenal / Semanal</span>
                       </div>
                     </a>
 
-                    <a href="../server/altera_plano.php?id=2">
-                      <div class="btnItem selectDash btnItemDash col l6 s12">
+                    <a href="../server/altera_plano.php?id=2" class="col l6 s12 nopad">
+                      <div class="btnItem selectDash btnItemDash">
                         <div class="col l12 s12"><img src="../img/icones/31.svg"></div>
                         <span class="col l12 s12">Plano Mensal</span>
                       </div>
@@ -201,22 +314,22 @@ if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+15 days",strtotime($dado['
                   ?>
 
 
-                    <a href="../server/altera_plano.php?id=1">
-                      <div class="btnItem btnItemDash primeiroBtn col l6 s12">
+                    <a href="../server/altera_plano.php?id=1" class="col l6 s12 nopad">
+                      <div class="btnItem btnItemDash">
                         <div class="col l12 s12"><img src="../img/icones/15.svg"></div>
-                        <span class="col l12 s12">Plano Quinzenal</span>
+                        <span class="col l12 s12">Plano Quinzenal / Semanal</span>
                       </div>
                     </a>
 
-                    <a href="../server/altera_plano.php?id=2">
-                      <div class="btnItem btnItemDash col l6 s12">
+                    <a href="../server/altera_plano.php?id=2" class="col l6 s12 nopad">
+                      <div class="btnItem btnItemDash">
                         <div class="col l12 s12"><img src="../img/icones/31.svg"></div>
                         <span class="col l12 s12">Plano Mensal</span>
                       </div>
                     </a>
 
                   <?php
-                  }
+                  }}
                ?>
              
               </div>
@@ -236,15 +349,15 @@ if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+15 days",strtotime($dado['
                   if ($_SESSION['periodo'] == 1) {
                     ?>
 
-                    <a href="../server/altera_periodo.php?id=1">
-                      <div class="btnItem selectDash btnItemDash primeiroBtn col l6 s12">
+                    <a href="../server/altera_periodo.php?id=1" class="col l6 s12 nopad">
+                      <div class="btnItem selectDash btnItemDash">
                         <div class="col l12 s12"><img src="../img/icones/am.svg"></div>
                         <span class="col l12 s12">Durante a Manhã</span>
                       </div>
                     </a>                
 
-                    <a href="../server/altera_periodo.php?id=2">
-                      <div class="btnItem btnItemDash col l6 s12">
+                    <a href="../server/altera_periodo.php?id=2" class="col l6 s12 nopad">
+                      <div class="btnItem btnItemDash">
                         <div class="col l12 s12"><img src="../img/icones/pm.svg"></div>
                         <span class="col l12 s12">Durante a Tarde</span>
                       </div>
@@ -255,15 +368,15 @@ if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+15 days",strtotime($dado['
 
                     ?>
 
-                    <a href="../server/altera_periodo.php?id=1">
-                      <div class="btnItem btnItemDash primeiroBtn col l6 s12">
+                    <a href="../server/altera_periodo.php?id=1" class="col l6 s12 nopad">
+                      <div class="btnItem btnItemDash">
                         <div class="col l12 s12"><img src="../img/icones/am.svg"></div>
                         <span class="col l12 s12">Durante a Manhã</span>
                       </div>
                     </a>
 
-                    <a href="../server/altera_periodo.php?id=2">
-                      <div class="btnItem selectDash btnItemDash col l6 s12">
+                    <a href="../server/altera_periodo.php?id=2" class="col l6 s12 nopad">
+                      <div class="btnItem selectDash btnItemDash">
                         <div class="col l12 s12"><img src="../img/icones/pm.svg"></div>
                         <span class="col l12 s12">Durante a Tarde</span>
                       </div>
@@ -273,15 +386,15 @@ if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+15 days",strtotime($dado['
                   }else{
                     ?>
 
-                    <a href="../server/altera_periodo.php?id=1">
-                      <div class="btnItem btnItemDash primeiroBtn col l6 s12">
+                    <a href="../server/altera_periodo.php?id=1" class="col l6 s12 nopad">
+                      <div class="btnItem btnItemDash">
                         <div class="col l12 s12"><img src="../img/icones/am.svg"></div>
                         <span class="col l12 s12">Durante a Manhã</span>
                       </div>
                     </a>
 
-                    <a href="../server/altera_periodo.php?id=2">
-                      <div class="btnItem btnItemDash col l6 s12">
+                    <a href="../server/altera_periodo.php?id=2" class="col l6 s12 nopad">
+                      <div class="btnItem btnItemDash">
                         <div class="col l12 s12"><img src="../img/icones/pm.svg"></div>
                         <span class="col l12 s12">Durante a Tarde</span>
                       </div>
@@ -313,7 +426,7 @@ if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+15 days",strtotime($dado['
 
                       <a href="../server/altera_menu.php?id=<?= $res['id'] ?>" class="col l3 s12 linkMenu" id="selectMenu">
                         <div class="btnItem selectDash btnItemDash">
-                          <div class="col l12 s12"><img src="../img/icones/ilimitado.svg"></div>
+                          <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
                           <span class="col l12 s12">Menu <?= $res['nome'] ?></span>
                         </div>
                       </a>
@@ -328,7 +441,7 @@ if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+15 days",strtotime($dado['
 
                       <a href="../server/altera_menu.php?id=<?= $res['id'] ?>" class="col l3 s12 linkMenu" id="selectMenu">
                         <div class="btnItem btnItemDash">
-                          <div class="col l12 s12"><img src="../img/icones/ilimitado.svg"></div>
+                          <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
                           <span class="col l12 s12">Menu <?= $res['nome'] ?></span>
                         </div>
                       </a>
@@ -458,16 +571,21 @@ if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+15 days",strtotime($dado['
           $(".button-collapse").sideNav();
         });
 
-        $('#abreEditar').click(function(){
+        $('.abreEditar').click(function(){
           $('#editarImagem').openModal();
         });
 
-        $('#abreEditarInfo').click(function(){
+        $('.abreEditarInfo').click(function(){
           $('#editarInfo').openModal();
         });
 
         $('input[type=file]').change(function() {
            $('label').text("Arquivo Selecionado");
+        });
+
+
+        $('.abreAviso').click(function(){
+          $('#avisoAltera').show(300).delay(4000).hide(300);
         });
 
 

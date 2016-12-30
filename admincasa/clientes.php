@@ -16,6 +16,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
       <title>Administração | Lá de Casa</title>
+      <meta charset="utf-8">
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -31,12 +32,14 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
               <li><a href="galeria.php">Galeria</a></li>
               <li><a href="produtos.php">Produtos</a></li>
               <li><a href="clientes.php">Clientes</a></li>
+              <li><a href="sistema.php">Sistema</a></li>
               <li><a class="btn white black-text" href="server/logout.php">Sair</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
               <li><a href="galeria.php">Galeria</a></li>
               <li><a href="produtos.php">Produtos</a></li>
               <li><a href="clientes.php">Clientes</a></li>
+              <li><a href="sistema.php">Sistema</a></li>
               <li><a class="btn white black-text" href="server/logout.php">Sair</a></li>
             </ul>
           </div>
@@ -67,36 +70,61 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
               include('server/conecta.php');
 
               $qryLista = "SELECT * FROM user";
-
               $sql = mysql_query($qryLista) or die(mysql_error());
               while ($resultado = mysql_fetch_array($sql)) {
 
-                if ($resultado['boleto'] == 1) {           
-              ?>
+                if ($resultado['pagamento'] == 1){ ?>
 
-              <tr>
-                <td><?= $resultado['nome'] ?></td>
-                <td><?= $resultado['telefone'] ?></td>
-                <td><?= $resultado['email'] ?></td>
-                <td><?= $resultado['rua'] ?>, <?= $resultado['numero'] ?> - <?= $resultado['bairro'] ?></td>
-                <td ><div class="red white-text center">Boleto Gerado</div></td>
-                <td>
-                  <a href="detalhes_cliente.php?id=<?= $resultado['id'] ?>" class="btn-small blue white-text col l12 center">Detalhes</a>                  
-                </td>
-              </tr>
+                  <tr>
+                    <td><?= $resultado['nome'] ?></td>
+                    <td><?= $resultado['telefone'] ?></td>
+                    <td><?= $resultado['email'] ?></td>
+                    <td><?= $resultado['rua'] ?>, <?= $resultado['numero'] ?> - <?= $resultado['bairro'] ?></td>
+                    <td><div class="green white-text center">Pagamento em dia</div></td>
+                    <td>
+                      <a href="detalhes_cliente.php?id=<?= $resultado['id'] ?>" class="btn-small blue white-text col l12 center">Detalhes</a>                  
+                    </td>
+                  </tr>                
 
-              <?php }else{ ?>
+                  <?php }elseif ($resultado['pagseguro'] == 1){ ?>
 
-              <tr>
-                <td><?= $resultado['nome'] ?></td>
-                <td><?= $resultado['telefone'] ?></td>
-                <td><?= $resultado['email'] ?></td>
-                <td><?= $resultado['rua'] ?>, <?= $resultado['numero'] ?> - <?= $resultado['bairro'] ?></td>
-                <td></td>
-                <td>
-                  <a href="detalhes_cliente.php?id=<?= $resultado['id'] ?>" class="btn-small blue white-text col l12 center">Detalhes</a>                  
-                </td>
-              </tr>  
+                  <tr>
+                    <td><?= $resultado['nome'] ?></td>
+                    <td><?= $resultado['telefone'] ?></td>
+                    <td><?= $resultado['email'] ?></td>
+                    <td><?= $resultado['rua'] ?>, <?= $resultado['numero'] ?> - <?= $resultado['bairro'] ?></td>
+                    <td ><div class="teal white-text center">PagSeguro pendente</div></td>
+                    <td>
+                      <a href="detalhes_cliente.php?id=<?= $resultado['id'] ?>" class="btn-small blue white-text col l12 center">Detalhes</a>                  
+                    </td>
+                  </tr>
+
+                  <?php }elseif ($resultado['boleto'] == 1) {
+                  ?>
+
+                  <tr>
+                    <td><?= $resultado['nome'] ?></td>
+                    <td><?= $resultado['telefone'] ?></td>
+                    <td><?= $resultado['email'] ?></td>
+                    <td><?= $resultado['rua'] ?>, <?= $resultado['numero'] ?> - <?= $resultado['bairro'] ?></td>
+                    <td ><div class="red white-text center">Boleto Gerado</div></td>
+                    <td>
+                      <a href="detalhes_cliente.php?id=<?= $resultado['id'] ?>" class="btn-small blue white-text col l12 center">Detalhes</a>                  
+                    </td>
+                  </tr>
+
+                  <?php }else{ ?>
+
+                  <tr>
+                    <td><?= $resultado['nome'] ?></td>
+                    <td><?= $resultado['telefone'] ?></td>
+                    <td><?= $resultado['email'] ?></td>
+                    <td><?= $resultado['rua'] ?>, <?= $resultado['numero'] ?> - <?= $resultado['bairro'] ?></td>
+                    <td></td>
+                    <td>
+                      <a href="detalhes_cliente.php?id=<?= $resultado['id'] ?>" class="btn-small blue white-text col l12 center">Detalhes</a>                  
+                    </td>
+                  </tr> 
 
               <?php }} ?>
 

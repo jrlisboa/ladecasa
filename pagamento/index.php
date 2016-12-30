@@ -16,6 +16,24 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
       <link type="text/css" rel="stylesheet" href="../css/style.css"  />
       <title>Menus | Lá de Casa</title>
 
+      <link rel="apple-touch-icon" sizes="57x57" href="../img/fav/apple-icon-57x57.png">
+      <link rel="apple-touch-icon" sizes="60x60" href="../img/fav/apple-icon-60x60.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="../img/fav/apple-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="76x76" href="../img/fav/apple-icon-76x76.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="../img/fav/apple-icon-114x114.png">
+      <link rel="apple-touch-icon" sizes="120x120" href="../img/fav/apple-icon-120x120.png">
+      <link rel="apple-touch-icon" sizes="144x144" href="../img/fav/apple-icon-144x144.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="../img/fav/apple-icon-152x152.png">
+      <link rel="apple-touch-icon" sizes="180x180" href="../img/fav/apple-icon-180x180.png">
+      <link rel="icon" type="image/png" sizes="192x192"  href="../img/fav/android-icon-192x192.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="../img/fav/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="96x96" href="../img/fav/favicon-96x96.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../img/fav/favicon-16x16.png">
+      <link rel="manifest" href="../img/fav/manifest.json">
+      <meta name="msapplication-TileColor" content="#ffffff">
+      <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+      <meta name="theme-color" content="#F39C12">
+
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
@@ -49,23 +67,21 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
             </nav>
           </div>
 
-
-          <div class="col l6 offset-l3 s12 menus" style="margin-top: 10vh">
+        <div class="container">
+          <div class="col l6 s12 menus boletao">
 
             <?php
             if ($_SESSION['plano'] == 1) {
             ?>
 
-            <div class="tituloMenus" align="left">
+            <div class="tituloMenus tituloPagamentos">
               <h4>Pagamento via Boleto Bancário:</h4>
               <span>Clique no botão abaixo para gerar um novo boleto.<br>Após a confirmação do pagamento, você poderá utilizar o sistema pelos próximos 15 dias.</span>
             </div>
 
             <div class="btnMenus row">
                 <a href="../server/gerar_boleto.php" class="col l12 s12 linkMenu">
-                  <div class="btnItem">
-                    <span class="col l7 offset-l1 s12" style="margin-top: 40px; font-size: 30px; font-weight: 300">GERAR BOLETO (PLANO QUINZENAL)</span>
-                    <div class="col l3 s12"><img style="margin-top: 30px;" src="../img/icones/invoice.svg"></div>
+                  <div class="col s10 pgBtn">
                   </div>
                 </a>
             </div>
@@ -74,16 +90,14 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
             }else{
             ?>
 
-            <div class="tituloMenus">
+            <div class="tituloMenus tituloPagamentos">
               <h4>Pagamento via Boleto Bancário:</h4>
               <span>Clique no botão abaixo para gerar um novo boleto.<br>Após a confirmação do pagamento, você poderá utilizar o sistema pelos próximos 30 dias.</span>
             </div>
 
             <div class="btnMenus row">
                 <a href="../server/gerar_boleto.php" class="col l12 s12 linkMenu">
-                  <div class="btnItem">                    
-                    <span class="col l7 offset-l1 s12" style="margin-top: 40px; font-size: 30px">GERAR BOLETO (PLANO MENSAL)</span>
-                    <div class="col l2 s12" ><img style="margin-top: 30px;" src="../img/icones/invoice.svg"></div>
+                  <div class="col s12 pgBtn">
                   </div>
                 </a>
             </div>
@@ -93,7 +107,43 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
             ?>           
             
           </div>
-        
+
+
+          <div class="col l6 s12 menus pagao">
+
+            <?php
+            if ($_SESSION['plano'] == 1) {
+            ?>
+
+            <div class="tituloMenus tituloPagamentos segurotit">
+              <h4>Assinar semanalmente via PagSeguro:</h4>
+              <span>Será debitado o valor semanal de R$4,33 através do PagSeguro.</span>
+            </div>
+
+
+            <a href="../server/pagseguro.php">
+              <div class="col l12 s12 imagemPag"><img class="col s12" src="../img/icones/pagseguro.png"></div>
+            </a>
+
+            <?php
+            }else{
+            ?>
+
+            <div class="tituloMenus tituloPagamentos segurotit">
+              <h4>Assinar mensalmente via PagSeguro:</h4>
+              <span>Será debitado o valor mensal de R$13,00 todo dia 28 através do PagSeguro.</span>
+            </div>
+
+            <a href="../server/pagseguro.php">
+              <div class="col l12 s12 imagemPag"><img class="col s12" src="../img/icones/pagseguro.png"></div>
+            </a>
+
+            <?php
+            }
+            ?>           
+            
+          </div>
+        </div>
       </div>
 
       <!--Import jQuery before materialize.js-->
