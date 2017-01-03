@@ -163,7 +163,27 @@ if ($_SESSION['forma_pagamento'] == 1) {
 
 
           <div class="col l10 offset-l2 s12 container row menus conteudoDash">
-          <div class="row" id="avisoAltera" hidden>
+
+            <?php if ($_SESSION['forma_pagamento'] == 2) { ?>
+
+            <div class="row" id="avisoAltera" hidden>
+              <div class="col s12">
+                <div class="card yellow darken-2 cardPagamento" align="center">
+                  <div class="card-content mobileCardCurto">
+                    
+                    <span class="white-text col l12" style="margin-top: -10px;">Cancele a assinatura do PagSeguro atual para alterar seu plano!
+                    </span>
+                  </div>
+                  <!--<div class="card-action">
+                    <a class="white-text" style="cursor: pointer;" id="fechaAviso">Fechar</a>
+                  </div>-->
+                </div>
+              </div>
+            </div>
+                
+            <?php } else{ ?>
+
+            <div class="row" id="avisoAltera" hidden>
               <div class="col s12">
                 <div class="card yellow darken-2 cardPagamento" align="center">
                   <div class="card-content mobileCardCurto">
@@ -177,6 +197,9 @@ if ($_SESSION['forma_pagamento'] == 1) {
                 </div>
               </div>
             </div>
+
+            <?php } ?>
+            
 
             <?php
             if ($_SESSION['pagamento'] == 0) {
