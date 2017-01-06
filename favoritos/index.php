@@ -112,7 +112,7 @@ include '../server/conecta.php';
                             ?>
                               <div class="btnProduto btnItem4Produto col l3 s6">
                                 <!--<div class="col l12 s12 saberMais">Saber mais</div>-->
-                                <div class="col l12 s12 imgProduto"><img src="../img/produtos/<?= $resultado['imagem'] ?>"></div>
+                                <div class="col l12 s12 imgProduto favProduto"><img src="../img/produtos/<?= $resultado['imagem'] ?>"></div>
                                 <a href="../server/favoritar.php?id=<?= $resultado['id'] ?>"><div class="col l12 s12 red saberMais">Favoritar</div></a>                                
                                 <span class="col l12 s12"><?= $resultado['nome'] ?></span>
                                 
@@ -148,10 +148,10 @@ include '../server/conecta.php';
                     while($lista = mysql_fetch_array($vamola)){
                   ?>
 
-                  <li class="collection-item avatar">
+                  <li class="collection-item avatar" style="padding-top: 20px !important;">
                     <img src="../img/produtos/<?= $lista['imagem'] ?>" alt="" class="circle">
                     <span class="title"><?= $lista['nome'] ?></span>
-                    </p>
+                    <p id="limitarEmail" style="color: #999;"><?= $lista['detalhes'] ?></p>                    
                     <a href="../server/remover_favorito.php?id_produto=<?= $lista['id'] ?>&id_user=<?= $id_user ?>" class="secondary-content">Excluir Favorito</a>
                   </li>
 

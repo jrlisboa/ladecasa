@@ -727,6 +727,10 @@
   		height: 60%;
   	}
 
+    .favProduto{
+      height: 100%;
+    }
+
   	.saberMais{
 
   		background-color: #f7b239;
@@ -2100,6 +2104,10 @@
   		overflow: hidden;
   		height: 60%;
   	}
+
+    .favProduto img{
+      height: 100% !important;
+    }
 
   	.saberMais{
 
