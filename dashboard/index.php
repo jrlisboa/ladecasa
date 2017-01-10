@@ -12,22 +12,20 @@ $dado = mysql_fetch_array($vai);
 
 $_SESSION['forma_pagamento']=$dado['forma_pagamento'];
 $_SESSION['pagamento']=$dado['pagamento'];
-$_SESSION['boleto']=$dado['boleto'];
 
-if ($_SESSION['forma_pagamento'] == 1) {
-  if ($_SESSION['plano']== 1) {
-    if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+15 days",strtotime($dado['data_pagamento'])))) {
-      $seleciona = "UPDATE user SET pagamento = 0 WHERE id = '$id_user' ";
-      $vai = mysql_query($seleciona) or die(mysql_error());
-      $_SESSION['pagamento'] = 0;
-    }
-  }elseif ($_SESSION['plano']== 2){
-    if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+30 days",strtotime($dado['data_pagamento'])))) {
-      
-      $seleciona = "UPDATE user SET pagamento = 0 WHERE id = '$id_user' ";
-      $vai = mysql_query($seleciona) or die(mysql_error());
-      $_SESSION['pagamento'] = 0;
-    }
+
+if ($_SESSION['plano']== 1) {
+  if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+15 days",strtotime($dado['data_pagamento'])))) {
+    $seleciona = "UPDATE user SET pagamento = 0, forma_pagamento = 0, pagseguro = 0 WHERE id = '$id_user' ";
+    $vai = mysql_query($seleciona) or die(mysql_error());
+    $_SESSION['pagamento'] = 0;
+  }
+}elseif ($_SESSION['plano']== 2){
+  if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+30 days",strtotime($dado['data_pagamento'])))) {
+    
+    $seleciona = "UPDATE user SET pagamento = 0, forma_pagamento = 0, pagseguro = 0 WHERE id = '$id_user' ";
+    $vai = mysql_query($seleciona) or die(mysql_error());
+    $_SESSION['pagamento'] = 0;
   }
 }
 
@@ -42,9 +40,12 @@ if ($_SESSION['forma_pagamento'] == 1) {
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="../css/introjs.css"  media="screen,projection"/>
 
       <link type="text/css" rel="stylesheet" href="../css/style.css"  />
       <title>Dashboard | Lá de Casa</title>
+
+      <meta charset="utf-8">
 
       <link rel="apple-touch-icon" sizes="57x57" href="../img/fav/apple-icon-57x57.png">
       <link rel="apple-touch-icon" sizes="60x60" href="../img/fav/apple-icon-60x60.png">
@@ -136,14 +137,27 @@ if ($_SESSION['forma_pagamento'] == 1) {
 
             <?php
             if ($_SESSION['pagamento'] == 0) {
-            ?>
-            <li>
-              <div class="btnNovoPedido"><a href="../pagamento/" class="btn-small col l10 offset-l1">Pagamento</a></div>
-            </li>
-            <?php }else{ ?>
-            <li>
-              <div class="btnNovoPedido"><a href="../favoritos" class="btn-small col l10 offset-l1">Favoritos</a></div>
-            </li>
+              if ($_SESSION['plano'] == 0 | $_SESSION['menu'] == 0 | $_SESSION['periodo'] == 0 | $_SESSION['embalagem'] == 0) { ?>
+
+              <li>
+                <div class="btnNovoPedido"><a href="#" onclick="Materialize.toast('Configure suas opções do sistema!', 4000)" class="btn-small col l10 offset-l1">Pagamento</a></div>
+              </li>
+
+              <?php
+              }else{?>
+
+              <li>
+                <div class="btnNovoPedido"><a href="../pagamento/" class="btn-small col l10 offset-l1">Pagamento</a></div>
+              </li>
+
+            <?php
+              }
+            }else{ ?>
+
+              <li>
+                <div class="btnNovoPedido"><a href="../favoritos" class="btn-small col l10 offset-l1">Favoritos</a></div>
+              </li>
+
             <?php } ?>
             
             <li class="categoriaSide card firstCard grey darken-4 white-text row">
@@ -162,97 +176,88 @@ if ($_SESSION['forma_pagamento'] == 1) {
           </ul>   
 
 
-          <div class="col l10 offset-l2 s12 container row menus conteudoDash">
+          <div class="col l10 offset-l2 s12 container row menus conteudoDash">            
 
-            <?php if ($_SESSION['forma_pagamento'] == 2) { ?>
+            <?php
+            if ($_SESSION['pagamento'] == 0) { ?>
 
-            <div class="row" id="avisoAltera" hidden>
-              <div class="col s12">
+            <div class="row">
+              <div class="col s10 offset-s1 l12">
                 <div class="card yellow darken-2 cardPagamento" align="center">
-                  <div class="card-content mobileCardCurto">
-                    
-                    <span class="white-text col l12" style="margin-top: -10px;">Cancele a assinatura do PagSeguro atual para alterar seu plano!
-                    </span>
-                  </div>
-                  <!--<div class="card-action">
-                    <a class="white-text" style="cursor: pointer;" id="fechaAviso">Fechar</a>
-                  </div>-->
-                </div>
-              </div>
-            </div>
-                
-            <?php } else{ ?>
 
-            <div class="row" id="avisoAltera" hidden>
-              <div class="col s12">
-                <div class="card yellow darken-2 cardPagamento" align="center">
-                  <div class="card-content mobileCardCurto">
-                    
-                    <span class="white-text col l12" style="margin-top: -10px;">Você só pode alterar seu plano após o final do período atual!
-                    </span>
-                  </div>
-                  <!--<div class="card-action">
-                    <a class="white-text" style="cursor: pointer;" id="fechaAviso">Fechar</a>
-                  </div>-->
+                <?php
+                  if ($_SESSION['plano'] == 0 | $_SESSION['menu'] == 0 | $_SESSION['periodo'] == 0 | $_SESSION['embalagem'] == 0) { ?>
+
+                    <div class="card-content tamanhoCard">
+                      <span class="card-title white-text">Olá <?= $_SESSION['nomeUsuario'] ?>, configure suas opções do sistema!</span>
+                      
+                      <span class="white-text col l8" style="margin-top: 20px;">Agora você faz parte do Lá de Casa, oferecemos diversas opções de menus e produtos para que você possa se deliciar e ainda cuidar da sua saúde, configure suas opçõoes de pagamento para começar a receber nosso produtos no seu escritório! :)
+                      </span>
+
+                      <img style="margin-top: 5px" class="col l2 offset-l1 s4 offset-s4" src="../img/icones/credit-card.svg">
+                    </div>
+                    <div class="card-action dashAction">                    
+                      <a class="white-text" style="cursor: pointer;" onclick="javascript:introJs().start();">Vamos lá!</a>
+                    </div>
+
+                   <?php }else{ ?>
+
+                    <div class="card-content tamanhoCard">
+                      <span class="card-title white-text">Olá <?= $_SESSION['nomeUsuario'] ?>, configure suas opções de pagamento!</span>
+                      
+                      <span class="white-text col l8" style="margin-top: 20px;">Agora você faz parte do Lá de Casa, oferecemos diversas opções de menus e produtos para que você possa se deliciar e ainda cuidar da sua saúde, configure suas opçõoes de pagamento para começar a receber nosso produtos no seu escritório! :)
+                      </span>
+
+                      <img style="margin-top: 5px" class="col l2 offset-l1 s4 offset-s4" src="../img/icones/credit-card.svg">
+                    </div>
+                    <div class="card-action dashAction">                    
+                      <a class="white-text" href="../pagamento/">Vamos lá!</a>
+                    </div>
+
+                   <?php } ?>
                 </div>
               </div>
             </div>
 
             <?php } ?>
-            
+
 
             <?php
-            if ($_SESSION['pagamento'] == 0) {
-                if ($_SESSION['boleto'] == 0) {
-            ?>
 
-            <div class="row">
-              <div class="col s10 offset-s1 l12">
-                <div class="card yellow darken-2 cardPagamento" align="center">
-                  <div class="card-content tamanhoCard">
-                  <span class="card-title white-text">Olá <?= $_SESSION['nomeUsuario'] ?>, configure suas opções de pagamento!</span>
-                    
-                    <span class="white-text col l8" style="margin-top: 20px;">Agora você faz parte do Lá de Casa, oferecemos diversas opções de menus e produtos para que você possa se deliciar e ainda cuidar da sua saúde, configure suas opçõoes de pagamento para começar a receber nosso produtos no seu escritório! :)
-                    </span>
+              $selectao = "SELECT * FROM favorito WHERE id_user = '$id_user'";
+              $vamola = mysql_query($selectao);
+              if (@mysql_num_rows($vamola) == 0){
+                if ($_SESSION['pagamento'] == 1) { ?>
 
-                    <img style="margin-top: 5px" class="col l2 offset-l1 s4 offset-s4" src="../img/icones/credit-card.svg">
-                  </div>
-                  <div class="card-action dashAction">
-                    <a class="white-text" href="../pagamento/">Vamos lá!</a>
+                <div class="row">
+                  <div class="col s10 offset-s1 l12">
+                    <div class="card yellow darken-2 cardPagamento" align="center">
+                      <div class="card-content tamanhoCard">
+                      <span class="card-title white-text col s12 l12">Escolha seus favoritos!</span>
+                        
+                        <span class="white-text col l8 s12" style="margin-top: 20px;">Seu plano já está ativo, aproveite nossos serviços clicando no botão FAVORITOS abaixo da sua foto de perfil e selecione os produtos que deseja receber!
+                        </span>
+
+                        <img style="margin-top: 5px" class="col l2 offset-l1 s4 offset-s4" src="../img/icones/list.svg">
+                      </div>
+                      <!--<div class="card-action">
+                        <a class="white-text" href="../pagamento/">Vamos lá!</a>
+                      </div>-->
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+                
+            <?php } } ?>
 
-            <?php }else{ ?>
 
-            <div class="row">
-              <div class="col s10 offset-s1 l12">
-                <div class="card yellow darken-2 cardPagamento" align="center">
-                  <div class="card-content tamanhoCard">
-                  <span class="card-title white-text"><?= $_SESSION['nomeUsuario'] ?>, seu boleto foi gerado!</span>
-                    
-                    <span class="white-text col l8 s12" style="margin-top: 20px;">Agora é bem simples, basta pagar antes do vencimento e faremos a verificação, depois disso, você já poderá aproveitar nossos serviços.<br>Caso queira gerar outro boleto clique no botão "Pagamento" da barra lateral!
-                    </span>
 
-                    <img style="margin-top: 5px" class="col l2 offset-l1 s4 offset-s4" src="../img/icones/invoice.svg">
-                  </div>
-                  <!--<div class="card-action">
-                    <a class="white-text" href="../pagamento/">Vamos lá!</a>
-                  </div>-->
-                </div>
-              </div>
-            </div>
-
-            <?php }} ?>
-
-            <div class=" col l12 plano primeiroPlano">
+            <div class=" col l12 plano primeiroPlano" >
               <div class="tituloMenus tituloDash" align="left">
                 <h4>Meu Plano:</h4>
                 <span>Clique sobre um item para alterar</span>
               </div>
 
-              <div class="btnMenus btnPlano btnDash">
+              <div class="btnMenus btnPlano btnDash" data-step="1" data-intro="Selecione o plano que deseja utilizar, e lembre-se, o plano só pode ser alterado enquanto seu pagamento não estiver ativo, após pagar, você deverá esperar o período de 15 ou 30 dias para fazer a alteração!">
 
               <?php
 
@@ -260,14 +265,14 @@ if ($_SESSION['forma_pagamento'] == 1) {
                   if ($_SESSION['plano'] == 1) {?>
                     
                     <div class="col l6 s12 nopad">
-                      <div class="btnItem selectDash btnItemDash abreAviso">
+                      <div class="btnItem selectDash btnItemDash" onclick="Materialize.toast('Você só pode alterar seu plano após o final do período atual!', 4000)">
                         <div class="col l12 s12"><img src="../img/icones/15.svg"></div>
-                        <span class="col l12 s12">Plano Quinzenal / Semanal</span>
+                        <span class="col l12 s12">Plano Quinzenal</span>
                       </div>
                     </div>
 
                     <div class="col l6 s12 nopad">
-                      <div class="btnItem btnItemDash abreAviso">
+                      <div class="btnItem btnItemDash" onclick="Materialize.toast('Você só pode alterar seu plano após o final do período atual!', 4000)">
                         <div class="col l12 s12"><img src="../img/icones/31.svg"></div>
                         <span class="col l12 s12">Plano Mensal</span>
                       </div>
@@ -278,14 +283,14 @@ if ($_SESSION['forma_pagamento'] == 1) {
 
                     
                     <div class="col l6 s12 nopad">
-                      <div class="btnItem btnItemDash abreAviso">
+                      <div class="btnItem btnItemDash" onclick="Materialize.toast('Você só pode alterar seu plano após o final do período atual!', 4000)">
                         <div class="col l12 s12"><img src="../img/icones/15.svg"></div>
-                        <span class="col l12 s12">Plano Quinzenal / Semanal</span>
+                        <span class="col l12 s12">Plano Quinzenal</span>
                       </div>
                     </div>
 
                     <div class="col l6 s12 nopad">
-                      <div class="btnItem selectDash btnItemDash abreAviso">
+                      <div class="btnItem selectDash btnItemDash" onclick="Materialize.toast('Você só pode alterar seu plano após o final do período atual!', 4000)">
                         <div class="col l12 s12"><img src="../img/icones/31.svg"></div>
                         <span class="col l12 s12">Plano Mensal</span>
                       </div>
@@ -302,7 +307,7 @@ if ($_SESSION['forma_pagamento'] == 1) {
                     <a href="../server/altera_plano.php?id=1" class="col l6 s12 nopad">
                       <div class="btnItem selectDash btnItemDash">
                         <div class="col l12 s12"><img src="../img/icones/15.svg"></div>
-                        <span class="col l12 s12">Plano Quinzenal / Semanal</span>
+                        <span class="col l12 s12">Plano Quinzenal</span>
                       </div>
                     </a>
 
@@ -319,7 +324,7 @@ if ($_SESSION['forma_pagamento'] == 1) {
                     <a href="../server/altera_plano.php?id=1" class="col l6 s12 nopad">
                       <div class="btnItem btnItemDash">
                         <div class="col l12 s12"><img src="../img/icones/15.svg"></div>
-                        <span class="col l12 s12">Plano Quinzenal / Semanal</span>
+                        <span class="col l12 s12">Plano Quinzenal</span>
                       </div>
                     </a>
 
@@ -340,7 +345,7 @@ if ($_SESSION['forma_pagamento'] == 1) {
                     <a href="../server/altera_plano.php?id=1" class="col l6 s12 nopad">
                       <div class="btnItem btnItemDash">
                         <div class="col l12 s12"><img src="../img/icones/15.svg"></div>
-                        <span class="col l12 s12">Plano Quinzenal / Semanal</span>
+                        <span class="col l12 s12">Plano Quinzenal</span>
                       </div>
                     </a>
 
@@ -365,7 +370,7 @@ if ($_SESSION['forma_pagamento'] == 1) {
                 <span>Clique sobre um item para alterar</span>
               </div>
 
-              <div class="btnMenus btnPlano btnDash">
+              <div class="btnMenus btnPlano btnDash" data-step="2" data-intro="Selecione o período que deseja utilizar, assim nossa equipe saberá em qual momento do dia você deseja receber os produtos!">
 
               <?php
 
@@ -430,22 +435,125 @@ if ($_SESSION['forma_pagamento'] == 1) {
             </div>
 
 
-            <div class="col l12 containerMenu">
+            <div class=" col l12 plano">
               <div class="tituloMenus tituloDash" align="left">
+                <h4>Minha Embalagem:</h4>
+                <span>Clique sobre um item para alterar</span>
+              </div>
+
+              <div class="btnMenus btnPlano btnDash" data-step="3" data-intro="Selecione o tipo de embalagem para que a entrega fica ainda melhor para você!">
+
+              <?php
+
+                  if ($_SESSION['embalagem'] == 1) {
+                    ?>
+
+                    <a href="../server/altera_embalagem.php?id=1" class="col l6 s12 nopad">
+                      <div class="btnItem selectDash btnItemDash">
+                        <div class="col l12 s12"><img src="../img/icones/return.svg"></div>
+                        <span class="col l12 s12">Embalagem Retornável</span>
+                      </div>
+                    </a>                
+
+                    <a href="../server/altera_embalagem.php?id=2" class="col l6 s12 nopad">
+                      <div class="btnItem btnItemDash">
+                        <div class="col l12 s12"><img src="../img/icones/garbage (1).svg"></div>
+                        <span class="col l12 s12">Embalagem Reciclável</span>
+                      </div>
+                    </a>
+
+                    <?php
+                  }elseif ($_SESSION['embalagem'] == 2){
+
+                    ?>
+
+                    <a href="../server/altera_embalagem.php?id=1" class="col l6 s12 nopad">
+                      <div class="btnItem btnItemDash">
+                        <div class="col l12 s12"><img src="../img/icones/return.svg"></div>
+                        <span class="col l12 s12">Embalagem Retornável</span>
+                      </div>
+                    </a>
+
+                    <a href="../server/altera_embalagem.php?id=2" class="col l6 s12 nopad">
+                      <div class="btnItem selectDash btnItemDash">
+                        <div class="col l12 s12"><img src="../img/icones/garbage (1).svg"></div>
+                        <span class="col l12 s12">Embalagem Reciclável</span>
+                      </div>
+                    </a>
+
+                    <?php
+                  }else{
+                    ?>
+
+                    <a href="../server/altera_embalagem.php?id=1" class="col l6 s12 nopad">
+                      <div class="btnItem btnItemDash">
+                        <div class="col l12 s12"><img src="../img/icones/return.svg"></div>
+                        <span class="col l12 s12">Embalagem Retornável</span>
+                      </div>
+                    </a>
+
+                    <a href="../server/altera_embalagem.php?id=2" class="col l6 s12 nopad">
+                      <div class="btnItem btnItemDash">
+                        <div class="col l12 s12"><img src="../img/icones/garbage (1).svg"></div>
+                        <span class="col l12 s12">Embalagem Reciclável</span>
+                      </div>
+                    </a>
+                  <?php
+                  }
+                    ?>
+           
+              </div>
+            </div>
+
+
+            <div class="col l12 containerMenu">
+              <div class="tituloMenus tituloDash"   align="left">
                 <h4>Meu Menu:</h4>
                 <span>Clique sobre um item para alterar</span>
               </div>
 
-              <div class="btnMenus btnDash menuDash row">
+              <div class="btnMenus btnDash menuDash row" data-step="4" data-intro="Selecione o Menu que você gostaria de utilizar, assim você filtra os produtos que aparecerão na sua página de favoritos, para mais detalhes você pode acessar a página CARDÁPIOS e olhar os produtos disponíveis em cada menu.">
 
                 <?php
 
                   $sql = "SELECT * FROM menu";
                   $query = mysql_query($sql);
                   while ($res = mysql_fetch_array($query)) {
-                    
+                  
+                  if ($_SESSION['pagamento'] == 1) {
+                   if ($res['id'] == $_SESSION['menu']) {
+                  
+                  ?>
+
+                      <a style="cursor: pointer;" onclick="Materialize.toast('Você só pode alterar o menu após o vencimento do seu plano atual!', 4000)" class="col l3 s12 linkMenu" id="selectMenu">
+                        <div class="btnItem selectDash btnItemDash">
+                          <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
+                          <span class="col l12 s12">Menu <?= $res['nome'] ?></span>
+                        </div>
+                      </a>
+
+                  <?php
+
+                    }else{
+
+                  ?>
+
+                      <input type="text" name="id" id="idMenu" value="<?= $res['id'] ?>" hidden>
+
+                      <a style="cursor: pointer;" onclick="Materialize.toast('Você só pode alterar o menu após o vencimento do seu plano atual!', 4000)"  class="col l3 s12 linkMenu" id="selectMenu">
+                        <div class="btnItem btnItemDash">
+                          <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
+                          <span class="col l12 s12">Menu <?= $res['nome'] ?></span>
+                        </div>
+                      </a>
+
+                  <?php
+
+                     }
+                  }else{
                     if ($res['id'] == $_SESSION['menu']) {
-                ?>
+                  
+                  ?>
 
                       <a href="../server/altera_menu.php?id=<?= $res['id'] ?>" class="col l3 s12 linkMenu" id="selectMenu">
                         <div class="btnItem selectDash btnItemDash">
@@ -454,11 +562,11 @@ if ($_SESSION['forma_pagamento'] == 1) {
                         </div>
                       </a>
 
-                <?php
+                  <?php
 
                     }else{
 
-                ?>
+                  ?>
 
                       <input type="text" name="id" id="idMenu" value="<?= $res['id'] ?>" hidden>
 
@@ -469,11 +577,12 @@ if ($_SESSION['forma_pagamento'] == 1) {
                         </div>
                       </a>
 
-                <?php
+                  <?php
 
+                     }
                     }
                   }
-                ?>
+                  ?>
 
 
               </div>
@@ -589,6 +698,7 @@ if ($_SESSION['forma_pagamento'] == 1) {
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="../js/jquery.min.js"></script>
       <script type="text/javascript" src="../js/materialize.min.js"></script>
+      <script type="text/javascript" src="../js/intro.js"></script>
       <script type="text/javascript">
         $(document).ready(function(){
           $(".button-collapse").sideNav();
@@ -604,11 +714,6 @@ if ($_SESSION['forma_pagamento'] == 1) {
 
         $('input[type=file]').change(function() {
            $('label').text("Arquivo Selecionado");
-        });
-
-
-        $('.abreAviso').click(function(){
-          $('#avisoAltera').show(300).delay(4000).hide(300);
         });
 
 

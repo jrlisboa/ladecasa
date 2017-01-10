@@ -75,40 +75,18 @@ $id_cliente = $_GET['id'];
                   
                 </div>        
            
-          <?php }elseif ($dados['boleto'] == 1) {?>
+          <?php }else{?>
 
                 <div class="col l10 offset-l1 s12 card grey lighten-4" style="padding-bottom: 30px">
 
                 <div class="col l6 s12" align="right">
-                  <h5>Pagamento do boleto aprovado?</h5>
+                  <h5>Pagamento aprovado?</h5>
                 </div>
                 <div class="col l6 s12">
                   <a href="server/confirma_boleto.php?id=<?= $dados['id'] ?>" class="btn blue white-text" style="margin-top: 30px">Confirmar pagamento</a>
                 </div>
                   
-                </div>
-
-          <?php }elseif ($dados['pagseguro'] == 1) {?>
-
-                <div class="col l10 offset-l1 s12 card grey lighten-4" style="padding-bottom: 30px">
-
-                <div class="col l6 s12" align="right">
-                  <h5>Assinatura PagSeguro aprovada?</h5>
-                </div>
-                <div class="col l6 s12">
-                  <a href="server/confirma_pagseguro.php?id=<?= $dados['id'] ?>" class="btn blue white-text" style="margin-top: 30px">Confirmar pagamento</a>
-                </div>
-                  
                 </div>      
-
-          <?php }else{ ?>
-
-          <div class="col l8 offset-l2 s12 card grey lighten-4" style="padding-bottom: 30px">
-
-            <div class="col l12 s12" align="center">
-              <h5>Este usuário não possui nenhuma pendência!</h5>
-            </div>
-          </div>
 
           <?php } ?>
 
@@ -134,30 +112,79 @@ $id_cliente = $_GET['id'];
               $periodo = "Não definido";
             }
 
+            if ($pegou['id_plano'] == 1) {
+              $plano = "Quinzenal";
+            }elseif ($pegou['id_periodo'] == 2) {
+              $plano = "Mensal";
+            }else{
+              $plano = "Não definido";
+            }
+
+            if ($pegou['id_plano'] == 1) {
+              $embalagem = "Retornável";
+            }elseif ($pegou['id_periodo'] == 2) {
+              $embalagem = "Reciclável";
+            }else{
+              $embalagem = "Não definido";
+            }
+
+            
             if ($pegou['forma_pagamento'] == 1) {
-              $pagamento = "Boleto Bancário";
+              $pagamento = "Débito (Boleto ou DOC)";
             }elseif ($pegou['forma_pagamento'] == 2) {
-              $pagamento = "PagSeguro";
+              $pagamento = "Crédito (Via PagSeguro)";
             }else{
               $pagamento = "Não definido"; }
         ?>
 
-          <ul class="collection with-header">
-            <li class="collection-header"><h4>Dados do usuário</h4></li>
-            <li class="collection-item"><div>Nome: <?= $pegou['nome'] ?> <?= $pegou['sobrenome'] ?></div></li>
-            <li class="collection-item"><div>Data de nascimento: <?= $pegou['nascimento'] ?></div></li>
-            <li class="collection-item"><div>Telefone: <?= $pegou['telefone'] ?></div></li>
-            <li class="collection-item"><div>Ramal: <?= $pegou['ramal'] ?></div></li>
-            <li class="collection-item"><div>Cidade: <?= $pegou['cidade'] ?></div></li>
-            <li class="collection-item"><div>Bairro: <?= $pegou['bairro'] ?></div></li>
-            <li class="collection-item"><div>Rua: <?= $pegou['rua'] ?></div></li>
-            <li class="collection-item"><div>Número: <?= $pegou['numero'] ?></div></li>
-            <li class="collection-item"><div>Complemento: <?= $pegou['complemento'] ?></div></li>
-            <li class="collection-item"><div>Empresa: <?= $pegou['empresa'] ?></div></li>
-            <li class="collection-item"><div>CPF: <?= $pegou['cpf'] ?></div></li>
-            <li class="collection-item"><div>Email: <?= $pegou['email'] ?></div></li>
-            <li class="collection-item"><div>Periodo: <?= $periodo ?></div></li>
-            <li class="collection-item"><div>Forma de Pagamento: <?= $pagamento ?></div></li>              
+          <ul class="collapsible" data-collapsible="accordion" style="box-shadow: none;">
+            <li>
+              <div class="collapsible-header" style="height: 90px; padding-top: 10px;"><h4>Dados do usuário</h4></div>
+            </li>
+              <li class="collection-item">
+                <div class="collapsible-header">Dados Pessoais <i class="material-icons">play_for_work</i></div>
+                <div class="collapsible-body grey lighten-4">
+                  <p>
+                    <ul class="collection grey lighten-4">                        
+                      <li class="collection-item"><div>Nome: <?= $pegou['nome'] ?> <?= $pegou['sobrenome'] ?></div></li>
+                      <li class="collection-item"><div>Data de nascimento: <?= date('d/m/Y', strtotime($pegou['nascimento'])) ?></div></li>
+                      <li class="collection-item"><div>Cidade: <?= $pegou['cidade'] ?></div></li>
+                      <li class="collection-item"><div>Bairro: <?= $pegou['bairro'] ?></div></li>
+                      <li class="collection-item"><div>Rua: <?= $pegou['rua'] ?></div></li>
+                      <li class="collection-item"><div>Número: <?= $pegou['numero'] ?></div></li>
+                      <li class="collection-item"><div>Complemento: <?= $pegou['complemento'] ?></div></li>
+                      <li class="collection-item"><div>Empresa: <?= $pegou['empresa'] ?></div></li>
+                      <li class="collection-item"><div>CPF: <?= $pegou['cpf'] ?></div></li>
+                    </ul>
+                  </p>
+                </div>
+              </li>
+              <li class="collection-item">
+                <div class="collapsible-header">Dados de Contato <i class="material-icons">play_for_work</i></div>
+                <div class="collapsible-body grey lighten-4">
+                  <p>
+                    <ul class="collection grey lighten-4">                        
+                      <li class="collection-item"><div>Ramal: <?= $pegou['ramal'] ?></div></li>
+                      <li class="collection-item"><div>Telefone: <?= $pegou['telefone'] ?></div></li>
+                      <li class="collection-item"><div>Email: <?= $pegou['email'] ?></div></li>      
+                    </ul>
+                  </p>
+                </div>
+              </li>
+              <li class="collection-item">
+                <div class="collapsible-header">Opções do Usuário <i class="material-icons">play_for_work</i></div>
+                <div class="collapsible-body grey lighten-4">
+                  <p>
+                    <ul class="collection">                        
+                      <li class="collection-item"><div>Periodo: <?= $periodo ?></div></li>
+                      <li class="collection-item"><div>Forma de Pagamento: <?= $pagamento ?></div></li>
+                      <li class="collection-item"><div>Data de Pagamento: <?= date('d/m/Y', strtotime($pegou['data_pagamento'])) ?></div></li>
+                      <li class="collection-item"><div>Plano: <?= $plano ?></div></li>
+                      <li class="collection-item"><div>Embalagem: <?= $embalagem ?></div></li>         
+                    </ul>
+                  </p>
+                </div>
+              </li> 
           </ul>
         </div>
 

@@ -36,9 +36,9 @@
 		$_SESSION['plano']=$res['id_plano'];
 		$_SESSION['periodo']=$res['id_periodo'];
 		$_SESSION['pagamento']=$res['pagamento'];
-		$_SESSION['boleto']=$res['boleto'];
 		$_SESSION['pagseguro']=$res['pagseguro'];
 		$_SESSION['forma_pagamento']=$res['forma_pagamento'];
+		$_SESSION['embalagem']=$res['tipo_embalagem'];
 
 		exit;	
 	}

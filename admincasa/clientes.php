@@ -99,20 +99,6 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                     </td>
                   </tr>
 
-                  <?php }elseif ($resultado['boleto'] == 1) {
-                  ?>
-
-                  <tr>
-                    <td><?= $resultado['nome'] ?></td>
-                    <td><?= $resultado['telefone'] ?></td>
-                    <td><?= $resultado['email'] ?></td>
-                    <td><?= $resultado['rua'] ?>, <?= $resultado['numero'] ?> - <?= $resultado['bairro'] ?></td>
-                    <td ><div class="red white-text center">Boleto Gerado</div></td>
-                    <td>
-                      <a href="detalhes_cliente.php?id=<?= $resultado['id'] ?>" class="btn-small blue white-text col l12 center">Detalhes</a>                  
-                    </td>
-                  </tr>
-
                   <?php }else{ ?>
 
                   <tr>

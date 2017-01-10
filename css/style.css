@@ -303,7 +303,7 @@
 		border-radius: 10px;
 		font-size: 18px;
 		padding: 8px 8px 8px 8px !important;
-		
+		cursor: pointer;
 	}
 
 	.btnBottom span:hover{
@@ -761,6 +761,10 @@
   		margin-bottom: 10vh !important;
   	}
 
+    .proximo{
+      color: #2ecc71;
+    }
+
 
   	.topoProdutos{
 
@@ -894,7 +898,7 @@
   		margin-bottom: 10%;
   	}
 
-  	.conteudoCadastro span{
+  	.spanCadastro{
 
   		color: #1a1a1a;
   	}
@@ -1068,6 +1072,7 @@
   	.btnDash{
 
   		margin-top: 20px;
+
   	}
 
   	.menuDash{
@@ -2232,7 +2237,7 @@
   	.formCadastro{
 
   		background-color: #f7f7f7;
-  		height: 130vh;
+  		height: auto;
   		border-radius: 10px;
   		padding-bottom: 20px;
   	}
@@ -2298,12 +2303,12 @@
   		margin-bottom: 10%;
   	}
 
-  	.conteudoCadastro span{
+  	.spanCadastro{
 
-  		color: #1a1a1a;
-  	}
+      color: #1a1a1a;
+    }
 
-  	.conteudoCadastro input{
+  	.rolmes{
 
   		color: #000;
   		background-color: #fff;
@@ -2373,7 +2378,10 @@
 
 
 
+    .proximoPasso{
 
+      color: #2ecc71;
+    }
 
 
 
@@ -2444,6 +2452,7 @@
   	.btnDash{
 
   		margin-top: 20px;
+      height: 215px !important;
   	}
 
   	.menuDash{
@@ -2752,6 +2761,16 @@
   		margin-top: 50px;
   		margin-bottom: 50px;
   	}
+
+
+    .rolmes{
+
+      color: #000 !important;
+      background-color: #fff !important;
+      border-bottom: 1px solid #dd8d19 !important;
+      padding: 10px 0px 10px 10px !important;
+      height: 20px !important;
+    }
 
   	
 

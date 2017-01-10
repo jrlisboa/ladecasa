@@ -18,6 +18,8 @@ include '../server/conecta.php';
       <link type="text/css" rel="stylesheet" href="../css/style.css"  />
       <title>Favoritos | Lá de Casa</title>
 
+      <meta charset="utf-8">
+
       <link rel="apple-touch-icon" sizes="57x57" href="../img/fav/apple-icon-57x57.png">
       <link rel="apple-touch-icon" sizes="60x60" href="../img/fav/apple-icon-60x60.png">
       <link rel="apple-touch-icon" sizes="72x72" href="../img/fav/apple-icon-72x72.png">

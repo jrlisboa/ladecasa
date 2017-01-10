@@ -16,6 +16,8 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
       <link type="text/css" rel="stylesheet" href="../css/style.css"  />
       <title>Login | Lá de Casa</title>
 
+      <meta charset="utf-8">
+
       <link rel="apple-touch-icon" sizes="57x57" href="../img/fav/apple-icon-57x57.png">
       <link rel="apple-touch-icon" sizes="60x60" href="../img/fav/apple-icon-60x60.png">
       <link rel="apple-touch-icon" sizes="72x72" href="../img/fav/apple-icon-72x72.png">
@@ -102,63 +104,105 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
                 <h5>Crie sua Conta:</h5>
 
+                <div class="progress amber lighten-4" style="margin-top: -20px;">
+                    <div class="determinate amber darken-1" id="progresso" style="width: 0%"></div>
+                </div>
+
 
                 <form id="cadUsuario" class="row">
 
-                  <div class="col l6">
-                    <span>Nome:</span>
-                    <input type="text" name="nome" id="nome">
-
-                    <span>Telefone:</span>
-                    <input type="number" name="telefone">
-
-                    <span>Cidade do escritório:</span>
-                    <input type="text" name="cidade" >
-
-                    <span>Rua do escritório:</span>
-                    <input type="text" name="rua" >
-
-                    <span class="col l6">Número do escritório:</span>
-                    <input type="number" name="numero">
-                  
-                    
-                    <span>Email:</span>
-                    <input type="text" name="email">
-                  </div>
-
-                  <div class="col l6">
-                  <span>Sobrenome:</span>
-                    <input type="text" name="sobrenome">
-
-                    <span>Data de nascimento:</span>
-                    <input type="date" name="nascimento">
-
-                    <span>Ramal:</span>
-                    <input type="number" name="ramal">
-
-                    <span>Bairo do escritório:</span>
-                    <input type="text" name="bairro">
-
-                    <span class="col l6">Complemento: (Opcional)</span>
-                    <input type="text" name="complemento" >               
-                    
-
-                    <span>CPF:</span>
-                    <input type="text" name="cpf" id="cpf" size="12" maxlength="14"  OnKeyPress="formatar('###.###.###-##', this)">                   
-                      
-
-                    
-
-                  </div>
-
                   <div class="col l12">
-                    <span>Nome da Empresa:</span>
-                    <input type="text" name="empresa" id="empresa">
 
-                    <span>Crie sua senha:</span>
-                    <input type="password" name="senha" id="senha">
+                    <div id="step1">
 
-                    <input id="salvar" class="col l6 offset-l3" type="submit" name="enviar" value="Criar conta">
+                      <h5 style="font-size: 20px;">Dados pessoais</h5>
+
+                      <span class="spanCadastro">Nome:</span>
+                      <input type="text" name="nome" id="nome">
+
+                      <span class="spanCadastro">Sobrenome:</span>
+                      <input type="text" name="sobrenome">
+
+                      <span class="spanCadastro">Data de nascimento:</span>
+                      <input type="date" name="nascimento">                     
+
+                      <span class="spanCadastro">CPF:</span>
+                      <input type="text" name="cpf" id="cpf" size="12" maxlength="14"  OnKeyPress="formatar('###.###.###-##', this)">
+
+                      <div class="btnBottom row" align="center">
+                        <a href="#" style="cursor: pointer;" id="forStep2"><span class="col l6 offset-l3 s8 offset-s2 proximoPasso">Próximo Passo</span></a>
+                      </div>
+                    </div>
+
+                    <div id="step2" hidden>
+                      <h5 style="font-size: 20px;">Dados do escritório</h5>
+
+                      <span>Cidade do escritório:</span>
+                      <input type="text" name="cidade" >
+
+                      <span>Bairo do escritório:</span>
+                      <input type="text" name="bairro">
+
+                      <span>Rua do escritório:</span>
+                      <input type="text" name="rua" >
+
+                      <span>Número do escritório:</span>
+                      <input type="number" name="numero">
+
+                      <span>Complemento: (Opcional)</span>
+                      <input type="text" name="complemento" >
+
+                      <div class="btnBottom row" align="center">
+                        <a href="#" style="cursor: pointer;" id="voltaStep1">
+                          <span class="col l4 offset-l1 s8 offset-s2 proximoPasso">Passo Anterior</span>
+                        </a>
+                        <a  href="#" style="cursor: pointer;" id="forStep3">
+                          <span class="col l4 offset-l2 s8 offset-s2 proximoPasso">Próximo Passo</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div id="step3" hidden>
+                      <h5 style="font-size: 20px;">Dados de contato</h5>
+
+                      <span>Telefone:</span>
+                      <input type="number" name="telefone">  
+
+                      <span>Ramal:</span>
+                      <input type="number" name="ramal">
+
+                      <span>Nome da Empresa:</span>
+                      <input type="text" name="empresa" id="empresa">
+
+                      <div class="btnBottom row" align="center">
+                        <a href="#" style="cursor: pointer;" id="voltaStep2">
+                          <span class="col l4 offset-l1 s8 offset-s2 proximoPasso">Passo Anterior</span>
+                        </a>
+                        <a  href="#" style="cursor: pointer;" id="forStep4">
+                          <span class="col l4 offset-l2 s8 offset-s2 proximoPasso">Próximo Passo</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div id="step4" hidden>
+                      <h5 style="font-size: 20px;">Dados cadastrais</h5>
+
+                      <span>Email:</span>
+                      <input type="text" name="email">
+
+                      <span>Crie sua senha:</span>
+                      <input type="password" name="senha" id="senha">
+
+                      <div class="btnBottom row" align="center">
+                        <a href="#" style="cursor: pointer;" id="voltaStep3">
+                          <span class="col l4 offset-l1 s8 offset-s2 proximoPasso">Passo Anterior</span>
+                        </a>
+                        <input id="salvar" class="col l4 offset-l2" type="submit" name="enviar" value="Criar conta">
+                      </div>
+                      
+                    </div>
+
+                      
                   </div>                 
 
                   
@@ -216,7 +260,8 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                 async: true,
                 data: dados,
                 success: function(response) {
-                    if(response==0){            
+                    if(response==0){
+                      $('#progresso').css({'width':'100%'});       
                       location.href='../dashboard/'  //Redireciona
                     } else if (response==1){
                       alert("Preencha todos os campos!");
@@ -250,6 +295,38 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                         }
             });
             return false; //Evita que a página seja atualizada
+          });
+
+          $('#forStep2').click(function(){
+            $('#progresso').css({'width':'33%'});
+            $('#step1').fadeOut(200);
+            $('#step2').fadeIn(400);
+          });
+          $('#forStep3').click(function(){
+            $('#progresso').css({'width':'66%'});
+            $('#step2').fadeOut(200);
+            $('#step3').fadeIn(400);
+          });
+          $('#forStep4').click(function(){
+            $('#progresso').css({'width':'80%'});
+            $('#step3').fadeOut(200);
+            $('#step4').fadeIn(400);
+          });
+
+          $('#voltaStep3').click(function(){
+            $('#progresso').css({'width':'66%'});
+            $('#step4').fadeOut(200);
+            $('#step3').fadeIn(400);
+          });
+          $('#voltaStep2').click(function(){
+            $('#progresso').css({'width':'33%'});
+            $('#step3').fadeOut(200);
+            $('#step2').fadeIn(400);
+          });
+          $('#voltaStep1').click(function(){
+            $('#progresso').css({'width':'0%'});
+            $('#step2').fadeOut(200);
+            $('#step1').fadeIn(400);s
           });
         });
       </script>

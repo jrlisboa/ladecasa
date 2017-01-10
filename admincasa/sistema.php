@@ -60,29 +60,42 @@ include 'server/conecta.php';
         <div class="print" id="printable">
 
         <div class="col l6 s12">
-          <ul class="collection with-header">
-            <li class="collection-header"><h4>Novo Menu</h4></li>
+          <ul class="collapsible" data-collapsible="accordion">
+            <li>
+              <div class="collapsible-header"><h4>Novo Menu</h4></div>
 
-            <li style="height: 90px;">
-              <form action="server/add_menu.php" method="post">
-                <div class="row" style="padding: 20px;">
-                  <input type="text" name="menu" class="col l7 novoMenu" placeholder="Nome do novo menu.">
-                  <input style="margin-top: 5px;" type="submit" name="enviar" value="Adicionar" class="btn col l4 offset-l1 blue white-text">
-                </div>
-              </form>              
+              <div class="collapsible-body" style="height: 90px;">
+                <form action="server/add_menu.php" method="post">
+                  <div class="row" style="padding: 20px;">
+                    <input type="text" name="menu" class="col l12" placeholder="Nome do novo menu.">
+                    <input type="text" name="diario" class="col l12" placeholder="Valor Diário.">
+                    <input type="text" name="quinzenal" class="col l12" placeholder="Valor Quinzenal.">
+                    <input type="text" name="mensal" class="col l12" placeholder="Valor Mensal.">
+                    <input style="margin-top: 5px; margin-bottom: -10px;" type="submit" name="enviar" value="Adicionar" class="btn col l12  blue white-text">
+                  </div>
+                </form>              
+              </div>
             </li>
             
           </ul> 
 
-          <ul class="collection with-header">
-            <li class="collection-header"><h4>Menus dispoíveis:</h4></li>
+          <ul class="collapsible" data-collapsible="accordion" style="box-shadow: none;">
+            <li>
+              <div class="collapsible-header" style="height: 90px; padding-top: 10px;"><h4>Menus dispoíveis:</h4></div>
+            </li>
 
+            
             <?php
                 $selec = "SELECT * FROM menu";
                 $vaila = mysql_query($selec) or die(mysql_error());
                 while($pegou = mysql_fetch_array($vaila)){
             ?>
-                <li class="collection-item"><div>Menu <?= $pegou['nome'] ?><a href="server/apaga_menu.php?id=<?= $pegou['id'] ?>" class="secondary-content"><i class="material-icons red-text">delete</i></a></div></li>
+                <li class="collection-item">
+                  <div class="collapsible-header">Menu <?= $pegou['nome'] ?> <i class="material-icons">play_for_work</i><a href="server/apaga_menu.php?id=<?= $pegou['id'] ?>" class="secondary-content"><i class="material-icons red-text">delete</i></a></div>
+                  <div class="collapsible-body">
+                    <p>Valor diário: R$<?= $pegou['diario'] ?>,00<br>Valor quinzenal: R$<?= $pegou['quinzenal'] ?>,00<br>Valor mensal: R$<?= $pegou['mensal'] ?>,00<br></p>
+                  </div>
+                </li>
             <?php } ?>
             
           </ul>
@@ -90,18 +103,19 @@ include 'server/conecta.php';
 
 
         <div class="col l6 s12">
-          <ul class="collection with-header">
-            <li class="collection-header"><h4>Novo Tipo</h4></li>
+          <ul class="collapsible" data-collapsible="accordion">
+            <li>
+              <div class="collapsible-header"><h4>Novo Tipo</h4></div>
 
-            <li style="height: 90px;">
-              <form action="server/add_tipo.php" method="post">
-                <div class="row" style="padding: 20px;">
-                  <input type="text" name="tipo" class="col l7 novoMenu" placeholder="Nome do novo tipo.">
-                  <input style="margin-top: 5px;" type="submit" name="enviar" value="Adicionar" class="btn col l4 offset-l1 blue white-text">
-                </div>
-              </form>              
-            </li>
-            
+              <div class="collapsible-body" style="height: 90px;">
+                <form action="server/add_tipo.php" method="post">
+                  <div class="row" style="padding: 20px;">
+                    <input type="text" name="tipo" class="col l12" placeholder="Nome do novo tipo.">
+                    <input style="margin-top: 5px; margin-bottom: -10px;" type="submit" name="enviar" value="Adicionar" class="btn col l12 blue white-text">
+                  </div>
+                </form>              
+              </div>
+            </li>            
           </ul>
 
           <ul class="collection with-header">

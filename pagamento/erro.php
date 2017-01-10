@@ -4,7 +4,6 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
         session_destroy();            //Destroi a seção por segurança
         header("Location: ../login/"); exit; //Redireciona o visitante para login
 }
-include "../server/conecta.php";
 ?>
 <!DOCTYPE html>
   <html>
@@ -69,95 +68,21 @@ include "../server/conecta.php";
           </div>
 
         <div class="container">
-          <!--<div class="col l6 s12 menus boletao">
+          <div class="col l8 offset-l2 s12 menus boletao">
 
-            <?php
-            //if ($_SESSION['plano'] == 1) {
-            ?>
-
-            <div class="tituloMenus tituloPagamentos">
-              <h4>Pagamento via Boleto Bancário:</h4>
-              <span>Clique no botão abaixo para gerar um novo boleto.<br>Após a confirmação do pagamento, você poderá utilizar o sistema pelos próximos 15 dias.</span>
-            </div>
-
-            <div class="btnMenus row">
-                <a href="../server/gerar_boleto.php" class="col l12 s12 linkMenu">
-                  <div class="col s10 pgBtn">
-                  </div>
-                </a>
-            </div>
-
-            <?php
-            //}else{
-            ?>
-
-            <div class="tituloMenus tituloPagamentos">
-              <h4>Pagamento via Boleto Bancário:</h4>
-              <span>Clique no botão abaixo para gerar um novo boleto.<br>Após a confirmação do pagamento, você poderá utilizar o sistema pelos próximos 30 dias.</span>
-            </div>
-
-            <div class="btnMenus row">
-                <a href="../server/gerar_boleto.php" class="col l12 s12 linkMenu">
-                  <div class="col s12 pgBtn">
-                  </div>
-                </a>
-            </div>
-
-            <?php
-            //}
-            ?>           
             
-          </div>-->
 
-
-
-          <div class="col l5 s12 menus pagao">
-            <div class="tituloMenus tituloPagamentos segurotit">
-              <h4>Efetuar pagamento via PagSeguro:</h4>
-              <span>Após o redirecionamento você poderá escolher sua forma de pagamento.</span>
+            <div class="tituloMenus tituloPagamentos l12 s12">
+              <h4>Ocorreu um erro</h4>
+              <span>Um erro inesperado acabou acontecendo na sua assinatura e estamos trabalhando para resolve-lo, tente novamente mais tarde!</span>
             </div>
 
-            <a href="../server/pagseguro.php">
-              <div class="col l12 s12 imagemPag"><img class="col s12" src="../img/icones/pagseguro.png"></div>
-            </a>
+            <img src="../img/icones/fix.svg" class="col l4 offset-l4 s12">                
+            
           </div>
 
 
-          <div class="col l5 offset-l2 s12 menus boletao">
-
-            <div class="tituloMenus tituloPagamentos">
-              <h4>Pagamento via DOC<br>(Depósito em Conta):</h4>
-              <span>Assim que o pagamento for confirmado, você poderá utilizar o sistema normalmente.</span>
-            </div>
-
-            <div class="btnMenus row">
-                <ul class="collection">
-
-                  <?php
-                    $menu_user = $_SESSION['menu'];
-                    if($_SESSION['plano'] == 1) {
-
-                      $seleciona = "SELECT * FROM menu WHERE id='$menu_user'";
-                      $vaila = mysql_query($seleciona);
-                      $rolmes = mysql_fetch_array($vaila);
-
-                      echo '<li class="collection-item" style="font-size: 25px !important">Valor: R$'.$rolmes['quinzenal'].',00</li>';
-                    }elseif ($_SESSION['plano'] == 2) {
-
-                      $seleciona = "SELECT * FROM menu WHERE id='$menu_user'";
-                      $vaila = mysql_query($seleciona);
-                      $rolmes = mysql_fetch_array($vaila);
-
-                      echo '<li class="collection-item" style="font-size: 25px !important">Valor: R$'.$rolmes['mensal'].',00</li>';
-                    }                    
-                  ?>
-
-                  <li class="collection-item">Banco: Itaú</li>
-                  <li class="collection-item">Agência: 0741</li>
-                  <li class="collection-item">Conta: 09781-0</li>
-                </ul>
-            </div>
-          </div>
+          
         </div>
       </div>
 

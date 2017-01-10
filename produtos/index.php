@@ -22,6 +22,8 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
       <link type="text/css" rel="stylesheet" href="../css/style.css"  />
       <title>Produtos | Lá de Casa</title>
 
+      <meta charset="utf-8">
+
       <link rel="apple-touch-icon" sizes="57x57" href="../img/fav/apple-icon-57x57.png">
       <link rel="apple-touch-icon" sizes="60x60" href="../img/fav/apple-icon-60x60.png">
       <link rel="apple-touch-icon" sizes="72x72" href="../img/fav/apple-icon-72x72.png">
@@ -145,7 +147,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
           
 
           <div class="btnBottom row" align="center">
-            <a href="../login"><span class="col l2 offset-l5 s6 offset-s3 produtosCadastro">Cadastre-se para pedir</span></a>
+            <span class="col l2 offset-l5 s6 offset-s3 produtosCadastro">Cadastre-se para pedir</span>
           </div>
         
       </div>
