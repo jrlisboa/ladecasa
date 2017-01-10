@@ -1,6 +1,7 @@
 <?php
 //conexão com o servidor
-$conect = mysql_connect("localhost", "root", "");
+error_reporting(0);
+$conect = mysql_connect("usr199940028922.mysql.uhserver.com", "user40021999", "Babuinolegal.1");
 
 header('content-type : text/html', 'charset=utf-8');
  mysql_query("SET NAMES 'utf-8'");
@@ -12,5 +13,5 @@ header('content-type : text/html', 'charset=utf-8');
 if (!$conect) die ("<h1>Falha na conexão com o Banco de Dados!</h1>");
 
 // Caso a conexão seja aprovada, então conecta o Banco de Dados.
-$db = mysql_select_db("ladecasa");
+$db = mysql_select_db("usr199940028922");
 ?>
