@@ -64,7 +64,7 @@ $data['shippingAddressDistrict'] = $_SESSION['bairro'];
 $data['shippingAddressCity'] = $_SESSION['cidade'];
 $data['shippingAddressState'] = 'SP';
 $data['shippingAddressCountry'] = 'BRA';
-$data['redirectURL'] = 'http://www.google.com';
+$data['redirectURL'] = 'http://ladecasa.net.br/pagamento/sucssesswianlubouslafrLeml1pho25Oeho5pl9.php';
 
 $data = http_build_query($data);
 
