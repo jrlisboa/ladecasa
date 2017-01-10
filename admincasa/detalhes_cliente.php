@@ -128,6 +128,12 @@ $id_cliente = $_GET['id'];
               $embalagem = "Não definido";
             }
 
+            if ($pegou['data_pagamento'] == "0000-00-00") {
+              $data_pagamento = "Não definido";
+            }else{
+              $data_pagamento = date('d/m/Y', strtotime($pegou['data_pagamento']));
+            }
+
             
             if ($pegou['forma_pagamento'] == 1) {
               $pagamento = "Débito (Boleto ou DOC)";
@@ -178,7 +184,7 @@ $id_cliente = $_GET['id'];
                     <ul class="collection">                        
                       <li class="collection-item"><div>Periodo: <?= $periodo ?></div></li>
                       <li class="collection-item"><div>Forma de Pagamento: <?= $pagamento ?></div></li>
-                      <li class="collection-item"><div>Data de Pagamento: <?= date('d/m/Y', strtotime($pegou['data_pagamento'])) ?></div></li>
+                      <li class="collection-item"><div>Data de Pagamento: <?= $data_pagamento ?></div></li>
                       <li class="collection-item"><div>Plano: <?= $plano ?></div></li>
                       <li class="collection-item"><div>Embalagem: <?= $embalagem ?></div></li>         
                     </ul>
@@ -186,6 +192,11 @@ $id_cliente = $_GET['id'];
                 </div>
               </li> 
           </ul>
+
+
+          <div class="col l12">
+            <a class="btn blue white-text col l6 offset-l3" href="server/gerar_pdf.php?id=<?= $id_cliente ?>">Gerar Relatório</a>
+          </div>
         </div>
 
 
@@ -203,7 +214,7 @@ $id_cliente = $_GET['id'];
             <li class="collection-item avatar">
               <img src="../img/produtos/<?= $lista['imagem'] ?>" alt="" class="circle">
               <span class="title" style="font-weight: 600"><?= $lista['nome'] ?></span>
-              <p><?= $lista['detalhes'] ?>
+              <p>Adicionado à lista de favoritos!
               </p>
               
             </li>

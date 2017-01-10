@@ -19,6 +19,9 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
       <title>Administração | Lá de Casa</title>
       <meta charset="utf-8">
 
+      <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+      <script>tinymce.init({ selector:'textarea' });</script>
+
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
@@ -129,7 +132,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
               <div class="col l12">
                 <h5 >Detalhes:</h5>
                 <div class="input-field col s12">
-                  <input id="first_name" type="text" class="validate" name="detalhes">
+                  <textarea name="detalhes">Adicione aqui informações, detalhes, ingredientes e etc..</textarea>
                 </div>
               </div>
 
@@ -156,7 +159,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                 
                 
                 while ($final = mysql_fetch_array($query)) { 
-                $tipos[] = $final;
+                
                 $id_tipo = $final['id'];
                 ?>
 
@@ -172,18 +175,15 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                   $qryLista = "SELECT * FROM produto where id_tipo='$id_tipo'";
                   $sql = mysql_query($qryLista) or die(mysql_error());
                   while ($resultado = mysql_fetch_array($sql)) { 
-                  $vetor[] = $resultado;                
+                               
                   ?>
 
 
                   <div class="col s12 m6 l3">
-                    <div class="card" style="height: 300px !important;">
+                    <div class="card" style="height: 250px !important;">
                       <div class="card-image" >
                         <img src="../img/produtos/<?= $resultado['imagem'] ?>">
                         <span class="card-title"><?= $resultado['nome'] ?></span>
-                      </div>
-                      <div class="card-content">
-                        <p style="max-width: 20ch; overflow: hidden;text-overflow: ellipsis; white-space: nowrap;"><?= $resultado['detalhes'] ?></p>                        
                       </div>
                       <div class="card-action">
                         <form method="post" action="server/deleta_produto.php">
@@ -223,6 +223,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="js/jquery.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
+      
 
       <script type="text/javascript">
         $( document ).ready(function(){

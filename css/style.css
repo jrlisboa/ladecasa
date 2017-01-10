@@ -2772,6 +2772,71 @@
       height: 20px !important;
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*/////////////////////// PÁGINA DETALHES DO PRODUTO */
+
+    .imagemDetalhes{
+
+      height: 100px;
+      overflow: hidden;
+    }
+
+    .imagemDetalhes img{
+      width: 100%;
+      margin-top: -20%;
+      filter: blur(20px);
+    }
+
+    .nomeDetalhes{
+
+      height: 100px;
+      background-color: #f7f7f7;
+    }
+
+    .nomeDetalhes span{
+
+      height: 100%;
+      font-size: 50px;
+      color: black;
+      font-family: 'Sue Ellen Francisco', cursive;      
+      width: 100%;
+      text-align: center;
+      padding-top: 20px !important  ;
+    }
+
+    .detalhesDetalhes{
+
+      margin-top: 30px;
+      margin-bottom: 50px;
+    }
+
+    .detalhesDetalhes span{
+
+      font-size: 18px;
+    }
+
+    .cadasDetalhes img{
+      width: 100%;
+      margin-top: 50px;
+    }
+
   	
 
 }

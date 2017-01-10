@@ -86,7 +86,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
 
                 <div class="col s12 m7 l3">
-                  <div class="card" style="height: 300px !important;">
+                  <div class="card" style="height: 230px !important;">
                     <div class="card-image hehe" style="overflow: hidden !important;">
                       <img src="../img/galeria/<?= $resultado['imagem'] ?>">
                       <span class="card-title"><?= $resultado['nome'] ?></span>

@@ -18,6 +18,9 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
       <title>Administração | Lá de Casa</title>
       <meta charset="utf-8">
 
+      <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+      <script>tinymce.init({ selector:'textarea' });</script>
+
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
@@ -161,7 +164,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
               <div class="col l12">
                 <h5 >Detalhes:</h5>
                 <div class="input-field col s12">
-                  <input value="<?= $info['detalhes'] ?>" id="first_name" type="text" class="validate" name="detalhes">
+                  <textarea name="detalhes"><?= $info['detalhes'] ?></textarea>
                 </div>
               </div>
 

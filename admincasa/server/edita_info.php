@@ -3,7 +3,7 @@
     session_start();  //A seção deve ser iniciada em todas as páginas
     if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
             session_destroy();            //Destroi a seção por segurança
-            header("Location: ../login/"); exit; //Redireciona o visitante para login
+            header("Location: ../login.php"); exit; //Redireciona o visitante para login
     }
 
     include('conecta.php');

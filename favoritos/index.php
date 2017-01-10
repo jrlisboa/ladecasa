@@ -153,7 +153,7 @@ include '../server/conecta.php';
                   <li class="collection-item avatar" style="padding-top: 20px !important;">
                     <img src="../img/produtos/<?= $lista['imagem'] ?>" alt="" class="circle">
                     <span class="title"><?= $lista['nome'] ?></span>
-                    <p id="limitarEmail" style="color: #999;"><?= $lista['detalhes'] ?></p>                    
+                    <p id="limitarEmail" style="color: #999;">Produto adicionado!</p>                    
                     <a href="../server/remover_favorito.php?id_produto=<?= $lista['id'] ?>&id_user=<?= $id_user ?>" class="secondary-content">Excluir Favorito</a>
                   </li>
 

@@ -125,7 +125,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                                             
                     ?>              
                       <div class="btnProduto btnItem4Produto col l3 s6">
-                        <div class="col l12 s12 saberMais">Saber mais</div>
+                        <a href="../detalhes/index.php?id=<?= $resultado['id'] ?>"><div class="col l12 s12 saberMais">Saber mais</div></a>
                         <div class="col l12 s12 imgProduto"><img src="../img/produtos/<?= $resultado['imagem'] ?>"></div>
                         <span class="col l12 s12"><?= $resultado['nome'] ?></span>
                       </div>

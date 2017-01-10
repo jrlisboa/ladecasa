@@ -191,10 +191,10 @@ if ($_SESSION['plano']== 1) {
                     <div class="card-content tamanhoCard">
                       <span class="card-title white-text">Olá <?= $_SESSION['nomeUsuario'] ?>, configure suas opções do sistema!</span>
                       
-                      <span class="white-text col l8" style="margin-top: 20px;">Agora você faz parte do Lá de Casa, oferecemos diversas opções de menus e produtos para que você possa se deliciar e ainda cuidar da sua saúde, configure suas opçõoes de pagamento para começar a receber nosso produtos no seu escritório! :)
+                      <span class="white-text col l8" style="margin-top: 20px;">Agora você faz parte do Lá de Casa, oferecemos diversas opções de menus e produtos para que você possa se deliciar e ainda cuidar da sua saúde, configure suas opções de pagamento para começar a receber nosso produtos no seu escritório! :)
                       </span>
 
-                      <img style="margin-top: 5px" class="col l2 offset-l1 s4 offset-s4" src="../img/icones/credit-card.svg">
+                      <img style="margin-top: 5px" class="col l2 offset-l1 s4 offset-s4" src="../img/icones/settings.svg">
                     </div>
                     <div class="card-action dashAction">                    
                       <a class="white-text" style="cursor: pointer;" onclick="javascript:introJs().start();">Vamos lá!</a>
@@ -257,7 +257,7 @@ if ($_SESSION['plano']== 1) {
                 <span>Clique sobre um item para alterar</span>
               </div>
 
-              <div class="btnMenus btnPlano btnDash" data-step="1" data-intro="Selecione o plano que deseja utilizar, e lembre-se, o plano só pode ser alterado enquanto seu pagamento não estiver ativo, após pagar, você deverá esperar o período de 15 ou 30 dias para fazer a alteração!">
+              <div class="btnMenus btnPlano btnDash" data-step="1" data-intro="Selecione o plano que deseja utilizar, e lembre-se, o plano só pode ser alterado enquanto seu pagamento não estiver ativo, após pagar, você deverá esperar o período de 15 ou 30 dias para fazer a alteração!" data-position='top'>
 
               <?php
 
@@ -370,7 +370,7 @@ if ($_SESSION['plano']== 1) {
                 <span>Clique sobre um item para alterar</span>
               </div>
 
-              <div class="btnMenus btnPlano btnDash" data-step="2" data-intro="Selecione o período que deseja utilizar, assim nossa equipe saberá em qual momento do dia você deseja receber os produtos!">
+              <div class="btnMenus btnPlano btnDash" data-step="2" data-intro="Selecione o período que deseja utilizar, assim nossa equipe saberá em qual momento do dia você deseja receber os produtos!" data-position='top'>
 
               <?php
 
@@ -441,7 +441,7 @@ if ($_SESSION['plano']== 1) {
                 <span>Clique sobre um item para alterar</span>
               </div>
 
-              <div class="btnMenus btnPlano btnDash" data-step="3" data-intro="Selecione o tipo de embalagem para que a entrega fica ainda melhor para você!">
+              <div class="btnMenus btnPlano btnDash" data-step="3" data-intro="Selecione o tipo de embalagem para que a entrega fique ainda melhor para você!" data-position='top'>
 
               <?php
 
@@ -512,7 +512,7 @@ if ($_SESSION['plano']== 1) {
                 <span>Clique sobre um item para alterar</span>
               </div>
 
-              <div class="btnMenus btnDash menuDash row" data-step="4" data-intro="Selecione o Menu que você gostaria de utilizar, assim você filtra os produtos que aparecerão na sua página de favoritos, para mais detalhes você pode acessar a página CARDÁPIOS e olhar os produtos disponíveis em cada menu.">
+              <div class="btnMenus btnDash menuDash row" data-step="4" data-intro="Selecione o Menu que você gostaria de utilizar, assim você filtra os produtos que aparecerão na sua página de favoritos, para mais detalhes você pode acessar a página CARDÁPIOS e olhar os produtos disponíveis em cada menu." data-position='top'>
 
                 <?php
 
