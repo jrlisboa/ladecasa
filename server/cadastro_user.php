@@ -62,7 +62,7 @@
 				//CADASTRANDO O NOVO USUÁRIO
 				$sql = "INSERT INTO user (nome, sobrenome, cidade, bairro, rua, numero, complemento, telefone, ramal, empresa, cpf, nascimento, imagem, email, senha, data_cadastro) 
 			    VALUES ('$nome', '$sobrenome', '$cidade', '$bairro', '$rua', '$numero', '$complemento', '$telefone', '$ramal', '$empresa', '$cpf', '$nascimento', '$imagem', '$email', '$senha', '$cadastro')";
-			    mysql_query($sql);
+			    mysql_query($sql) or die(mysql_error());
 
 
 			    //EFETUANDO O LOGIN DO NOVO USUÁRIO
