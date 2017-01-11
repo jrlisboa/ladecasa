@@ -1,6 +1,6 @@
 <?php
 //conexão com o servidor
-error_reporting(0);
+
 $conect = mysql_connect("usr199940028922.mysql.uhserver.com", "user40021999", "Babuinolegal.1");
 header('content-type : text/html', 'charset=utf-8');
  mysql_query("SET NAMES 'utf-8'");
