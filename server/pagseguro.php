@@ -16,7 +16,7 @@ $id_user = $_SESSION['usuarioID'];
 $sql = "UPDATE user SET pagseguro = 1 WHERE id = '$id_user'";
 $vai = mysql_query($sql) or die(mysql_error());
 
-$url = 'https://ws.pagseguro.uol.com.br/v2/checkout';
+$url = 'https://ws.sandbox.pagseguro.uol.com.br/v2/checkout';
 
 //$data = 'email=seuemail@dominio.com.br&amp;token=95112EE828D94278BD394E91C4388F20&amp;currency=BRL&amp;itemId1=0001&amp;itemDescription1=Notebook Prata&amp;itemAmount1=24300.00&amp;itemQuantity1=1&amp;itemWeight1=1000&amp;itemId2=0002&amp;itemDescription2=Notebook Rosa&amp;itemAmount2=25600.00&amp;itemQuantity2=2&amp;itemWeight2=750&amp;reference=REF1234&amp;senderName=Jose Comprador&amp;senderAreaCode=11&amp;senderPhone=56273440&amp;senderEmail=comprador@uol.com.br&amp;shippingType=1&amp;shippingAddressStreet=Av. Brig. Faria Lima&amp;shippingAddressNumber=1384&amp;shippingAddressComplement=5o andar&amp;shippingAddressDistrict=Jardim Paulistano&amp;shippingAddressPostalCode=01452002&amp;shippingAddressCity=Sao Paulo&amp;shippingAddressState=SP&amp;shippingAddressCountry=BRA';
 /*
@@ -92,4 +92,4 @@ echo $data;
 echo "Dados inválidos";
 exit;
 }
-header('Location: https://pagseguro.uol.com.br/v2/checkout/payment.html?code=' . $xml -> code);
+header('Location: https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=' . $xml -> code);
