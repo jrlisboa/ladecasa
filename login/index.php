@@ -250,7 +250,7 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
           ///////// cadastro do usuario
           $('#salvar').click(function() {
-            $('#progresso').css({'width':'100%'});
+
             var cpf = $('#cpf').val();
 
             function TestaCPF(strCPF) {
@@ -291,7 +291,7 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                       success: function(response) {
                           alert(response);
                           if(response==0){
-                                   
+                            $('#progresso').css({'width':'100%'});         
                             location.href='../dashboard/'  //Redireciona
                           } else if (response==1){
                             alert("Preencha todos os campos!");
