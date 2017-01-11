@@ -62,9 +62,7 @@
 				//CADASTRANDO O NOVO USUÁRIO
 				$sql = "INSERT INTO user (nome, sobrenome, cidade, bairro, rua, numero, complemento, telefone, ramal, empresa, cpf, nascimento, imagem, email, senha, data_cadastro) 
 			    VALUES ('$nome', '$sobrenome', '$cidade', '$bairro', '$rua', '$numero', '$complemento', '$telefone', '$ramal', '$empresa', '$cpf', '$nascimento', '$imagem', '$email', '$senha', '$cadastro')";
-			    mysql_query($sql) or die(error());
-
-			    echo 0;
+			    mysql_query($sql);
 
 
 			    //EFETUANDO O LOGIN DO NOVO USUÁRIO
@@ -72,10 +70,10 @@
 			    $resultados = mysql_query($sql)or die (mysql_error());
 			    $res=mysql_fetch_array($resultados); //
 				if (@mysql_num_rows($resultados) == 0){
-					echo 1;	//Se a consulta não retornar nada é porque as credenciais estão erradas
+					echo "aqui";	//Se a consulta não retornar nada é porque as credenciais estão erradas
 				}			
 				else{
-					
+					echo 0;
 					if(!isset($_SESSION)) 	//verifica se há sessão aberta
 					session_start();		//Inicia seção
 					//Abrindo seções

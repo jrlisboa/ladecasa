@@ -109,7 +109,7 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                 </div>
 
 
-                <form id="cadUsuario" class="row">
+                <form id="cadUsuario" class="row" method="post" action="../server/cadastro_user.php">
 
                   <div class="col l12">
 
@@ -197,7 +197,7 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                         <a href="#" style="cursor: pointer;" id="voltaStep3">
                           <span class="col l4 offset-l1 s8 offset-s2 proximoPasso">Passo Anterior</span>
                         </a>
-                        <input id="salvar" class="col l4 offset-l2" type="submit" name="enviar" value="Criar conta">
+                        <input  class="col l4 offset-l2" type="submit" name="enviar" value="Criar conta">
                       </div>
                       
                     </div>
@@ -289,9 +289,8 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                       async: true,
                       data: dados,
                       success: function(response) {
-                          alert(response);
                           if(response==0){
-                            $('#progresso').css({'width':'100%'});         
+                            $('#progresso').css({'width':'100%'});       
                             location.href='../dashboard/'  //Redireciona
                           } else if (response==1){
                             alert("Preencha todos os campos!");
