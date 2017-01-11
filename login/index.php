@@ -289,6 +289,7 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                       async: true,
                       data: dados,
                       success: function(response) {
+                          alert(response);
                           if(response==0){
                             $('#progresso').css({'width':'100%'});       
                             location.href='../dashboard/'  //Redireciona
