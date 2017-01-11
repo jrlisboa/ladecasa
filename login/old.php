@@ -115,86 +115,89 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
                     <div id="step1">
 
-                      <h5 style="font-size: 20px; margin-bottom: 20px; ">Dados pessoais</h5>
+                      <h5 style="font-size: 20px;">Dados pessoais</h5>
 
-                      <div class="col l6">
-                        <span class="spanCadastro">Nome:</span>
-                        <input type="text" name="nome" id="nome">
+                      <span class="spanCadastro">Nome:</span>
+                      <input type="text" name="nome" id="nome">
 
-                        <span class="spanCadastro">Sobrenome:</span>
-                        <input type="text" name="sobrenome">
+                      <span class="spanCadastro">Sobrenome:</span>
+                      <input type="text" name="sobrenome">
+
+                      <span class="spanCadastro">Data de nascimento:</span>
+                      <input type="date" name="nascimento">                     
+
+                      <span class="spanCadastro">CPF:</span>
+                      <input type="text" name="cpf" id="cpf" size="12" maxlength="11">
+
+                      <div class="btnBottom row" align="center">
+                        <a href="#" style="cursor: pointer;" id="forStep2"><span class="col l6 offset-l3 s8 offset-s2 proximoPasso">Próximo Passo</span></a>
                       </div>
-                      <div class="col l6">
-                        <span class="spanCadastro">Data de nascimento:</span>
-                        <input type="date" name="nascimento">                     
-
-                        <span class="spanCadastro">CPF:</span>
-                        <input type="text" name="cpf" id="cpf" size="12" maxlength="11">
-                      </div>
-
-                      
-                      
                     </div>
 
-                    <div id="step2" >
-                      <h5 style="font-size: 20px; margin-bottom: 20px; ">Dados do escritório</h5>
+                    <div id="step2" hidden>
+                      <h5 style="font-size: 20px;">Dados do escritório</h5>
 
-                      <div class="col l6">
-                        <span>Cidade do escritório:</span>
-                        <input type="text" name="cidade" >
+                      <span>Cidade do escritório:</span>
+                      <input type="text" name="cidade" >
 
-                        <span>Bairro do escritório:</span>
-                        <input type="text" name="bairro">
+                      <span>Bairro do escritório:</span>
+                      <input type="text" name="bairro">
+
+                      <span>Rua do escritório:</span>
+                      <input type="text" name="rua" >
+
+                      <span>Número do escritório:</span>
+                      <input type="number" name="numero">
+
+                      <span>Complemento: (Opcional)</span>
+                      <input type="text" name="complemento" >
+
+                      <div class="btnBottom row" align="center">
+                        <a href="#" style="cursor: pointer;" id="voltaStep1">
+                          <span class="col l4 offset-l1 s8 offset-s2 proximoPasso">Passo Anterior</span>
+                        </a>
+                        <a  href="#" style="cursor: pointer;" id="forStep3">
+                          <span class="col l4 offset-l2 s8 offset-s2 proximoPasso">Próximo Passo</span>
+                        </a>
                       </div>
-                      <div class="col l6">
-                        <span>Rua do escritório:</span>
-                        <input type="text" name="rua" >
-
-                        <span>Número do escritório:</span>
-                        <input type="number" name="numero">
-                      </div>
-
-                      <div class="col l12">
-                        <span>Complemento: (Opcional)</span>
-                        <input type="text" name="complemento" >
-                      </div>
-                      
-
-                      
                     </div>
 
-                    <div id="step3">
-                      <h5 style="font-size: 20px; margin-bottom: 20px;">Dados de contato</h5>
+                    <div id="step3" hidden>
+                      <h5 style="font-size: 20px;">Dados de contato</h5>
 
-                      <div class="col l6">
-                        <span>Telefone:</span>
-                        <input type="number" name="telefone">
-                      </div>
-                      <div class="col l6">
-                        <span>Ramal:</span>
-                        <input type="number" name="ramal">
-                      </div>
-                      <div class="col l12">
-                        <span>Nome da Empresa:</span>
-                        <input type="text" name="empresa" id="empresa">
-                      </div>
+                      <span>Telefone:</span>
+                      <input type="number" name="telefone">  
 
+                      <span>Ramal:</span>
+                      <input type="number" name="ramal">
+
+                      <span>Nome da Empresa:</span>
+                      <input type="text" name="empresa" id="empresa">
+
+                      <div class="btnBottom row" align="center">
+                        <a href="#" style="cursor: pointer;" id="voltaStep2">
+                          <span class="col l4 offset-l1 s8 offset-s2 proximoPasso">Passo Anterior</span>
+                        </a>
+                        <a  href="#" style="cursor: pointer;" id="forStep4">
+                          <span class="col l4 offset-l2 s8 offset-s2 proximoPasso">Próximo Passo</span>
+                        </a>
+                      </div>
                     </div>
 
-                    <div id="step4">
-                      <h5 style="font-size: 20px; margin-bottom: 20px;">Dados cadastrais</h5>
+                    <div id="step4" hidden>
+                      <h5 style="font-size: 20px;">Dados cadastrais</h5>
 
-                      <div class="col l6">
-                        <span>Email:</span>
-                        <input type="text" name="email">
-                      </div>
-                      <div class="col l6">
-                        <span>Crie sua senha:</span>
-                        <input type="password" name="senha" id="senha">
-                      </div>
+                      <span>Email:</span>
+                      <input type="text" name="email">
 
-                      <div class="btnBottom row" align="center" >
-                        <input style="margin-top: 20px !important;" id="salvar" class="col l4 offset-l4" type="submit" name="enviar" value="Criar conta">
+                      <span>Crie sua senha:</span>
+                      <input type="password" name="senha" id="senha">
+
+                      <div class="btnBottom row" align="center">
+                        <a href="#" style="cursor: pointer;" id="voltaStep3">
+                          <span class="col l4 offset-l1 s8 offset-s2 proximoPasso">Passo Anterior</span>
+                        </a>
+                        <input id="salvar" class="col l4 offset-l2" type="submit" name="enviar" value="Criar conta">
                       </div>
                       
                     </div>
