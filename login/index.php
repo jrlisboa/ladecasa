@@ -127,7 +127,7 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                       <input type="date" name="nascimento">                     
 
                       <span class="spanCadastro">CPF:</span>
-                      <input type="text" name="cpf" id="cpf" size="12" maxlength="14"  OnKeyPress="formatar('###.###.###-##', this)">
+                      <input type="text" name="cpf" id="cpf" size="12" maxlength="11">
 
                       <div class="btnBottom row" align="center">
                         <a href="#" style="cursor: pointer;" id="forStep2"><span class="col l6 offset-l3 s8 offset-s2 proximoPasso">Próximo Passo</span></a>
@@ -140,7 +140,7 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                       <span>Cidade do escritório:</span>
                       <input type="text" name="cidade" >
 
-                      <span>Bairo do escritório:</span>
+                      <span>Bairro do escritório:</span>
                       <input type="text" name="bairro">
 
                       <span>Rua do escritório:</span>
@@ -251,27 +251,62 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
           ///////// cadastro do usuario
           $('#salvar').click(function() {
 
+            var cpf = $('#cpf').val();
 
-            var dados = $('#cadUsuario').serialize();
-            var concluido = $.ajax({
-                type: 'POST',
-                dataType: 'json',
-                url: '../server/cadastro_user.php',
-                async: true,
-                data: dados,
-                success: function(response) {
-                    if(response==0){
-                      $('#progresso').css({'width':'100%'});       
-                      location.href='../dashboard/'  //Redireciona
-                    } else if (response==1){
-                      alert("Preencha todos os campos!");
-                    }else if(response==2){
-                      alert("Este email já está sendo utilizado, faça o login!");
-                    }else if(response==3){
-                      alert("Este CPF já está cadastrado!");
-                    }
+            function TestaCPF(strCPF) {
+                var Soma;
+                var Resto;
+                var erros;
+                Soma = 0;
+                erros = 0;
+
+              if (strCPF == "00000000000"){
+                erros++;
+              }
+                
+              for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
+              Resto = (Soma * 10) % 11;
+              
+                if ((Resto == 10) || (Resto == 11))  Resto = 0;
+                if (Resto != parseInt(strCPF.substring(9, 10)) ) erros++;
+              
+              Soma = 0;
+                for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
+                Resto = (Soma * 10) % 11;
+              
+                if ((Resto == 10) || (Resto == 11))  Resto = 0;
+                if (Resto != parseInt(strCPF.substring(10, 11) ) ) erros++;
+
+                if (erros > 0) {
+                  alert("CPF Inválido!");
+                }else{
+
+                  var dados = $('#cadUsuario').serialize();
+                  var concluido = $.ajax({
+                      type: 'POST',
+                      dataType: 'json',
+                      url: '../server/cadastro_user.php',
+                      async: true,
+                      data: dados,
+                      success: function(response) {
+                          if(response==0){
+                            $('#progresso').css({'width':'100%'});       
+                            location.href='../dashboard/'  //Redireciona
+                          } else if (response==1){
+                            alert("Preencha todos os campos!");
+                          }else if(response==2){
+                            alert("Este email já está sendo utilizado, faça o login!");
+                          }else if(response==3){
+                            alert("Este CPF já está cadastrado!");
+                          }
+                      }
+                  });
+
                 }
-            });
+                
+            }
+
+            TestaCPF(cpf);
             return false;
           });
 

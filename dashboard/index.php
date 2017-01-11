@@ -197,7 +197,7 @@ if ($_SESSION['plano']== 1) {
                       <img style="margin-top: 5px" class="col l2 offset-l1 s4 offset-s4" src="../img/icones/settings.svg">
                     </div>
                     <div class="card-action dashAction">                    
-                      <a class="white-text" style="cursor: pointer;" onclick="javascript:introJs().start();">Vamos lá!</a>
+                      <a class="white-text" style="cursor: pointer;" onclick="javascript:introJs().start();">Saiba Mais!</a>
                     </div>
 
                    <?php }else{ ?>
@@ -211,7 +211,7 @@ if ($_SESSION['plano']== 1) {
                       <img style="margin-top: 5px" class="col l2 offset-l1 s4 offset-s4" src="../img/icones/credit-card.svg">
                     </div>
                     <div class="card-action dashAction">                    
-                      <a class="white-text" href="../pagamento/">Vamos lá!</a>
+                      <a class="white-text" href="../pagamento/">Saiba Mais!</a>
                     </div>
 
                    <?php } ?>

@@ -113,6 +113,7 @@ $pagina =
 		
 		<table cellspacing='0'>
 			<tr id='cima'>
+				<td>Data de Cadastro:</td>
 				<td>Período:</td>
 				<td>Forma de Pagamento:</td>
 				<td>Data de Pagamento:</td>
@@ -120,6 +121,7 @@ $pagina =
 				<td>Embalagem:</td>
 			</tr>
 			<tr>
+				<td>".date('d/m/Y', strtotime($pegou['data_cadastro'])) ."</td>
 				<td>".$periodo ."</td>
 				<td>".$pagamento ."</td>
 				<td>".$data_pagamento ."</td>

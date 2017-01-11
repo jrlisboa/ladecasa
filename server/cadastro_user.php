@@ -16,6 +16,7 @@
 	$imagem = 'perfil.jpg';
 	$email = $_POST['email'];
 	$senha = utf8_decode($_POST['senha']);
+	$cadastro = date("Y/m/d", time());
 
 	$erros = 0;
 
@@ -59,8 +60,8 @@
 			if (@mysql_num_rows($resultadosEmail) == 0){
 
 				//CADASTRANDO O NOVO USUÁRIO
-				$sql = "INSERT INTO user (nome, sobrenome, cidade, bairro, rua, numero, complemento, telefone, ramal, empresa, cpf, nascimento, imagem, email, senha) 
-			    VALUES ('$nome', '$sobrenome', '$cidade', '$bairro', '$rua', '$numero', '$complemento', '$telefone', '$ramal', '$empresa', '$cpf', '$nascimento', '$imagem', '$email', '$senha')";
+				$sql = "INSERT INTO user (nome, sobrenome, cidade, bairro, rua, numero, complemento, telefone, ramal, empresa, cpf, nascimento, imagem, email, senha, data_cadastro) 
+			    VALUES ('$nome', '$sobrenome', '$cidade', '$bairro', '$rua', '$numero', '$complemento', '$telefone', '$ramal', '$empresa', '$cpf', '$nascimento', '$imagem', '$email', '$senha', '$cadastro')";
 			    mysql_query($sql) or die(error());
 
 

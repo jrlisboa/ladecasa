@@ -7,6 +7,11 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
 include 'server/conecta.php';
 $id_cliente = $_GET['id'];
+
+
+$mudando = "UPDATE user SET novo_user = 1 WHERE id='$id_cliente'";
+$vamo = mysql_query($mudando);
+
 ?>
 
 
@@ -161,6 +166,7 @@ $id_cliente = $_GET['id'];
                       <li class="collection-item"><div>Complemento: <?= $pegou['complemento'] ?></div></li>
                       <li class="collection-item"><div>Empresa: <?= $pegou['empresa'] ?></div></li>
                       <li class="collection-item"><div>CPF: <?= $pegou['cpf'] ?></div></li>
+                      <li class="collection-item"><div>Data de cadastro: <?= date('d/m/Y', strtotime($pegou['data_cadastro'])) ?></div></li>
                     </ul>
                   </p>
                 </div>

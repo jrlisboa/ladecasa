@@ -4,6 +4,8 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
         session_destroy();            //Destroi a seção por segurança
         header("Location: index.php"); exit; //Redireciona o visitante para login
 }
+
+error_reporting(0);
 ?>
 
 
@@ -50,20 +52,9 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
       <div class="container">
         <h2 align="center">Clientes</h2>
 
-        <form class="row" method="get" action="busca_clientes.php">
-          <select class="col l2 offset-l2" name="tipo_busca">
-            <option value="" disabled selected>Tipo de busca</option>
-            <option value="0">Buscar por Nome</option>
-            <option value="1">Buscar por CPF</option>
-          </select>
-
-          <div class="input-field col l4" style="margin-top: 0px;">
-            <input id="first_name" type="text" class="validate" name="busca">
-            <label for="first_name">Pesquisar</label>
-          </div>
-          
-          <input style="margin-top: 10px; margin-left: 20px;" type="submit" class="btn blue white-text col l2 " name="buscar" value="Buscar">
-        </form>        
+        <div class="row">
+          <a href="clientes.php" class="btn blue white-text col l4 offset-l4">Ver todos os clientes!</a>
+        </div>
 
         <div class="row">
 
@@ -84,9 +75,17 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
               <?php 
 
               include('server/conecta.php');
+              $tipo_busca = $_GET['tipo_busca'];
+              $busca = $_GET['busca'];
 
-              $qryLista = "SELECT * FROM user ORDER BY id DESC";
-              $sql = mysql_query($qryLista) or die(mysql_error());
+              if ($tipo_busca == 0) {
+                $qryLista = "SELECT * FROM user WHERE nome LIKE '%".$busca."%' ORDER BY id DESC";
+                $sql = mysql_query($qryLista) or die(mysql_error());
+              }else{
+                $qryLista = "SELECT * FROM user WHERE cpf LIKE '%".$busca."%' ORDER BY id DESC";
+                $sql = mysql_query($qryLista) or die(mysql_error());
+              }
+              
               while ($resultado = mysql_fetch_array($sql)) {
 
                 if ($resultado['novo_user'] == 0) {
@@ -159,8 +158,6 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
         $( document ).ready(function(){
           $(".button-collapse").sideNav();
           $('ul.tabs').tabs();
-
-          $('select').material_select();
 
           $('input[type=file]').change(function() {
              $('label').text("Arquivo Selecionado");

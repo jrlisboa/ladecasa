@@ -79,7 +79,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
           </div>
 
           <div class="textTopo col l12">
-            <span>Levamos um lanchinho até você<br>Porquê a gente se preocupa com a sua saúde</span>
+            <span>Levamos um lanchinho até você<br>Porque a gente se preocupa com a sua saúde</span>
           </div>
 
           <div class="divisor col l4 offset-l4"></div>
