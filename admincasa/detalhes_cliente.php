@@ -165,6 +165,7 @@ $vamo = mysql_query($mudando);
                       <li class="collection-item"><div>Número: <?= $pegou['numero'] ?></div></li>
                       <li class="collection-item"><div>Complemento: <?= $pegou['complemento'] ?></div></li>
                       <li class="collection-item"><div>Empresa: <?= $pegou['empresa'] ?></div></li>
+                      <li class="collection-item"><div>Departamento: <?= $pegou['departamento'] ?></div></li>
                       <li class="collection-item"><div>CPF: <?= $pegou['cpf'] ?></div></li>
                       <li class="collection-item"><div>Data de cadastro: <?= date('d/m/Y', strtotime($pegou['data_cadastro'])) ?></div></li>
                     </ul>

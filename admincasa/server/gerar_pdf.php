@@ -91,8 +91,7 @@ $pagina =
 				<td>Bairro:</td>
 				<td>Rua:</td>
 				<td>Número:</td>
-				<td>Complemento:</td>
-				<td>Empresa:</td>
+				<td>Complemento:</td>				
 				<td>CPF:</td>
 			</tr>
 			<tr>
@@ -103,7 +102,6 @@ $pagina =
 				<td>". $pegou['rua'] ."</td>
 				<td>".$pegou['numero']."</td>
 				<td>".$complemento ."</td>
-				<td>".$pegou['empresa'] ."</td>
 				<td>". $pegou['cpf'] ."</td>
 			</tr>
 		</table><br>	
@@ -138,11 +136,15 @@ $pagina =
 				<td>Ramal:</td>
 				<td>Telefone:</td>
 				<td>Email:</td>
+				<td>Empresa:</td>
+				<td>Departamento:</td>
 			</tr>
 			<tr>
 				<td>". $pegou['ramal'] ."</td>
 				<td>". $pegou['telefone'] ."</td>
 				<td>". $pegou['email'] ."</td>
+				<td>". $pegou['empresa'] ."</td>
+				<td>". $pegou['departamento'] ."</td>
 			</tr>
 		</table><br>
 

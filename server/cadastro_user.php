@@ -11,6 +11,7 @@
 	$telefone = $_POST['telefone'];
 	$ramal = $_POST['ramal'];
 	$empresa = utf8_decode($_POST['empresa']);
+	$departamento = utf8_decode($_POST['departamento']);
 	$cpf = $_POST['cpf'];
 	$nascimento = $_POST['nascimento'];
 	$imagem = 'perfil.jpg';
@@ -38,6 +39,8 @@
 		$erros++;
 	}else if (empty($empresa)) {
 		$erros++;
+	}else if (empty($departamento)) {
+		$erros++;
 	}else if (empty($cpf)) {
 		$erros++;
 	}else if (empty($nascimento)) {
@@ -60,8 +63,8 @@
 			if (@mysql_num_rows($resultadosEmail) == 0){
 
 				//CADASTRANDO O NOVO USUÁRIO
-				$sql = "INSERT INTO user (nome, sobrenome, cidade, bairro, rua, numero, complemento, telefone, ramal, empresa, cpf, nascimento, imagem, email, senha, data_cadastro) 
-			    VALUES ('$nome', '$sobrenome', '$cidade', '$bairro', '$rua', '$numero', '$complemento', '$telefone', '$ramal', '$empresa', '$cpf', '$nascimento', '$imagem', '$email', '$senha', '$cadastro')";
+				$sql = "INSERT INTO user (nome, sobrenome, cidade, bairro, rua, numero, complemento, telefone, ramal, empresa, departamento, cpf, nascimento, imagem, email, senha, data_cadastro) 
+			    VALUES ('$nome', '$sobrenome', '$cidade', '$bairro', '$rua', '$numero', '$complemento', '$telefone', '$ramal', '$empresa', '$departamento', '$cpf', '$nascimento', '$imagem', '$email', '$senha', '$cadastro')";
 			    mysql_query($sql) or die(mysql_error());
 
 
