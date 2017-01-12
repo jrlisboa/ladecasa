@@ -39,6 +39,7 @@
 		$_SESSION['pagseguro']=$res['pagseguro'];
 		$_SESSION['forma_pagamento']=$res['forma_pagamento'];
 		$_SESSION['embalagem']=$res['tipo_embalagem'];
+		$_SESSION['nivel']=$res['nivel'];
 
 		exit;	
 	}

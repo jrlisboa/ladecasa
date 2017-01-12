@@ -4,6 +4,11 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
           
         header("Location: galeria.php"); exit; //Redireciona o visitante para login
 }
+
+if ($_SESSION['nivel'] != 3) {
+  session_destroy();
+  header("Location: index.php"); exit;
+}
 ?>
 
 

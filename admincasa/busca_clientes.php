@@ -5,6 +5,11 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
         header("Location: index.php"); exit; //Redireciona o visitante para login
 }
 
+if ($_SESSION['nivel'] != 3) {
+  session_destroy();
+  header("Location: index.php"); exit;
+}
+
 error_reporting(0);
 ?>
 
