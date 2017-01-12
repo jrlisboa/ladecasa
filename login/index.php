@@ -145,6 +145,9 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
                         <span>Bairro do escritório:</span>
                         <input type="text" name="bairro">
+
+                        <span>Complemento: (Opcional)</span>
+                        <input type="text" name="complemento" >
                       </div>
                       <div class="col l6">
                         <span>Rua do escritório:</span>
@@ -152,14 +155,10 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
                         <span>Número do escritório:</span>
                         <input type="number" name="numero">
-                      </div>
 
-                      <div class="col l12">
-                        <span>Complemento: (Opcional)</span>
-                        <input type="text" name="complemento" >
+                        <span>Departamento:</span>
+                        <input type="text" name="departamento" >
                       </div>
-                      
-
                       
                     </div>
 
