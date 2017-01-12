@@ -103,7 +103,6 @@ if ($_SESSION['nivel'] != 3) {
                     include('server/conecta.php');
                     $qryLista = "SELECT * FROM tipo";
                     $sql = mysql_query($qryLista) or die(mysql_error());
-                    $res=mysql_fetch_array($sql);
                     if (@mysql_num_rows($sql) == 0){
                       echo 0;
                     }else{
