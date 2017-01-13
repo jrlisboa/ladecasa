@@ -87,7 +87,7 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                   <span>Senha:</span>
                   <input id="senhaLogin" type="password" name="senha">
 
-                  <a href="recuperacao.php" align="right" class="blue-text">Esqueci minha senha</a>
+                  <a href="recuperacao.php" class="blue-text white">Esqueci minha senha</a>
 
                   <input id="fazerLogin" type="submit" name="enviar" value="Entrar">
                 </form>
