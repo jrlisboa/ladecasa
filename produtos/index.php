@@ -147,7 +147,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
           
 
           <div class="btnBottom row" align="center">
-            <span class="col l2 offset-l5 s6 offset-s3 produtosCadastro">Cadastre-se para pedir</span>
+            <a href="../login"><span class="col l2 offset-l5 s6 offset-s3 produtosCadastro">Cadastre-se para pedir</span></a>
           </div>
         
       </div>
@@ -176,8 +176,8 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
               <div class="col l3 offset-l1 s12">
                 <h5 class="white-text">Contas:</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Cadastre-se</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Faça o Login</a></li>
+                  <li><a class="grey-text text-lighten-3" href="../login/">Cadastre-se</a></li>
+                  <li><a class="grey-text text-lighten-3" href="../login/">Faça o Login</a></li>
                 </ul>
               </div>
 
