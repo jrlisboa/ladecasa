@@ -137,23 +137,23 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                     </div>
 
                     <div id="step2" >
-                      <h5 style="font-size: 20px; margin-bottom: 20px; ">Dados do escritório</h5>
+                      <h5 style="font-size: 20px; margin-bottom: 20px; ">Dados de localização</h5>
 
                       <div class="col l6">
-                        <span>Cidade do escritório:</span>
+                        <span>Cidade:</span>
                         <input type="text" name="cidade" >
 
-                        <span>Bairro do escritório:</span>
+                        <span>Bairro:</span>
                         <input type="text" name="bairro">
 
                         <span>Complemento: (Opcional)</span>
                         <input type="text" name="complemento" >
                       </div>
                       <div class="col l6">
-                        <span>Rua do escritório:</span>
+                        <span>Rua:</span>
                         <input type="text" name="rua" >
 
-                        <span>Número do escritório:</span>
+                        <span>Número:</span>
                         <input type="number" name="numero">
 
                         <span>Departamento:</span>
@@ -174,7 +174,7 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                         <input type="number" name="ramal">
                       </div>
                       <div class="col l12">
-                        <span>Nome da Empresa:</span>
+                        <span>Empresa onde trabalha:</span>
                         <input type="text" name="empresa" id="empresa">
                       </div>
 
