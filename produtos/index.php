@@ -164,12 +164,12 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
               <div class="col l4 s12">
                 <h5 class="white-text">Menu:</h5>
                 <ul>
-                  <li><a href="../#">Home</a></li>
-                  <li><a href="../#comofunciona">Como funciona</a></li>
-                  <li><a href="../#quemsomos">Quem Somos</a></li>
-                  <li><a href="../#ondeestamos">Onde estamos</a></li>
-                  <li><a href="../menus">Cardápios</a></li>
-                  <li><a href="../login">Login</a></li>
+                  <li><a class="white-text" href="../#">Home</a></li>
+                  <li><a class="white-text" href="../#comofunciona">Como funciona</a></li>
+                  <li><a class="white-text" href="../#quemsomos">Quem Somos</a></li>
+                  <li><a class="white-text" href="../#ondeestamos">Onde estamos</a></li>
+                  <li><a class="white-text" href="../menus">Cardápios</a></li>
+                  <li><a class="white-text" href="../login">Login</a></li>
                 </ul>
               </div>
 
