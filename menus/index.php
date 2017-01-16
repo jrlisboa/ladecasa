@@ -102,9 +102,10 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
               
                 <a href="../produtos/index.php?menu=<?= $res['id'] ?>" class="col l3 s12 linkMenu">
                   <div class="btnItem">
+                  <span class="col l8 offset-l2 s8 offset-s2 chip green chipmenu">&cong; R$<?= $res['diario'] ?>,00 / dia</span>
                     <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
                     <span class="col l12 s12">Menu <?= $res['nome'] ?></span>
-                    <span class="col l8 offset-l2 s8 offset-s2 chip green chipmenu">&cong; R$<?= $res['diario'] ?>,00 / dia</span>
+
                   </div>
                 </a>
 
