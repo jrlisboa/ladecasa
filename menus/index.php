@@ -104,6 +104,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                   <div class="btnItem">
                     <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
                     <span class="col l12 s12">Menu <?= $res['nome'] ?></span>
+                    <span class="col l8 s8 chip green">Menu <?= $res['nome'] ?></span>
                   </div>
                 </a>
 
