@@ -112,7 +112,7 @@ include '../server/conecta.php';
                               if (!in_array($id_produto, $foram)) {
                                                     
                             ?>
-                              <div class="btnProduto btnItem4Produto col l3 s6">
+                              <div class="btnProduto btnItem4Produto col l3 s6" style="margin-bottom: 100px !important;">
                                 <!--<div class="col l12 s12 saberMais">Saber mais</div>-->
                                 <div class="col l12 s12 imgProduto favProduto"><img src="../img/produtos/<?= $resultado['imagem'] ?>"></div>
                                 <a href="../server/favoritar.php?id=<?= $resultado['id'] ?>"><div class="col l12 s12 red saberMais">Favoritar</div></a>                                
