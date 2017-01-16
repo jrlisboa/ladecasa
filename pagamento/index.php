@@ -128,14 +128,14 @@ include "../server/conecta.php";
                       $vaila = mysql_query($seleciona);
                       $rolmes = mysql_fetch_array($vaila);
 
-                      echo '<li class="collection-item" style="font-size: 25px !important">Valor: R$'.number_format($rolmes['quinzenal'], 2, ',', '.');.'</li>';
+                      echo '<li class="collection-item" style="font-size: 25px !important">Valor: R$'.number_format($rolmes['quinzenal'], 2, ',', '.').'</li>';
                     }elseif ($_SESSION['plano'] == 2) {
 
                       $seleciona = "SELECT * FROM menu WHERE id='$menu_user'";
                       $vaila = mysql_query($seleciona);
                       $rolmes = mysql_fetch_array($vaila);
 
-                      echo '<li class="collection-item" style="font-size: 25px !important">Valor: R$'.number_format($rolmes['mensal'], 2, ',', '.');.'</li>';
+                      echo '<li class="collection-item" style="font-size: 25px !important">Valor: R$'.number_format($rolmes['mensal'], 2, ',', '.').'</li>';
                     }
                   ?>
 
