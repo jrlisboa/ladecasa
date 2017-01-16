@@ -134,31 +134,9 @@ if ($_SESSION['plano']== 1) {
             <li>
               <h5 class="white-text center"><?= $_SESSION['nomeUsuario'] ?> <?= $_SESSION['sobrenome'] ?></h5>
             </li>
-
-            <?php
-            if ($_SESSION['pagamento'] == 0) {
-              if ($_SESSION['plano'] == 0 | $_SESSION['menu'] == 0 | $_SESSION['periodo'] == 0 | $_SESSION['embalagem'] == 0) { ?>
-
-              <li>
-                <div class="btnNovoPedido"><a href="#" onclick="Materialize.toast('Configure suas opções do sistema!', 4000)" class="btn-small col l10 offset-l1">Pagamento</a></div>
-              </li>
-
-              <?php
-              }else{?>
-
-              <li>
-                <div class="btnNovoPedido"><a href="../pagamento/" class="btn-small col l10 offset-l1">Pagamento</a></div>
-              </li>
-
-            <?php
-              }
-            }else{ ?>
-
-              <li>
-                <div class="btnNovoPedido"><a href="../favoritos" class="btn-small col l10 offset-l1">Favoritos</a></div>
-              </li>
-
-            <?php } ?>
+            <li>
+              <div class="btnNovoPedido"><a href="../favoritos" class="btn-small col l10 offset-l1">Favoritos</a></div>
+            </li>
             
             <li class="categoriaSide card firstCard grey darken-4 white-text row">
               <span class="col l12 s12 tituloEditaveis">Rua:</span>
