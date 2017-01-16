@@ -670,6 +670,12 @@ if ($_SESSION['plano']== 1) {
                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
               </div>
           </div>
+
+       <div class="fixed-action-btn horizontal click-to-toggle">
+        <a class="btn-floating btn-large red tooltipped" data-position="top" data-delay="50" data-tooltip="Contato">
+          <i class="material-icons">chat_bubble</i>
+        </a>
+      </div>
         
       </div>
 
