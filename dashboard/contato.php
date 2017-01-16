@@ -110,6 +110,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
       <script type="text/javascript">
         ///////// login
           $('#formRecupera').submit(function(){  //Ao submeter formulário
+
             var assunto=$('#assunto').val();
             var mensagem=$('#mensagem').val();
             $.ajax({      //Função AJAX
@@ -118,10 +119,10 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
               data: "assunto="+assunto+"&mensagem="+mensagem, //Dados
                 success: function (result){
                             //alert(result);//Sucesso no AJAX
-                            if(result==1){            
+                            if(result==1){    
+                              $('#assunto').val("");
+                              $('#mensagem').val("");        
                               alert('Mensagem enviada com sucesso!');
-                              $('#assunto').text("");
-                              $('#mensagem').text("");
                             }
                             if(result==0){
                               alert('Erro ao enviar mensagem!');
