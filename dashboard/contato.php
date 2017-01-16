@@ -121,7 +121,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                             //alert(result);//Sucesso no AJAX
                             if(result==1){    
                               $('#assunto').val("");
-                              $('#mensagem').val("");        
+                              $('#mensagem').val("");
                               alert('Mensagem enviada com sucesso!');
                             }
                             if(result==0){
