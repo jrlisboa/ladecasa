@@ -76,7 +76,7 @@ include 'server/conecta.php';
                     <input type="text" name="diario" class="col l12" placeholder="Valor Diário.">
                     <input type="text" name="quinzenal" class="col l12" placeholder="Valor Quinzenal.">
                     <input type="text" name="mensal" class="col l12" placeholder="Valor Mensal.">
-                    <input type="color" name="favcolor" value="#ff0000" style="margin-bottom: 20px !important" placeholder="Selecione uma cor">
+                    <span style="margin-right: 20px;">Selecione uma Cor:</span> <input type="color" name="cor" value="#ff0000" style="margin-bottom: 20px !important;">
                     <input style="margin-top: 5px; margin-bottom: -10px;" type="submit" name="enviar" value="Adicionar" class="btn col l12  blue white-text">
                   </div>
                 </form>              
