@@ -147,7 +147,7 @@ include "../server/conecta.php";
           </div>
 
           <div class="col l4 s12 menus pagao">
-            <div class="tituloMenus tituloPagamentos maquinatit" style="height: 10vh !important">
+            <div class="tituloMenus tituloPagamentos maquinatit">
               <h4>Pagamento no ato do 1º Recebimento</h4>
             </div>
             

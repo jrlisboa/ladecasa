@@ -1949,7 +1949,7 @@
 
   		background-color: #b7b7b7;
   		margin-top: 10px;
-  		padding-top: 10px !important;
+  		padding-top: 20px !important;
   		height: 200px !important;
   		-webkit-transition: 0.2s; /* Safari */
     	transition: 0.2s;
@@ -2171,6 +2171,10 @@
 
   		height: 22vh;margin-top: 0px; text-align: left;
   	}
+
+    .maquinatit{
+      height: 12vh !important;
+    }
 
   	.imagemPag{
   		margin-top: 30px; width: 100%; background-color: white; padding: 20px 10px 20px 10px; border-radius: 5px;
