@@ -1,19 +1,20 @@
-<?php   
-  // emails para quem será enviado o formulário
-  $emailenviar = "seuemail@seudominio.com.br";
-  $destino = $_POST['email'];
-  $assunto = "Lá de casa | Recuperar senha";
+<?php
+	include 'conecta.php';
+	$email    = $_POST['email'];
 
-  // É necessário indicar que o formato do e-mail é html
-  $headers  = 'MIME-Version: 1.0' . "\r\n";
-      $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-      $headers .= 'From: $nome <$email>';
-  //$headers .= "Bcc: $EmailPadrao\r\n";
-  
-  $enviaremail = mail($destino, $assunto, $arquivo, $headers);
-  if($enviaremail){  	
-  	echo 1;
-  } else {
-  	echo 0;
-  }
+	$select = "SELECT * FROM user WHERE email = '$email'";
+	$query = mysql_query($select);
+	$dados = mysql_fetch_array($query);
+	if (mysql_num_rows($query) == 0) {
+		echo 0;
+	}else{
+		$corpo  = "Obrigado por utilizar o sistema Lá de Casa<BR>\n";
+	  $corpo .= "<BR>\n";
+	  $corpo .= "Sua senha é: ".$dados['senha']."<BR>\n";
+	  if(mail($email,"Assunto",$corpo)){
+		echo 1;
+	  } else {
+		echo 0;
+	  }
+	}
 ?>
