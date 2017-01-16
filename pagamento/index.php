@@ -135,7 +135,7 @@ include "../server/conecta.php";
                       $vaila = mysql_query($seleciona);
                       $rolmes = mysql_fetch_array($vaila);
 
-                      echo '<li class="collection-item" style="font-size: 25px !important">Valor: R$'.$rolmes['mensal'].',00</li>';
+                      echo '<li class="collection-item" style="font-size: 25px !important">Valor: R$'.number_format($rolmes['mensal'], 2, ',', '.');.'</li>';
                     }
                   ?>
 
