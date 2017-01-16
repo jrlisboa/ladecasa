@@ -8,10 +8,10 @@
 	if (mysql_num_rows($query) == 0) {
 		echo 0;
 	}else{
-		$corpo  = "Obrigado por utilizar o sistema Lá de Casa<BR>\n";
-	  $corpo .= "<BR>\n";
-	  $corpo .= "Sua senha é: ".$dados['senha']."<BR>\n";
-	  if(mail($email,"Assunto",$corpo)){
+		$corpo  = "Obrigado por utilizar o sistema Lá de Casa\n";
+	  $corpo .= "\n";
+	  $corpo .= "Sua senha é: ".$dados['senha']."\n";
+	  if(mail($email,"Recuperação de Senha",$corpo)){
 		echo 1;
 	  } else {
 		echo 0;
