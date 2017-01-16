@@ -71,15 +71,31 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
             
 
-            <div class="tituloMenus tituloPagamentos l12 s12">
-              <h4>Ocorreu um erro</h4>
-              <span>Um erro inesperado acabou acontecendo na sua assinatura e estamos trabalhando para resolve-lo, tente novamente mais tarde!</span>
+            <div class="tituloMenus tituloPagamentos col l7 s12">
+              <h4>Recuperação de senha</h4>
+              <span>Digite seu email e CPF e em instantes enviaremos sua senha para que retorne a fazer o login.</span>
             </div>
 
-            <img src="../img/icones/fix.svg" class="col l4 offset-l4 s12">                
+            <img src="../img/icones/fix.svg" class="col l4 offset-l1 s12 salvelocos">
+
+
+            <div class="conteudoCadastro col l12 s12" style="text-align: left; margin-top: 30px !important;">
+              <form method="post" action="../server/recuperar_senha.php">
+                <span class="spanCadastro">Email:</span>
+                <input type="text" name="nome" id="nome" required>
+
+                <span class="spanCadastro">CPF:</span>
+                <input type="text" name="sobrenome" required>
+
+                <div class="btnBottom row" align="center" >
+                  <input style="margin-top: -30px !important;" id="salvar" class="col l4 offset-l4" type="submit" name="enviar" value="Enviar">
+                </div>
+              </form>
+            </div>
             
           </div>
 
+          
 
           
         </div>
