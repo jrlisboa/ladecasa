@@ -2169,8 +2169,12 @@
 
   	.tituloPagamentos{
 
-  		height: 20vh;margin-top: 0px; text-align: left;
+  		height: 22vh;margin-top: 0px; text-align: left;
   	}
+
+    .maquinatit{
+      height: 12vh !important;
+    }
 
   	.imagemPag{
   		margin-top: 30px; width: 100%; background-color: white; padding: 20px 10px 20px 10px; border-radius: 5px;
@@ -2694,6 +2698,8 @@
 
       margin-bottom: 0px !important;
     }
+
+
 
     .pagao{
 
