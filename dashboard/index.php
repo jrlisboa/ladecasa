@@ -672,7 +672,7 @@ if ($_SESSION['plano']== 1) {
           </div>
 
        <div class="fixed-action-btn horizontal click-to-toggle">
-        <a class="btn-floating btn-large red tooltipped" data-position="top" data-delay="50" data-tooltip="Contato">
+        <a href="contato.php" class="btn-floating btn-large red tooltipped" data-position="top" data-delay="50" data-tooltip="Contato">
           <i class="material-icons">chat_bubble</i>
         </a>
       </div>
