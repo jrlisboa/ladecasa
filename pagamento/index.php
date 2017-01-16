@@ -111,7 +111,7 @@ include "../server/conecta.php";
 
 
 
-          <div class="col l5 s12 menus pagao">
+          <div class="col l4 s12 menus pagao">
             <div class="tituloMenus tituloPagamentos segurotit">
               <h4>Efetuar pagamento via PagSeguro:</h4>
               <span>Após o redirecionamento você poderá escolher sua forma de pagamento.</span>
@@ -123,7 +123,18 @@ include "../server/conecta.php";
           </div>
 
 
-          <div class="col l5 offset-l2 s12 menus boletao">
+          <div class="col l4 s12 menus pagao">
+            <div class="tituloMenus tituloPagamentos segurotit">
+              <h4>Pagamento no ato do 1º Recebimento</h4>
+            </div>
+
+            
+            <div class="col l12 s12 imagemPag"><img class="col s12" src="../img/icones/maquininha.png"></div>
+            
+          </div>
+
+
+          <div class="col l4 s12 menus boletao">
 
             <div class="tituloMenus tituloPagamentos">
               <h4>Pagamento via DOC<br>(Depósito em Conta):</h4>
@@ -149,7 +160,7 @@ include "../server/conecta.php";
                       $rolmes = mysql_fetch_array($vaila);
 
                       echo '<li class="collection-item" style="font-size: 25px !important">Valor: R$'.$rolmes['mensal'].',00</li>';
-                    }                    
+                    }
                   ?>
 
                   <li class="collection-item">Banco: Itaú</li>
