@@ -110,30 +110,6 @@ include "../server/conecta.php";
           </div>-->
 
 
-
-          <div class="col l4 s12 menus pagao">
-            <div class="tituloMenus tituloPagamentos segurotit">
-              <h4>Efetuar pagamento via PagSeguro:</h4>
-              <span>Após o redirecionamento você poderá escolher sua forma de pagamento.</span>
-            </div>
-
-            <a href="../server/pagseguro.php">
-              <div class="col l12 s12 imagemPag"><img class="col s12" src="../img/icones/pagseguro.png"></div>
-            </a>
-          </div>
-
-
-          <div class="col l4 s12 menus pagao">
-            <div class="tituloMenus tituloPagamentos segurotit">
-              <h4>Pagamento no ato do 1º Recebimento</h4>
-            </div>
-
-            
-            <div class="col l12 s12 imagemPag"><img class="col s12" src="../img/icones/maquininha.png"></div>
-            
-          </div>
-
-
           <div class="col l4 s12 menus boletao">
 
             <div class="tituloMenus tituloPagamentos">
@@ -169,6 +145,28 @@ include "../server/conecta.php";
                 </ul>
             </div>
           </div>
+
+
+          <div class="col l4 s12 menus pagao">
+            <div class="tituloMenus tituloPagamentos segurotit">
+              <h4>Efetuar pagamento via PagSeguro:</h4>
+              <span>Após o redirecionamento você poderá escolher sua forma de pagamento.</span>
+            </div>
+
+            <a href="../server/pagseguro.php">
+              <div class="col l12 s12 imagemPag"><img class="col s12" src="../img/icones/pagseguro.png"></div>
+            </a>
+          </div>
+
+
+          <div class="col l4 s12 menus pagao">
+            <div class="tituloMenus tituloPagamentos segurotit">
+              <h4>Pagamento no ato do 1º Recebimento</h4>
+            </div>
+            
+            <div class="col l12 s12 imagemPag"><img class="col s12" src="../img/icones/maquininha.png"></div>            
+          </div>
+
         </div>
       </div>
 
