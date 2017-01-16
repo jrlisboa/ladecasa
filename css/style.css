@@ -1950,7 +1950,7 @@
   		background-color: #b7b7b7;
   		margin-top: 10px;
   		padding-top: 20px !important;
-  		height: 200px;
+  		height: 230px;
   		-webkit-transition: 0.2s; /* Safari */
     	transition: 0.2s;
      
@@ -1991,7 +1991,7 @@
 
   	.btnItem img{
 
-  		width: 60px !important;
+  		width: 80px !important;
   	}
 
     .chipmenu{
