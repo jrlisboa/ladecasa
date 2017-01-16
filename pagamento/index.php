@@ -146,6 +146,13 @@ include "../server/conecta.php";
             </div>
           </div>
 
+          <div class="col l4 s12 menus pagao">
+            <div class="tituloMenus tituloPagamentos segurotit">
+              <h4>Pagamento no ato do 1º Recebimento</h4>
+            </div>
+            
+            <div class="col l12 s12 imagemPag"><img class="col s12" src="../img/icones/maquina.png"></div>            
+          </div>
 
           <div class="col l4 s12 menus pagao">
             <div class="tituloMenus tituloPagamentos segurotit">
@@ -156,15 +163,6 @@ include "../server/conecta.php";
             <a href="../server/pagseguro.php">
               <div class="col l12 s12 imagemPag"><img class="col s12" src="../img/icones/pagseguro.png"></div>
             </a>
-          </div>
-
-
-          <div class="col l4 s12 menus pagao">
-            <div class="tituloMenus tituloPagamentos segurotit">
-              <h4>Pagamento no ato do 1º Recebimento</h4>
-            </div>
-            
-            <div class="col l12 s12 imagemPag"><img class="col s12" src="../img/icones/maquininha.png"></div>            
           </div>
 
         </div>
