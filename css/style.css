@@ -1950,11 +1950,15 @@
   		background-color: #b7b7b7;
   		margin-top: 10px;
   		padding-top: 10px !important;
-  		height: 230px !important;
+  		height: 200px !important;
   		-webkit-transition: 0.2s; /* Safari */
     	transition: 0.2s;
      
   	}
+
+    .itemcardapios{
+      height: 230px !important;
+    }
 
   	.linkMenu{
 
