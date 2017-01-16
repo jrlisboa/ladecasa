@@ -1950,7 +1950,7 @@
   		background-color: #b7b7b7;
   		margin-top: 10px;
   		padding-top: 10px !important;
-  		height: 230px;
+  		height: 230px !important;
   		-webkit-transition: 0.2s; /* Safari */
     	transition: 0.2s;
      
