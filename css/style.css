@@ -1953,6 +1953,7 @@
   		height: 200px;
   		-webkit-transition: 0.2s; /* Safari */
     	transition: 0.2s;
+      padding-bottom: 10px !important;
   	}
 
   	.linkMenu{
@@ -1992,6 +1993,11 @@
 
   		width: 70px;
   	}
+
+    .chipmenu{
+
+      font-size: 13px;
+    }
 
 
   	.btnMenus{
