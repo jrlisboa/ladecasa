@@ -117,7 +117,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
               type:"post",        //Método de envio
               data: "assunto="+assunto+"&mensagem="+mensagem, //Dados
                 success: function (result){
-                            alert(result);//Sucesso no AJAX
+                            //alert(result);//Sucesso no AJAX
                             if(result==1){            
                               alert('Mensagem enviada com sucesso!');
                             }
