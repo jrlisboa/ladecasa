@@ -80,15 +80,14 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
 
             <div class="conteudoCadastro col l12 s12" style="text-align: left; margin-top: 30px !important;">
-              <form method="post" action="../server/recuperar_senha.php">
+              <form id="formRecupera">
                 <span class="spanCadastro">Email:</span>
-                <input type="text" name="nome" id="nome" required>
+                <input type="text" name="nome" id="email" required>
 
-                <span class="spanCadastro">CPF:</span>
-                <input type="text" name="sobrenome" required>
+                <div class="chip red white-text" id="erro" style="display: none;">Este email não está cadastrado!</div>
 
                 <div class="btnBottom row" align="center" >
-                  <input style="margin-top: -30px !important;" id="salvar" class="col l4 offset-l4" type="submit" name="enviar" value="Enviar">
+                  <input style="margin-top: -30px !important;" id="recuperar" class="col l4 offset-l4" type="submit" name="enviar" value="Enviar">
                 </div>
               </form>
             </div>
@@ -108,6 +107,27 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
         $(document).ready(function(){
           $(".button-collapse").sideNav();
         });
+      </script>
+      <script type="text/javascript">
+        ///////// login
+          $('#formRecupera').submit(function(){  //Ao submeter formulário
+            var email=$('#email').val();  //Pega valor do campo email
+            $.ajax({      //Função AJAX
+              url:"../server/recuperar_senha.php",      //Arquivo php
+              type:"post",        //Método de envio
+              data: "email="+email, //Dados
+                success: function (result){
+                            //alert(result);     //Sucesso no AJAX
+                            if(result==1){            
+                              location.href='index.php'  //Redireciona
+                            }
+                            if(result==0){
+                              $('#erro').show(100);   //Informa o erro
+                            }
+                        }
+            });
+            return false; //Evita que a página seja atualizada
+          });
       </script>
     </body>
   </html>
