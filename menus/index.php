@@ -104,7 +104,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                   <div class="btnItem itemcardapios" style="height: 230px !important">
                     <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
                     <span class="col l12 s12">Menu <?= $res['nome'] ?></span>
-                    <span class="col l8 offset-l2 s8 offset-s2 chip green chipmenu">&cong; R$<?= $res['diario'] ?>,00 / dia</span>
+                    <span class="col l8 offset-l2 s8 offset-s2 chip green chipmenu">&cong; R$<?= number_format($res['diario'], 2, ',', '.'); ?> / dia</span>
                   </div>
                 </a>
 

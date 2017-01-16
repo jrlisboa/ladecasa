@@ -458,7 +458,7 @@ if ($_SESSION['plano']== 1) {
                     <a href="../server/altera_embalagem.php?id=2" class="col l6 s12 nopad">
                       <div class="btnItem btnItemDash">
                         <div class="col l12 s12"><img src="../img/icones/garbage (1).svg"></div>
-                        <span class="col l12 s12">Embalagem Reciclável</span>
+                        <span class="col l12 s12">Embalagem Descartável</span>
                       </div>
                     </a>
 
@@ -477,7 +477,7 @@ if ($_SESSION['plano']== 1) {
                     <a href="../server/altera_embalagem.php?id=2" class="col l6 s12 nopad">
                       <div class="btnItem selectDash btnItemDash">
                         <div class="col l12 s12"><img src="../img/icones/garbage (1).svg"></div>
-                        <span class="col l12 s12">Embalagem Reciclável</span>
+                        <span class="col l12 s12">Embalagem Descartável</span>
                       </div>
                     </a>
 
@@ -495,7 +495,7 @@ if ($_SESSION['plano']== 1) {
                     <a href="../server/altera_embalagem.php?id=2" class="col l6 s12 nopad">
                       <div class="btnItem btnItemDash">
                         <div class="col l12 s12"><img src="../img/icones/garbage (1).svg"></div>
-                        <span class="col l12 s12">Embalagem Reciclável</span>
+                        <span class="col l12 s12">Embalagem Descartável</span>
                       </div>
                     </a>
                   <?php
