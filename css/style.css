@@ -1953,7 +1953,7 @@
   		height: 200px;
   		-webkit-transition: 0.2s; /* Safari */
     	transition: 0.2s;
-      padding-bottom: 10px !important;
+     
   	}
 
   	.linkMenu{
@@ -1991,12 +1991,12 @@
 
   	.btnItem img{
 
-  		width: 70px;
+  		width: 60px !important;
   	}
 
     .chipmenu{
 
-      font-size: 13px;
+      font-size: 13px !important;
     }
 
 
