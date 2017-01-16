@@ -120,6 +120,8 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                             //alert(result);//Sucesso no AJAX
                             if(result==1){            
                               alert('Mensagem enviada com sucesso!');
+                              $('#assunto').reset();
+                              $('#mensagem').reset();
                             }
                             if(result==0){
                               alert('Erro ao enviar mensagem!');
