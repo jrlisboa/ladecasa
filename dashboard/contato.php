@@ -86,7 +86,6 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                 <textarea  class="materialize-textarea" name="mensagem" id="mensagem" required></textarea>
 
                 <div class="btnBottom row" align="center" >
-                  <input style="margin-top: -30px !important;" id="recuperar" class="col l5" type="submit" name="enviar" value="Enviar">
                   <input style="margin-top: -30px !important;" id="recuperar" class="col l5 offset-l2" type="submit" name="enviar" value="Enviar">
                 </div>
               </form>
