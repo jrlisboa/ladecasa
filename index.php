@@ -227,8 +227,8 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
             <div class="telefones row">
               <div class="telText col l6 s6">
-                <span>(11) 96058 - 7920 - VIVO</span><br>
-                <span>(11) 5102-4323 - FIXO</span>
+                <span style="color: #1a1a1a !important">(11) 96058 - 7920 - VIVO</span><br>
+                <span style="color: #1a1a1a !important">(11) 5102-4323 - FIXO</span>
               </div>
               <div class="telIcon col l6 s6">
                 <img src="img/icones/whats.svg">
