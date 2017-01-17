@@ -88,6 +88,10 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
           </div>
 
           <div class="container col l6 offset-l3 s12 produtos">
+
+            <?php if ($menu == 3): ?>
+              <span class="red-text">* Não recomendado  para Celíacos </span>
+            <?php endif ?>
           
             <?php
 
