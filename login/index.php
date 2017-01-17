@@ -172,7 +172,7 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                         <input type="number" name="telefone">
                       </div>
                       <div class="col l6">
-                        <span>Celular (Opcional):</span>
+                        <span>Celular:</span>
                         <input type="number" name="celular">
                       </div>
                       <div class="col l6">
