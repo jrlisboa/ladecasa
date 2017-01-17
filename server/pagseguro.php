@@ -49,7 +49,7 @@ $menu_user = $_SESSION['menu'];
 	$data['itemAmount1'] = $rolmes['mensal'];
 	echo $rolmes['mensal']."0"; exit;
 }*/
-$data['itemAmount1'] = "270.90";
+$data['itemAmount1'] = "270.00";
 $data['itemQuantity1'] = '1';
 $data['itemWeight1'] = '0';
 
