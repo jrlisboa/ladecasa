@@ -37,14 +37,14 @@ if ($_SESSION['plano'] == 1) {
 	$seleciona = "SELECT * FROM menu WHERE id='$menu_user'";
 	$vaila = mysql_query($seleciona);
 	$rolmes = mysql_fetch_array($vaila);
-	$data['itemAmount1'] = $rolmes['quinzenal'];
+	$data['itemAmount1'] = $rolmes['quinzenal']."0";
 	
 }elseif ($_SESSION['plano'] == 2) {
 
 	$seleciona = "SELECT * FROM menu WHERE id='$menu_user'";
 	$vaila = mysql_query($seleciona);
 	$rolmes = mysql_fetch_array($vaila);
-	$data['itemAmount1'] = $rolmes['mensal'];
+	$data['itemAmount1'] = $rolmes['mensal']."0";
 	
 }
 $data['itemQuantity1'] = '1';
