@@ -505,9 +505,9 @@ if ($_SESSION['plano']== 1) {
 
                       <a style="cursor: pointer;" onclick="Materialize.toast('Você só pode alterar o menu após o vencimento do seu plano atual!', 4000)" class="col l3 s12 linkMenu" id="selectMenu">
                         <div class="btnItem selectDash btnItemDash" style="height: 230px !important">
+                          <span class="col l8 offset-l2 s8 offset-s2 chip chipmenu" style="background-color: <?= $res['cor'] ?> !important">&cong; R$<?= number_format($res['diario'], 2, ',', '.'); ?> / dia</span>
                           <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
                           <span class="col l12 s12">Menu <?= $res['nome'] ?></span>
-                          <span class="col l8 offset-l2 s8 offset-s2 chip chipmenu" style="background-color: <?= $res['cor'] ?> !important">&cong; R$<?= number_format($res['diario'], 2, ',', '.'); ?> / dia</span>
                         </div>
                       </a>
 
@@ -520,6 +520,7 @@ if ($_SESSION['plano']== 1) {
                       <input type="text" name="id" id="idMenu" value="<?= $res['id'] ?>" hidden>
 
                       <a style="cursor: pointer;" onclick="Materialize.toast('Você só pode alterar o menu após o vencimento do seu plano atual!', 4000)"  class="col l3 s12 linkMenu" id="selectMenu">
+                        <span class="col l8 offset-l2 s8 offset-s2 chip chipmenu" style="background-color: <?= $res['cor'] ?> !important">&cong; R$<?= number_format($res['diario'], 2, ',', '.'); ?> / dia</span>
                         <div class="btnItem btnItemDash" style="height: 230px !important">
                           <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
                           <span class="col l12 s12">Menu <?= $res['nome'] ?></span>
@@ -535,10 +536,10 @@ if ($_SESSION['plano']== 1) {
                   ?>
 
                       <a href="../server/altera_menu.php?id=<?= $res['id'] ?>" class="col l3 s12 linkMenu" id="selectMenu">
+                        <span class="col l8 offset-l2 s8 offset-s2 chip chipmenu" style="background-color: <?= $res['cor'] ?> !important">&cong; R$<?= number_format($res['diario'], 2, ',', '.'); ?> / dia</span>
                         <div class="btnItem selectDash btnItemDash" style="height: 230px !important">
                           <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
                           <span class="col l12 s12">Menu <?= $res['nome'] ?></span>
-                          <span class="col l8 offset-l2 s8 offset-s2 chip chipmenu" style="background-color: <?= $res['cor'] ?> !important">&cong; R$<?= number_format($res['diario'], 2, ',', '.'); ?> / dia</span>
                         </div>
                       </a>
 
@@ -551,10 +552,10 @@ if ($_SESSION['plano']== 1) {
                       <input type="text" name="id" id="idMenu" value="<?= $res['id'] ?>" hidden>
 
                       <a href="../server/altera_menu.php?id=<?= $res['id'] ?>" class="col l3 s12 linkMenu" id="selectMenu">
+                        <span class="col l8 offset-l2 s8 offset-s2 chip chipmenu" style="background-color: <?= $res['cor'] ?> !important">&cong; R$<?= number_format($res['diario'], 2, ',', '.'); ?> / dia</span>
                         <div class="btnItem btnItemDash" style="height: 230px !important">
                           <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
                           <span class="col l12 s12">Menu <?= $res['nome'] ?></span>
-                          <span class="col l8 offset-l2 s8 offset-s2 chip chipmenu" style="background-color: <?= $res['cor'] ?> !important">&cong; R$<?= number_format($res['diario'], 2, ',', '.'); ?> / dia</span>
                         </div>
                       </a>
 
