@@ -150,7 +150,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
 
           <div class="textoContainer col l10 offset-l1">
-            <span>Nós somos dois sócios, um ajudante de cozinha e uma consultora nutricionista trabalhando exclusivamente para você.<br>
+            <span>
 
             Somos uma equipe que entendeu ser importante fornecer aquele lanchinho que fica tão difícil preparar na correria do dia-a-dia. A gente começa a dieta, promete que o cenário vai mudar, mas no meio do caminho a rotina se complica e o projeto fica interrompido.
 
