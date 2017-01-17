@@ -151,7 +151,7 @@ if ($_SESSION['plano']== 1) {
               <a class="abreEditarInfo btn-small grey darken-3 white-text col l12 s12 editar">Editar</a>
             </li>
             
-          </ul>   
+          </ul>
 
 
           <div class="col l10 offset-l2 s12 container row menus conteudoDash">            
