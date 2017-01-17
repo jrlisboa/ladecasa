@@ -32,7 +32,7 @@ $data['itemDescription1'] = utf8_decode('Pagamento Lá de Casa');
 
 $menu_user = $_SESSION['menu'];
 
-if ($_SESSION['plano'] == 1) {
+/*if ($_SESSION['plano'] == 1) {
 
 	$seleciona = "SELECT * FROM menu WHERE id='$menu_user'";
 	$vaila = mysql_query($seleciona);
@@ -48,8 +48,8 @@ if ($_SESSION['plano'] == 1) {
 
 	$data['itemAmount1'] = $rolmes['mensal'];
 	echo $rolmes['mensal']."0"; exit;
-}
-
+}*/
+$data['itemAmount1'] = "270.90";
 $data['itemQuantity1'] = '1';
 $data['itemWeight1'] = '0';
 
