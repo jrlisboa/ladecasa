@@ -23,6 +23,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
       <title>Produtos | Lá de Casa</title>
 
       <meta charset="utf-8">
+      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
       <link rel="apple-touch-icon" sizes="57x57" href="../img/fav/apple-icon-57x57.png">
       <link rel="apple-touch-icon" sizes="60x60" href="../img/fav/apple-icon-60x60.png">
@@ -131,7 +132,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                       <div class="btnProduto btnItem4Produto col l3 s6">
                         <a href="../detalhes/index.php?id=<?= $resultado['id'] ?>"><div class="col l12 s12 saberMais">Saber mais</div></a>
                         <div class="col l12 s12 imgProduto"><img src="../img/produtos/<?= $resultado['imagem'] ?>"></div>
-                        <span class="col l12 s12" style="font-weight: 500"><?= $resultado['nome'] ?></span>
+                        <span class="col l12 s12" style="font-family: 'Montserrat', sans-serif;"><?= $resultado['nome'] ?></span>
                       </div>
                     <?php
                         $foram[] = $id_produto;
