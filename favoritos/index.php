@@ -5,6 +5,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
         header("Location: ../login/"); exit; //Redireciona o visitante para login
 }
 include '../server/conecta.php';
+$menu = $_SESSION['menu'];
 ?>
 
 <!DOCTYPE html>
@@ -75,10 +76,12 @@ include '../server/conecta.php';
 
           <div id="salgados">
             
-              <div class="container col l5 offset-l1 s12 produtos" style="margin-top: -40px; margin-bottom: 80px;">            
+              <div class="container col l5 offset-l1 s12 produtos" style="margin-top: -40px; margin-bottom: 80px;">
+              <?php if ($menu == 3): ?>
+                <span class="red-text">* Não recomendado  para Celíacos *</span>
+              <?php endif ?>
 
                  <?php
-                 $menu = $_SESSION['menu'];
 
 
                     $qryLista = "SELECT * FROM tipo";
