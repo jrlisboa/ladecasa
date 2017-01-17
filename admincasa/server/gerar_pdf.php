@@ -135,6 +135,7 @@ $pagina =
 			<tr id='cima'>
 				<td>Ramal:</td>
 				<td>Telefone:</td>
+				<td>Celular:</td>
 				<td>Email:</td>
 				<td>Empresa:</td>
 				<td>Departamento:</td>
@@ -142,6 +143,7 @@ $pagina =
 			<tr>
 				<td>". $pegou['ramal'] ."</td>
 				<td>". $pegou['telefone'] ."</td>
+				<td>". $pegou['celular'] ."</td>
 				<td>". $pegou['email'] ."</td>
 				<td>". $pegou['empresa'] ."</td>
 				<td>". $pegou['departamento'] ."</td>

@@ -184,6 +184,7 @@ $vamo = mysql_query($mudando);
                     <ul class="collection grey lighten-4">                        
                       <li class="collection-item"><div>Ramal: <?= $pegou['ramal'] ?></div></li>
                       <li class="collection-item"><div>Telefone: <?= $pegou['telefone'] ?></div></li>
+                      <li class="collection-item"><div>Celular: <?= $pegou['celular'] ?></div></li>
                       <li class="collection-item"><div>Email: <?= $pegou['email'] ?></div></li>      
                     </ul>
                   </p>

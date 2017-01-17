@@ -172,10 +172,14 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                         <input type="number" name="telefone">
                       </div>
                       <div class="col l6">
+                        <span>Celular (Opcional):</span>
+                        <input type="number" name="celular">
+                      </div>
+                      <div class="col l6">
                         <span>Ramal:</span>
                         <input type="number" name="ramal">
                       </div>
-                      <div class="col l12">
+                      <div class="col l6">
                         <span>Empresa onde trabalha:</span>
                         <input type="text" name="empresa" id="empresa">
                       </div>
