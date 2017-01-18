@@ -154,7 +154,11 @@ if ($_SESSION['plano']== 1) {
           </ul>
 
 
-          <div class="col l10 offset-l2 s12 container row menus conteudoDash">            
+          <div class="col l10 offset-l2 s12 container row menus conteudoDash">
+
+            <?php if ($_SESSION['pagamento'] == 0): ?>
+                  <a href="../pagamento" class="btn col l12 s12 green white-text">Pagamento</a>
+            <?php endif ?>          
 
             <?php
             if ($_SESSION['pagamento'] == 0) { ?>
