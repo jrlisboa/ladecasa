@@ -5,7 +5,7 @@ include('conecta.php');
 $id = utf8_decode($_POST['id']);
 $nome = utf8_decode($_POST['nome']);
 $tipo = $_POST['tipo'];
-//$menu = $_POST['menu'];
+$menu = $_POST['menu'];
 $detalhes = utf8_decode($_POST['detalhes']);
 
 mysql_query("
@@ -13,6 +13,22 @@ mysql_query("
     SET nome = '$nome', id_tipo = '$tipo', detalhes = '$detalhes'
     WHERE id = '$id'");
 
+$selona = "DELETE * FROM produto_menu WHERE id_produto = '$id'";
+$vali = mysql_query($selona);
+
+
+for ($i=0;$i<count($menu);$i++){
+
+    $sql="SELECT * FROM produto WHERE imagem='".$nome_atual."'"; 
+    $resultados = mysql_query($sql)or die (mysql_error());
+    $res=mysql_fetch_array($resultados);
+   
+   mysql_query("
+    INSERT INTO produto_menu (id_produto, id_menu)
+    VALUES ('".$res['id']."', '".$menu[$i]."')
+    ");
+   
+}
 
 /*for ($i=0;$i<count($menu);$i++){
 

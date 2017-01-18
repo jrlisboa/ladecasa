@@ -93,7 +93,7 @@ if ($_SESSION['nivel'] != 3) {
                 </div>
               </div>
 
-              <div class="col l12">
+              <div class="col l6">
                 <div class="input-field">
                   <h5 >Tipo:</h5>
                   <select name="tipo">
@@ -123,7 +123,36 @@ if ($_SESSION['nivel'] != 3) {
 
                   </select>
                 </div>
-              </div>             
+              </div>
+
+
+
+              <div class="col l6" style=" margin-top: -140px;">
+                <div class="input-field">
+                  <h5 >Menu:</h5>
+                  <select name="menu[]" multiple>
+                    <option value="" disabled selected>Selecione um Menu</option>
+
+                    <?php
+                    include('server/conecta.php');
+                    $qryLista = "SELECT * FROM menu";
+                    $sql = mysql_query($qryLista) or die(mysql_error());
+                    
+                    if (@mysql_num_rows($sql) == 0){
+                      echo 0;
+                    }else{
+                      while ($resultado = mysql_fetch_array($sql)) { 
+                        $vetor[] = $resultado;                    
+                    ?>
+                    <option value="<?= $resultado['id'] ?>"><?= $resultado['nome'] ?></option>
+                    <?php 
+                       } 
+                    }
+                    ?>
+                    
+                  </select>
+                </div>    
+              </div>          
 
 
               <!--<div class="col l6" style=" margin-top: -0px;">
