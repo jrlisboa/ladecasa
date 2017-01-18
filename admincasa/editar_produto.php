@@ -127,7 +127,7 @@ if ($_SESSION['nivel'] != 3) {
 
 
 
-              <div class="col l6" style=" margin-top: -140px;">
+              <div class="col l6">
                 <div class="input-field">
                   <h5 >Menu:</h5>
                   <select name="menu[]" multiple>
