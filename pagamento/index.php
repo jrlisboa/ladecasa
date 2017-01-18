@@ -157,7 +157,7 @@ include "../server/conecta.php";
           <div class="col l4 s12 menus pagao">
             <div class="tituloMenus tituloPagamentos segurotit">
               <h4>Efetuar pagamento via PagSeguro:</h4>
-              <span>Clique aqui para entrar em um ambiente seguro de pagamento com diversas opções como cartão de crédito, boleto e etc.</span>
+              <span>Clique abaixo para entrar em um ambiente seguro de pagamento com diversas opções como cartão de crédito, boleto e etc.</span>
             </div>
 
             <a href="../server/pagseguro.php" style="margin-top: 40px !important">
