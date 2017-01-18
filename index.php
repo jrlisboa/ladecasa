@@ -285,13 +285,13 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                 <h5 class="white-text">Redes Sociais:</h5>
                 <div class="row redes">
                   <div class="redeIcon col l4 s4">
-                    <a href=""><img src="img/icones/facebook.svg"></a>
+                    <a href="https://www.facebook.com/L%C3%A1-de-Casa-Comida-Saud%C3%A1vel-1851501558470438/"><img src="img/icones/facebook.svg"></a>
                   </div>
                   <div class="redeIcon col l4 s4">
                     <a href=""><img src="img/icones/instagram.svg"></a>
                   </div>
                   <div class="redeIcon col l4 s4">
-                    <a href=""><img src="img/icones/twitter.svg"></a>
+                    <a href="https://www.linkedin.com/company/la-de-casa-comida-saud%C3%A1vel?trk=nav_account_sub_nav_company_admin"><img src="img/icones/twitter.svg"></a>
                   </div>
                 </div>
               </div>
