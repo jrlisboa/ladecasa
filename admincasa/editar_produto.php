@@ -96,7 +96,7 @@ if ($_SESSION['nivel'] != 3) {
               <div class="col l6">
                 <div class="input-field">
                   <h5 >Tipo:</h5>
-                  <select name="tipo">
+                  <select name="tipo" required>
                     <option value="" disabled selected>Selecione um tipo</option>
 
                     <?php
@@ -130,7 +130,7 @@ if ($_SESSION['nivel'] != 3) {
               <div class="col l6">
                 <div class="input-field">
                   <h5 >Menu:</h5>
-                  <select name="menu[]" multiple>
+                  <select name="menu[]" multiple required>
                     <option value="" disabled selected>Selecione um Menu</option>
 
                     <?php
