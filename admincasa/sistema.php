@@ -73,9 +73,9 @@ include 'server/conecta.php';
                 <form action="server/add_menu.php" method="post">
                   <div class="row" style="padding: 20px;">
                     <input type="text" name="menu" class="col l12" placeholder="Nome do novo menu.">
-                    <input type="text" name="diario" class="col l12" placeholder="Valor Diário.">
-                    <input type="text" name="quinzenal" class="col l12" placeholder="Valor Quinzenal.">
-                    <input type="text" name="mensal" class="col l12" placeholder="Valor Mensal.">
+                    <input type="text" name="diario" class="col l12" placeholder="Valor Diário. (Utilize PONTO para separar centavos)">
+                    <input type="text" name="quinzenal" class="col l12" placeholder="Valor Quinzenal. (Utilize PONTO para separar centavos)">
+                    <input type="text" name="mensal" class="col l12" placeholder="Valor Mensal. (Utilize PONTO para separar centavos)">
                     <span style="margin-right: 20px;">Selecione uma Cor:</span> <input type="color" name="cor" value="#ff0000" style="margin-bottom: 20px !important;">
                     <input style="margin-top: 5px; margin-bottom: -10px;" type="submit" name="enviar" value="Adicionar" class="btn col l12  blue white-text">
                   </div>
