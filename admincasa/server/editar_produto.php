@@ -17,10 +17,8 @@ mysql_query("DELETE FROM produto_menu WHERE id_produto = '$id'");
 
 for ($i=0;$i<count($menu);$i++){
    
-   mysql_query("
-    INSERT INTO produto_menu (id_produto, id_menu)
-    VALUES ('$id', '".$menu[$i]."')
-    ");
+   echo $menu[$i];
+   //mysql_query("INSERT INTO produto_menu (id_produto, id_menu)VALUES ('$id', '".$menu[$i]."')");
    
 }
 
@@ -54,7 +52,7 @@ for ($i=0;$i<count($menu);$i++){
         
 }*/
 
-header("Location: ../produtos.php");
+//header("Location: ../produtos.php");
 
    
 ?>
