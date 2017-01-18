@@ -8,8 +8,6 @@ $tipo = $_POST['tipo'];
 $menu = $_POST['menu'];
 $detalhes = utf8_decode($_POST['detalhes']);
 
-echo "string";
-
 mysql_query("
     UPDATE produto
     SET nome = '$nome', id_tipo = '$tipo', detalhes = '$detalhes'
@@ -54,7 +52,7 @@ for ($i=0;$i<count($menu);$i++){
         
 }*/
 
-//header("Location: ../produtos.php");
+header("Location: ../produtos.php");
 
    
 ?>
