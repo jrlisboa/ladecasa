@@ -99,7 +99,7 @@ include 'server/conecta.php';
                 <li class="collection-item">
                   <div class="collapsible-header">Menu <?= $pegou['nome'] ?> <i class="material-icons">play_for_work</i><a href="server/apaga_menu.php?id=<?= $pegou['id'] ?>" class="secondary-content"><i class="material-icons red-text">delete</i></a></div>
                   <div class="collapsible-body">
-                    <p>Valor diário: R$<?= $pegou['diario'] ?>,00<br>Valor quinzenal: R$<?= $pegou['quinzenal'] ?>,00<br>Valor mensal: R$<?= $pegou['mensal'] ?>,00<br></p>
+                    <p>Valor diário: R$<?= number_format($pegou['diario'], 2, ',', '.') ?><br>Valor quinzenal: R$<?= number_format($pegou['quinzenal'], 2, ',', '.') ?>,00<br>Valor mensal: R$<?= number_format($pegou['mensal'], 2, ',', '.') ?>,00<br></p>
                   </div>
                 </li>
             <?php } ?>
