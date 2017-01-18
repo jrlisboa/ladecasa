@@ -114,7 +114,7 @@ include "../server/conecta.php";
 
             <div class="tituloMenus tituloPagamentos">
               <h4>Pagamento via DOC<br>(Depósito em Conta):</h4>
-              <span>Assim que o pagamento for confirmado, você poderá utilizar o sistema normalmente.</span>
+              <span>Solicite os dados para a transferência entrando em contato através das opções abaixo.</span>
             </div>
 
             <div class="btnMenus row">
@@ -139,9 +139,9 @@ include "../server/conecta.php";
                     }
                   ?>
 
-                  <li class="collection-item">Banco: Itaú</li>
-                  <li class="collection-item">Agência: 0741</li>
-                  <li class="collection-item">Conta: 09781-0</li>
+                  <li class="collection-item">(11) 96058 - 7920 - VIVO</li>
+                  <li class="collection-item">(11) 5102-4323 - FIXO</li>
+                  <li class="collection-item"><a href="../dashboard/contato.php" class="green btn white-text col l12 s12">Contato pelo site</a></li>
                 </ul>
             </div>
           </div>
@@ -157,11 +157,11 @@ include "../server/conecta.php";
           <div class="col l4 s12 menus pagao">
             <div class="tituloMenus tituloPagamentos segurotit">
               <h4>Efetuar pagamento via PagSeguro:</h4>
-              <span>Após o redirecionamento você poderá escolher sua forma de pagamento.</span>
+              <span>Clique aqui para entrar em um ambiente seguro de pagamento com diversas opções como cartão de crédito, boleto e etc.</span>
             </div>
 
             <a href="../server/pagseguro.php">
-              <div class="col l12 s12 imagemPag"><img class="col s12" src="../img/icones/pagseguro.png"></div>
+              <div class="col l12 s12 imagemPag btn-large white"><img class="col s12" src="../img/icones/pagseguro.png"></div>
             </a>
           </div>
 

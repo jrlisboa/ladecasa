@@ -101,7 +101,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
           </div>
 
           <div class="textoContainer col l6 offset-l3">
-            <span>Não conhece o lá de casa? Vamos explicar como ele funciona pra você... É bem simples, e você vai amar de montão.</span>
+            <span>Não conhece o Lá de Casa? Vamos explicar como ele funciona pra você... É bem simples, e você vai amar de montão.</span>
           </div>
 
           <div class="gridComo container">
