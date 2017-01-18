@@ -360,14 +360,14 @@ if ($_SESSION['plano']== 1) {
                     ?>
 
                     <a href="../server/altera_periodo.php?id=1" class="col l6 s12 nopad">
-                      <div class="btnItem selectDash btnItemDash">
+                      <div class="btnItem selectDash btnItemDash tooltipped" data-position="top" data-delay="50" data-tooltip="Entrega até as 10:30">
                         <div class="col l12 s12"><img src="../img/icones/am.svg"></div>
                         <span class="col l12 s12">Durante a Manhã</span>
                       </div>
                     </a>                
 
                     <a href="../server/altera_periodo.php?id=2" class="col l6 s12 nopad">
-                      <div class="btnItem btnItemDash">
+                      <div class="btnItem btnItemDash tooltipped" data-position="top" data-delay="50" data-tooltip="Entrega até as 15:30">
                         <div class="col l12 s12"><img src="../img/icones/pm.svg"></div>
                         <span class="col l12 s12">Durante a Tarde</span>
                       </div>
@@ -379,14 +379,14 @@ if ($_SESSION['plano']== 1) {
                     ?>
 
                     <a href="../server/altera_periodo.php?id=1" class="col l6 s12 nopad">
-                      <div class="btnItem btnItemDash">
+                      <div class="btnItem btnItemDash tooltipped" data-position="top" data-delay="50" data-tooltip="Entrega até as 10:30">
                         <div class="col l12 s12"><img src="../img/icones/am.svg"></div>
                         <span class="col l12 s12">Durante a Manhã</span>
                       </div>
                     </a>
 
                     <a href="../server/altera_periodo.php?id=2" class="col l6 s12 nopad">
-                      <div class="btnItem selectDash btnItemDash">
+                      <div class="btnItem selectDash btnItemDash tooltipped" data-position="top" data-delay="50" data-tooltip="Entrega até as 15:30">
                         <div class="col l12 s12"><img src="../img/icones/pm.svg"></div>
                         <span class="col l12 s12">Durante a Tarde</span>
                       </div>
@@ -397,14 +397,14 @@ if ($_SESSION['plano']== 1) {
                     ?>
 
                     <a href="../server/altera_periodo.php?id=1" class="col l6 s12 nopad">
-                      <div class="btnItem btnItemDash">
+                      <div class="btnItem btnItemDash tooltipped" data-position="top" data-delay="50" data-tooltip="Entrega até as 10:30">
                         <div class="col l12 s12"><img src="../img/icones/am.svg"></div>
                         <span class="col l12 s12">Durante a Manhã</span>
                       </div>
                     </a>
 
                     <a href="../server/altera_periodo.php?id=2" class="col l6 s12 nopad">
-                      <div class="btnItem btnItemDash">
+                      <div class="btnItem btnItemDash tooltipped" data-position="top" data-delay="50" data-tooltip="Entrega até as 15:30">
                         <div class="col l12 s12"><img src="../img/icones/pm.svg"></div>
                         <span class="col l12 s12">Durante a Tarde</span>
                       </div>
