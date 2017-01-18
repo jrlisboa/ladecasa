@@ -573,6 +573,9 @@ if ($_SESSION['plano']== 1) {
 
               </div>
             </div>
+
+
+            <a href="../favoritos/" class="btn col l6 offser-l3 s12 orange white-text">Escolher Produtos</a>
           </div>
 
           <!-- MODAL PARA EDITAR IMAGEM DE PERFIL -->
