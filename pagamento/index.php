@@ -160,8 +160,8 @@ include "../server/conecta.php";
               <span>Clique aqui para entrar em um ambiente seguro de pagamento com diversas opções como cartão de crédito, boleto e etc.</span>
             </div>
 
-            <a href="../server/pagseguro.php">
-              <div class="col l12 s12 imagemPag btn-large white"><img class="col s12" src="../img/icones/pagseguro.png"></div>
+            <a href="../server/pagseguro.php" style="margin-top: 40px !important">
+              <div class="col l12 s12 imagemPag btn-large white" style="height: 130px !important"><img class="col s12" src="../img/icones/pagseguro.png"></div>
             </a>
           </div>
 
