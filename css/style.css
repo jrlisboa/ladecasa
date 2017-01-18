@@ -2695,7 +2695,6 @@
     .boletao{
 
       margin-bottom: -80px !important;
-      
     }
 
 
@@ -2710,6 +2709,7 @@
     .pagao{
 
       margin-bottom: 80px;
+      margin-top: -20vh !important;
     }
 
 
