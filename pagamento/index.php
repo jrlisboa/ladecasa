@@ -109,6 +109,8 @@ include "../server/conecta.php";
             
           </div>-->
 
+          <span class="col l12 s12">Pagamentos realizados até 12:00 ( meio-dia ), a entrega inicia no próximo dia útil. Após este horário ficará para o próximo dia.</span>
+
 
           <div class="col l4 s12 menus boletao">
 
