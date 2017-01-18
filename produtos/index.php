@@ -127,14 +127,25 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                     if ($dados['id_produto'] == $id_produto) {
                       $foram[] = array();
                       if (!in_array($id_produto, $foram)) {
-                                            
-                    ?>              
-                      <div class="btnProduto btnItem4Produto col l3 s6">
-                        <a href="../detalhes/index.php?id=<?= $resultado['id'] ?>"><div class="col l12 s12 saberMais">Saber mais</div></a>
-                        <div class="col l12 s12 imgProduto"><img src="../img/produtos/<?= $resultado['imagem'] ?>"></div>
-                        <span class="col l12 s12" style="font-family: 'Montserrat', sans-serif; line-height: 100% !important;"><?= $resultado['nome'] ?></span>
-                      </div>
-                    <?php
+                        if (($id_produto == 154 || $id_produto == 155 || $id_produto == 156 || $id_produto == 157 || $id_produto == 158 || $id_produto == 159) && ($menu != 4)) {
+
+                          ?>              
+                            <div class="btnProduto btnItem4Produto col l3 s6">
+                              <a href="../detalhes/index.php?id=<?= $resultado['id'] ?>"><div class="col l12 s12 saberMais">Saber mais</div></a>
+                              <div class="col l12 s12 imgProduto"><img src="../img/produtos/<?= $resultado['imagem'] ?>"></div>
+                              <span class="col l12 s12" style="font-family: 'Montserrat', sans-serif; line-height: 100% !important;">Recheio <?= $resultado['nome'] ?></span>
+                            </div>
+                          <?php
+                          
+                        }else{
+                          ?>              
+                            <div class="btnProduto btnItem4Produto col l3 s6">
+                              <a href="../detalhes/index.php?id=<?= $resultado['id'] ?>"><div class="col l12 s12 saberMais">Saber mais</div></a>
+                              <div class="col l12 s12 imgProduto"><img src="../img/produtos/<?= $resultado['imagem'] ?>"></div>
+                              <span class="col l12 s12" style="font-family: 'Montserrat', sans-serif; line-height: 100% !important;"><?= $resultado['nome'] ?></span>
+                            </div>
+                          <?php
+                        }
                         $foram[] = $id_produto;
                       }
                     }
