@@ -161,7 +161,7 @@ include "../server/conecta.php";
             </div>
 
             <a href="../server/pagseguro.php" style="margin-top: 40px !important">
-              <div class="col l12 s12 imagemPag btn-large white" style="height: 130px !important"><img class="col s12" src="../img/icones/pagseguro.png"></div>
+              <div class="col l12 s12 imagemPag btn-large white" style="height: 110px !important"><img class="col s12" src="../img/icones/pagseguro.png"></div>
             </a>
           </div>
 
