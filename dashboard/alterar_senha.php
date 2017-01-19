@@ -73,7 +73,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
             <div class="tituloMenus tituloPagamentos col l12 s12">
               <h4>Alterar Senha</h4>
-              <span>Digite sua senha atual e a senha que deseja passar a utilizar no site.</span>
+              <span>Digite sua senha atual e a senha que deseja utilizar.</span>
             </div>
 
             <div class="conteudoCadastro col l12 s12" style="text-align: left; margin-top: 30px !important;">
