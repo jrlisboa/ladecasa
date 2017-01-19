@@ -116,7 +116,7 @@ include "../server/conecta.php";
 
             <div class="tituloMenus tituloPagamentos">
               <h4>Pagamento via DOC<br>(Depósito em Conta):</h4>
-              <span>Solicite os dados para a transferência entrando em contato através das opções abaixo.</span>
+              <span style="font-size: 18px !important">Solicite os dados para a transferência entrando em contato através das opções abaixo.</span>
             </div>
 
             <div class="btnMenus row">
@@ -151,7 +151,7 @@ include "../server/conecta.php";
           <div class="col l4 s12 menus pagao">
             <div class="tituloMenus tituloPagamentos maquinatit">
               <h4>Pagamento no ato do 1º Recebimento</h4>
-              <span>Clique abaixo para entrar em contato e solicitar esta forma de pagamento!</span>
+              <span style="font-size: 18px !important">Clique abaixo para entrar em contato e solicitar esta forma de pagamento!</span>
             </div>
             
             <a href="../dashboard/contato.php"><div class="col l12 s12 imagemPag"><img class="col s12" src="../img/icones/maquina.png"></div></a>       
@@ -160,7 +160,7 @@ include "../server/conecta.php";
           <div class="col l4 s12 menus pagao">
             <div class="tituloMenus tituloPagamentos segurotit" style="height: 20vh !important">
               <h4>Efetuar pagamento via PagSeguro:</h4>
-              <span>Clique abaixo para entrar em um ambiente seguro de pagamento com diversas opções como cartão de crédito, boleto e etc.</span>
+              <span style="font-size: 18px !important">Clique abaixo para entrar em um ambiente seguro de pagamento com diversas opções como cartão de crédito, boleto e etc.</span>
             </div>
 
             <a href="../server/pagseguro.php" style="margin-top: 40px !important">
