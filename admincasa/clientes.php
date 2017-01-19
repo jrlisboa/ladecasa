@@ -56,7 +56,7 @@ if ($_SESSION['nivel'] != 3) {
         <h2 align="center">Clientes</h2>
 
         <div class="row">
-          <a href="clientes.php" class="btn blue white-text col l4 offset-l4">Gerar arquivo para Excel</a>
+          <a href="server/excel.php" class="btn blue white-text col l4 offset-l4">Gerar arquivo para Excel</a>
         </div>
 
         <form class="row" method="get" action="busca_clientes.php">
