@@ -55,6 +55,10 @@ if ($_SESSION['nivel'] != 3) {
       <div class="container">
         <h2 align="center">Clientes</h2>
 
+        <div class="row">
+          <a href="clientes.php" class="btn blue white-text col l4 offset-l4">Gerar arquivo para Excel</a>
+        </div>
+
         <form class="row" method="get" action="busca_clientes.php">
           <select class="col l2 offset-l2" name="tipo_busca">
             <option value="" disabled selected>Tipo de busca</option>
