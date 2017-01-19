@@ -38,6 +38,7 @@
 		$_SESSION['periodo']=$res['id_periodo'];
 		$_SESSION['pagamento']=$res['pagamento'];
 		$_SESSION['pagseguro']=$res['pagseguro'];
+		$_SESSION['maquininha']=$res['maquininha'];
 		$_SESSION['forma_pagamento']=$res['forma_pagamento'];
 		$_SESSION['embalagem']=$res['tipo_embalagem'];
 		$_SESSION['nivel']=$res['nivel'];

@@ -1,7 +1,5 @@
 <?php
  include('conecta.php');
-
- // Nome do Arquivo do Excel que será gerado
  $arquivo = 'Clientes.xls';
 
  // Criamos uma tabela HTML com o formato da planilha para excel
