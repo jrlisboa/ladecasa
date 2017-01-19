@@ -86,6 +86,8 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
                 <div class="chip red white-text" id="erro" style="display: none;">Esta não é a sua senha atual!</div>
 
+                <div class="chip green white-text" id="foi" style="display: none;">Senha alterada com sucesso!</div>
+
                 <div class="btnBottom row" align="center" >
                   <input style="margin-top: -30px !important;" id="recuperar" class="col l4 offset-l4" type="submit" name="enviar" value="Enviar">
                 </div>
@@ -122,7 +124,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                             if(result==1){
                               $('#antiga').val("");
                               $('#nova').val("");            
-                              alert('Sua senha foi alterada com successo!');
+                              $('#foi').show(100);
                             }
                             if(result==0){
                               $('#erro').show(100);
