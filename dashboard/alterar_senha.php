@@ -77,7 +77,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
             </div>
 
             <div class="conteudoCadastro col l12 s12" style="text-align: left; margin-top: 30px !important;">
-              <form id="formRecupera">
+              <form id="formAltera">
                 <span class="spanCadastro">Senha Atual:</span>
                 <input type="text" name="antiga" id="antiga" required>
 
