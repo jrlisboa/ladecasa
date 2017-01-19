@@ -151,9 +151,10 @@ include "../server/conecta.php";
           <div class="col l4 s12 menus pagao">
             <div class="tituloMenus tituloPagamentos maquinatit">
               <h4>Pagamento no ato do 1º Recebimento</h4>
+              <span>Clique abaixo para entrar em contato e solicitar esta forma de pagamento!</span>
             </div>
             
-            <div class="col l12 s12 imagemPag"><img class="col s12" src="../img/icones/maquina.png"></div>            
+            <a href="../dashboard/contato.php"><div class="col l12 s12 imagemPag"><img class="col s12" src="../img/icones/maquina.png"></div></a>       
           </div>
 
           <div class="col l4 s12 menus pagao">
