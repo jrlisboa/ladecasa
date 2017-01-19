@@ -118,7 +118,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
               type:"post",
               data: "antiga="+antiga+"&nova="+nova,
                 success: function (result){
-                            alert(result);
+                            //alert(result);
                             if(result==1){
                               $('#antiga').val("");
                               $('#nova').val("");            
