@@ -123,7 +123,8 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                             //alert(result);
                             if(result==1){
                               $('#antiga').val("");
-                              $('#nova').val("");            
+                              $('#nova').val("");
+                              $('#erro').hide(100);       
                               $('#foi').show(100);
                             }
                             if(result==0){
