@@ -72,8 +72,8 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
             
 
             <div class="tituloMenus tituloPagamentos col l7 s12">
-              <h4>Recuperação de senha</h4>
-              <span>Digite seu email e CPF e em instantes enviaremos sua senha para que retorne a fazer o login.</span>
+              <h4>Alterar Senha</h4>
+              <span>Digite sua senha atual e a senha que deseja passar a utilizar no site.</span>
             </div>
 
             <img src="../img/icones/fix.svg" class="col l4 offset-l1 s12 salvelocos">
@@ -81,10 +81,13 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
             <div class="conteudoCadastro col l12 s12" style="text-align: left; margin-top: 30px !important;">
               <form id="formRecupera">
-                <span class="spanCadastro">Email:</span>
-                <input type="text" name="nome" id="email" required>
+                <span class="spanCadastro">Senha Atual:</span>
+                <input type="text" name="antiga" id="antiga" required>
 
-                <div class="chip red white-text" id="erro" style="display: none;">Este email não está cadastrado!</div>
+                <span class="spanCadastro">Senha Nova:</span>
+                <input type="text" name="nova" id="nova" required>
+
+                <div class="chip red white-text" id="erro" style="display: none;">Esta não é a sua senha atual!</div>
 
                 <div class="btnBottom row" align="center" >
                   <input style="margin-top: -30px !important;" id="recuperar" class="col l4 offset-l4" type="submit" name="enviar" value="Enviar">
@@ -120,8 +123,8 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                 success: function (result){
                             //alert(result);
                             if(result==1){
-                              $('#assunto').val("");
-                              $('#mensagem').val("");            
+                              $('#antiga').val("");
+                              $('#nova').val("");            
                               alert('Sua senha foi alterada com successo!');
                             }
                             if(result==0){
