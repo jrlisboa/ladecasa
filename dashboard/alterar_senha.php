@@ -111,7 +111,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
       <script type="text/javascript">
 
           $('#formAltera').submit(function(){
-            var antiga=$('#antiga').val();]
+            var antiga=$('#antiga').val();
             var nova=$('#nova').val();
             $.ajax({
               url:"../server/alterar_senha.php",
