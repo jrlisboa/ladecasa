@@ -1,20 +1,20 @@
 <?php
+	session_start();  //A seção deve ser iniciada em todas as páginas
+	if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
+	        session_destroy();            //Destroi a seção por segurança
+	        header("Location: ../login/"); exit; //Redireciona o visitante para login
+	}
+	$id_user = $_SESSION['usuarioID'];
 	include 'conecta.php';
-	$email    = $_POST['email'];
+	$antiga    = $_POST['antiga'];
+	$nova    = $_POST['nova'];
 
-	$select = "SELECT * FROM user WHERE email = '$email'";
-	$query = mysql_query($select);
-	$dados = mysql_fetch_array($query);
-	if (mysql_num_rows($query) == 0) {
-		echo 0;
-	}else{
-		$corpo  = "Obrigado por utilizar o sistema Lá de Casa\n";
-	  $corpo .= "\n";
-	  $corpo .= "Sua senha é: ".$dados['senha']."\n";
-	  if(mail($email,"Recuperação de Senha",$corpo)){
+	if ($_SESSION['usuarioID'] == $antiga)){
+		mysql_query("UPDATE user SET senha = '$nova' WHERE id = '$id_user'");
 		echo 1;
-	  } else {
+		exit;
+	}	
+	else{
 		echo 0;
-	  }
 	}
 ?>
