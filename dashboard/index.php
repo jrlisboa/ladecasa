@@ -668,7 +668,7 @@ if ($_SESSION['plano']== 1) {
                     <span>Ramal:</span>
                     <input type="text" name="ramal" id="end_escritorio" required value="<?= $_SESSION['ramal'] ?>">
 
-                    <a href="alterar_senha.php" class="col l4 s12 btn red white-text">Alterar senha</a>
+                    <a style="margin-top: 20px; box-shadow: none;" href="alterar_senha.php" class="col l4 s12 btn red white-text">Alterar senha</a>
 
                     <input id="salvarEdit" class="col l4 offset-l4 salvarEdit" type="submit" name="enviar" value="Salvar">
                   </div>                 
