@@ -84,6 +84,7 @@
 					$_SESSION['nomeUsuario']=$res['nome'];
 					$_SESSION['sobrenome']=$res['sobrenome'];
 					$_SESSION['email']=$res['email'];
+					$_SESSION['senha']=$res['senha'];
 					$_SESSION['cidade']=$res['cidade'];
 					$_SESSION['bairro']=$res['bairro'];
 					$_SESSION['rua']=$res['rua'];

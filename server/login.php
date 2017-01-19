@@ -19,6 +19,7 @@
 		//Abrindo seções
 		$_SESSION['usuarioID']=$res['id']; 		
 		$_SESSION['nomeUsuario']=$res['nome'];
+		$_SESSION['senha']=$res['senha'];
 		$_SESSION['sobrenome']=$res['sobrenome'];
 		$_SESSION['email']=$res['email'];
 		$_SESSION['cidade']=$res['cidade'];
