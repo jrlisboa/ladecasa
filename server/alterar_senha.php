@@ -9,7 +9,7 @@
 	$antiga    = $_POST['antiga'];
 	$nova    = $_POST['nova'];
 
-	if ($_SESSION['usuarioID'] == $antiga){
+	if ($_SESSION['senha'] == $antiga){
 		mysql_query("UPDATE user SET senha = '$nova' WHERE id = '$id_user'");
 		echo 1;
 		exit;
