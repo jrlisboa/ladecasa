@@ -1,6 +1,6 @@
 <?php
  // Inclui a conexão
- include 'conecta.php';
+ include "conecta.php";  
 
  // Nome do Arquivo do Excel que será gerado
  $arquivo = 'Clientes.xls';
