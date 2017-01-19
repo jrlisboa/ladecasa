@@ -71,13 +71,10 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
             
 
-            <div class="tituloMenus tituloPagamentos col l7 s12">
+            <div class="tituloMenus tituloPagamentos col l12 s12">
               <h4>Alterar Senha</h4>
               <span>Digite sua senha atual e a senha que deseja passar a utilizar no site.</span>
             </div>
-
-            <img src="../img/icones/fix.svg" class="col l4 offset-l1 s12 salvelocos">
-
 
             <div class="conteudoCadastro col l12 s12" style="text-align: left; margin-top: 30px !important;">
               <form id="formRecupera">
@@ -117,7 +114,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
             var antiga=$('#antiga').val();]
             var nova=$('#nova').val();
             $.ajax({
-              url:"../server/recuperar_senha.php",
+              url:"../server/alterar_senha.php",
               type:"post",
               data: "antiga="+antiga+"&nova="+nova,
                 success: function (result){
