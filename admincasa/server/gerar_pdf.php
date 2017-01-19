@@ -30,9 +30,9 @@ if ($pegou['id_plano'] == 1) {
   $plano = "Não definido";
 }
 
-if ($pegou['id_plano'] == 1) {
+if ($pegou['tipo_embalagem'] == 1) {
   $embalagem = "Retornável";
-}elseif ($pegou['id_periodo'] == 2) {
+}elseif ($pegou['tipo_embalagem'] == 2) {
   $embalagem = "Reciclável";
 }else{
   $embalagem = "Não definido";
