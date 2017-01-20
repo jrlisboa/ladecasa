@@ -107,6 +107,9 @@ while ($pegou = mysql_fetch_array($executa)){
 		echo "<td>".utf8_decode($embalagem)."</td>";
 		echo "<td>".$pegou['data_cadastro']."</td>";
  echo "</tr>";
+
+ echo "<tr>";
+ echo "</tr>";
 }
 echo "</table>"; 
 ?>
