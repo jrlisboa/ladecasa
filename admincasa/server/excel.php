@@ -1,6 +1,6 @@
 <?php
- include "conecta.php";
- $resultado = mysql_query("SELECT * FROM user DESC");
+ include 'conecta.php';
+ $resultado = mysql_query('SELECT * FROM user DESC');
 
  $tabela = '<table border="1">';
 
