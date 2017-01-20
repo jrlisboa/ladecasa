@@ -1,7 +1,7 @@
 <?php
 
 // Incluimos a classe PHPExcel
-include  'phpexcel/Classes/PHPExcel.php';
+include 'phpexcel/Classes/PHPExcel.php';
 
 // Instanciamos a classe
 $objPHPExcel = new PHPExcel();
