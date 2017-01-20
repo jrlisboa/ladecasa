@@ -1,5 +1,7 @@
 <?php
 //inclui a conexao com o banco
+ini_set( 'display_errors', true );
+error_reporting( E_ALL );
 include("conecta.php");
 
 // Escolher o formato do arquivo
