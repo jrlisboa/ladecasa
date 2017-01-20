@@ -103,7 +103,7 @@ while ($pegou = mysql_fetch_array($executa)){
 		echo "<td>".utf8_decode($plano)."</td>";
 		echo "<td>".utf8_decode($periodo)."</td>";
 		echo "<td>".$pegou['data_pagamento']."</td>";
-		echo "<td>".$pagamento."</td>";
+		echo "<td>".utf8_decode($pagamento)."</td>";
 		echo "<td>".utf8_decode($embalagem)."</td>";
 		echo "<td>".$pegou['data_cadastro']."</td>";
  echo "</tr>";
