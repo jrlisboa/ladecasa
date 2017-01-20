@@ -26,7 +26,7 @@ while ($resultado = mysql_fetch_array($executa)){
  echo "<tr>";
 	echo "<td>".$resultado['id']."</td>";
 	echo "<td>" . $resultado["nascimento"] . "</td>";
-	echo "<td>" . $resultado["nome"] . "</td>";
+	echo "<td>" . utf8_decode($resultado["nome"]) . "</td>";
 	echo "<td>" . $resultado["email"] . "</td>";
 	echo "<td>" . $resultado["telefone"] . "</td>";
  echo "</tr>";
