@@ -100,7 +100,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
 
         <!-- MODAL PARA EDITAR INFORMAÇÕES -->
-            <div id="avisos" class="modal modal-fixed-footer" style="height: 200px;">
+            <div id="avisos" class="modal modal-fixed-footer" style="height: 230px; padding-top: 30px;">
               <div class="modal-content" id="contentLoading">
                 <h4 class="modalTitulo">Enviando Mensagem</h4>
 
