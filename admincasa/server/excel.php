@@ -34,6 +34,7 @@ echo "<table>";
 	echo "<td>FORMA DE PAGAMENTO</td>";
 	echo "<td>EMBALAGEM</td>";
 	echo "<td>DATA DE CADASTRO</td>";
+	echo "<td>FAVORITOS</td>";
  echo "</tr>";
 
 // Procurar as informações do BD
@@ -107,17 +108,17 @@ while ($pegou = mysql_fetch_array($executa)){
 		echo "<td>".utf8_decode($pagamento)."</td>";
 		echo "<td>".utf8_decode($embalagem)."</td>";
 		echo "<td>".$pegou['data_cadastro']."</td>";
+
+		$select = "SELECT * FROM favorito
+	 INNER JOIN produto ON (produto.id = favorito.id_produto) WHERE id_user='$id_cliente'";
+	 $vamola = mysql_query($select);
+
+	 while($lista = mysql_fetch_array($vamola)){
+	 			echo "<td>".utf8_decode($lista['nome'])."</td>";
+	 }
  echo "</tr>";
 
- $select = "SELECT * FROM favorito
- INNER JOIN produto ON (produto.id = favorito.id_produto) WHERE id_user='$id_cliente'";
- $vamola = mysql_query($select);
-
- echo "<tr>";
- while($lista = mysql_fetch_array($vamola)){
- 			echo "<td>".utf8_decode($lista['nome'])."</td>";
- }
- echo "</tr>";
+ 
 
  echo "<tr>";
  echo "</tr>";
