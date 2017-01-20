@@ -1,11 +1,13 @@
 <?php
  include('conecta.php');
 
- // Criamos uma tabela HTML com o formato da planilha para excel
- $tabela = '<table border="1">';
+ // Puxando dados do Banco de dados
+ $resultado = mysql_query('SELECT * FROM user');
+
+	$tabela = '<table border="1">';
 
  $tabela .= '<tr>';
- $tabela .= '<td colspan="2">Tabela de CLIENTES</tr>';
+ $tabela .= '<td colspan="23">Tabela de CLIENTES</tr>';
  $tabela .= '</tr>';
 
  $tabela .= '<tr>';
@@ -33,9 +35,6 @@
  $tabela .= '<td><b>FORMA DE PAGAMENTO</b></td>';
  $tabela .= '<td><b>DATA DE CADASTRO</b></td>';
  $tabela .= '</tr>';
-
- // Puxando dados do Banco de dados
- $resultado = mysql_query('SELECT * FROM user');
 
  while($dados = mysql_fetch_array($resultado)){
 

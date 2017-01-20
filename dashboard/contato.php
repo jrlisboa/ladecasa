@@ -120,6 +120,8 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                 <span>Algum problema inesperado acabou acontecendo, por favor aguarde alguns instantes e tente novamente!</span>
               </div>
           </div>
+
+          
       </div>
 
       <!--Import jQuery before materialize.js-->
