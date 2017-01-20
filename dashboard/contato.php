@@ -100,7 +100,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
 
         <!-- MODAL PARA EDITAR INFORMAÇÕES -->
-            <div id="avisos" class="modal modal-fixed-footer" style="height: 220px;">
+            <div id="avisos" class="modal modal-fixed-footer" style="height: 200px;">
               <div class="modal-content" id="contentLoading">
                 <h4 class="modalTitulo">Enviando Mensagem</h4>
 
@@ -118,10 +118,6 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
               <div class="modal-content" id="contentErro" hidden>
                 <h4 class="modalTitulo">Erro ao enviar mensagem!</h4>
                 <span>Algum problema inesperado acabou acontecendo, por favor aguarde alguns instantes e tente novamente!</span>
-              </div>
-
-              <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
               </div>
           </div>
       </div>
