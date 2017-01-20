@@ -1,8 +1,6 @@
 <?php
  include('conecta.php');
-
- // Puxando dados do Banco de dados
- $resultado = mysql_query('SELECT * FROM user');
+ $resultado = mysql_query('SELECT * FROM user DESC');
 
 	$tabela = '<table border="1">';
 
