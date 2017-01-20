@@ -97,6 +97,33 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
           
         </div>
+
+
+        <!-- MODAL PARA EDITAR INFORMAÇÕES -->
+            <div id="avisos" class="modal modal-fixed-footer" style="height: 300px;">
+              <div class="modal-content" id="contentLoading">
+                <h4 class="modalTitulo">Enviando Mensagem</h4>
+
+                <div class="modalPerfil col l12 s12">
+                  <div class="progress">
+                      <div class="indeterminate"></div>
+                  </div>                  
+                </div>          
+              </div>
+
+              <div class="modal-content" id="contentSucesso" hidden>
+                <h4 class="modalTitulo">Mensagem enviada com sucesso!</h4>
+              </div>
+
+              <div class="modal-content" id="contentErro" hidden>
+                <h4 class="modalTitulo">Erro ao enviar mensagem!</h4>
+                <span>Algum problema inesperado acabou acontecendo, por favor aguarde alguns instantes e tente novamente!</span>
+              </div>
+
+              <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
+              </div>
+          </div>
       </div>
 
       <!--Import jQuery before materialize.js-->
@@ -116,16 +143,20 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
             $.ajax({      //Função AJAX
               url:"../server/contato.php",      //Arquivo php
               type:"post",        //Método de envio
-              data: "assunto="+assunto+"&mensagem="+mensagem, //Dados
-                success: function (result){
+              data: "assunto="+assunto+"&mensagem="+mensagem,
+              beforeSend : function(){
+                $('#avisos').openModal();
+              }
+              success: function (result){
                             //alert(result);//Sucesso no AJAX
                             if(result==1){    
                               $('#assunto').val("");
                               $('#mensagem').val("");
-                              alert('Mensagem enviada com sucesso!');
+                              $('#contentLoading').hide(100);
+                              $('#contentSucesso').show(100);
                             }
                             if(result==0){
-                              alert('Erro ao enviar mensagem!');
+                              $('#contentErro').show(100);
                             }
                         }
             });
