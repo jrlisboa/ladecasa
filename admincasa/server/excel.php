@@ -3,7 +3,7 @@
 include("conecta.php");
 
 // Procurar as informações do BD
-$SQL = "SELECT * FROM user DESC" ;
+$SQL = "SELECT * FROM user" ;
 $executa = mysql_query($SQL);
 
 // Escolher o formato do arquivo
@@ -21,7 +21,7 @@ echo "<table>";
 	echo "<td>E-mail</td>";
 	echo "<td>Telefone</td>";
  echo "</tr>";
-while ($r = mysql_fetch_array($executa)){
+/*while ($r = mysql_fetch_array($executa)){
  echo "<tr>";
 	echo "<td>".$r['id']."</td>";
 	echo "<td>" . $r["nascimento"] . "</td>";
@@ -29,6 +29,6 @@ while ($r = mysql_fetch_array($executa)){
 	echo "<td>" . $r["email"] . "</td>";
 	echo "<td>" . $r["telefone"] . "</td>";
  echo "</tr>";
-}
+}*/
 echo "</table>"; 
 ?>
