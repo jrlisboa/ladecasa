@@ -1,128 +1,53 @@
 <?php
- include "conecta.php"; 
- $sql = "SELECT * FROM user DESC";
- $resultado = mysql_query($sql);
 
- $tabela = '<table border="1">';
+// Incluimos a classe PHPExcel
+include  'phpexcel/Classes/PHPExcel.php';
 
- $tabela .= '<tr>';
- $tabela .= '<td colspan="23">Tabela de CLIENTES</tr>';
- $tabela .= '</tr>';
+// Instanciamos a classe
+$objPHPExcel = new PHPExcel();
 
- $tabela .= '<tr>';
- $tabela .= '<td><b>ID</b></td>';
- $tabela .= '<td><b>NOME</b></td>';
- $tabela .= '<td><b>SOBRENOME</b></td>';
- $tabela .= '<td><b>NASCIMENTO</b></td>';
- $tabela .= '<td><b>TELEFONE</b></td>';
- $tabela .= '<td><b>CELULAR</b></td>';
- $tabela .= '<td><b>RAMAL</b></td>';
- $tabela .= '<td><b>CIDADE</b></td>';
- $tabela .= '<td><b>BAIRRO</b></td>';
- $tabela .= '<td><b>RUA</b></td>';
- $tabela .= '<td><b>NÚMERO</b></td>';
- $tabela .= '<td><b>COMPLEMENTO</b></td>';
- $tabela .= '<td><b>EMPRESA</b></td>';
- $tabela .= '<td><b>DEPARTAMENTO</b></td>';
- $tabela .= '<td><b>CPF</b></td>';
- $tabela .= '<td><b>EMAIL</b></td>';
- $tabela .= '<td><b>MENU</b></td>';
- $tabela .= '<td><b>PLANO</b></td>';
- $tabela .= '<td><b>PERIODO</b></td>';
- $tabela .= '<td><b>EMBALAGEM</b></td>';
- $tabela .= '<td><b>DATA DE PAGAMENTO</b></td>';
- $tabela .= '<td><b>FORMA DE PAGAMENTO</b></td>';
- $tabela .= '<td><b>DATA DE CADASTRO</b></td>';
- $tabela .= '</tr>';
+// Definimos o estilo da fonte
+$objPHPExcel->getActiveSheet()->getStyle('A1')->getFont()->setBold(true);
 
- while($dados = mysql_fetch_array($resultado)){
+// Criamos as colunas
+$objPHPExcel->setActiveSheetIndex(0)
+            ->setCellValue('A1', 'Listagem de Credenciamento' )
+            ->setCellValue('B1', "Nome " )
+            ->setCellValue("C1", "Sobrenome" )
+            ->setCellValue("D1", "E-mail" );
 
-		if ($dados['id_periodo'] == 1) {
-		  $periodo = "Manhã";
-		}elseif ($dados['id_periodo'] == 2) {
-		  $periodo = "Tarde";
-		}else{
-		  $periodo = "Não definido";
-		}
+// Podemos configurar diferentes larguras paras as colunas como padrão
+$objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(90);
+$objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(15);
+$objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(30);
+$objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(30);
 
-		if ($dados['id_plano'] == 1) {
-		  $plano = "Quinzenal";
-		}elseif ($dados['id_periodo'] == 2) {
-		  $plano = "Mensal";
-		}else{
-		  $plano = "Não definido";
-		}
+// Também podemos escolher a posição exata aonde o dado será inserido (coluna, linha, dado);
+$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 2, "Fulano");
+$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, 2, " da Silva");
+$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, 2, "fulano@exemplo.com.br");
 
-		if ($dados['tipo_embalagem'] == 1) {
-		  $embalagem = "Retornável";
-		}elseif ($dados['tipo_embalagem'] == 2) {
-		  $embalagem = "Reciclável";
-		}else{
-		  $embalagem = "Não definido";
-		}
+// Exemplo inserindo uma segunda linha, note a diferença no segundo parâmetro
+$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(1, 3, "Beltrano");
+$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(2, 3, " da Silva Sauro");
+$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(3, 3, "beltrando@exemplo.com.br");
 
-		if ($dados['data_pagamento'] == "0000-00-00") {
-			$data_pagamento = "Não definido";
-		}else{
-			$data_pagamento = date('d/m/Y', strtotime($dados['data_pagamento']));
-		}
+// Podemos renomear o nome das planilha atual, lembrando que um único arquivo pode ter várias planilhas
+$objPHPExcel->getActiveSheet()->setTitle('Credenciamento para o Evento');
 
-		if ($dados['data_cadastro'] == "0000-00-00") {
-			$data_cadastro = "Não definido";
-		}else{
-			$data_cadastro = date('d/m/Y', strtotime($dados['data_cadastro']));
-		}
+// Cabeçalho do arquivo para ele baixar
+header('Content-Type: application/vnd.ms-excel');
+header('Content-Disposition: attachment;filename="arquivo_de_exemplo01.xls"');
+header('Cache-Control: max-age=0');
+// Se for o IE9, isso talvez seja necessário
+header('Cache-Control: max-age=1');
 
-		if (empty($dados['complemento'])) {
-			$complemento = "Não definido";
-		}else{
-			$complemento = $dados['complemento'];
-		}
+// Acessamos o 'Writer' para poder salvar o arquivo
+$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 
+// Salva diretamente no output, poderíamos mudar arqui para um nome de arquivo em um diretório ,caso não quisessemos jogar na tela
+$objWriter->save('php://output'); 
 
-		if ($pegou['forma_pagamento'] == 1) {
-    $pagamento = "Transferência (DOC)";
-  }elseif ($pegou['forma_pagamento'] == 2) {
-    $pagamento = "PagSeguro";
-  }elseif ($pegou['forma_pagamento'] == 3) {
-    $pagamento = "Moderninha";
-  }else{
-    $pagamento = "Não definido"; }
+exit;
 
-
-  $tabela .= '<tr>';
-	 $tabela .= '<td><b>'.$dados['id'].'</b></td>';
-	 $tabela .= '<td><b>'.$dados['nome'].'</b></td>';
-	 $tabela .= '<td><b>'.$dados['sobrenome'].'</b></td>';
-	 $tabela .= '<td><b>'.$dados['nascimento'].'</b></td>';
-	 $tabela .= '<td><b>'.$dados['telefone'].'</b></td>';
-	 $tabela .= '<td><b>'.$dados['celular'].'</b></td>';
-	 $tabela .= '<td><b>'.$dados['ramal'].'</b></td>';
-	 $tabela .= '<td><b>'.$dados['cidade'].'</b></td>';
-	 $tabela .= '<td><b>'.$dados['bairro'].'</b></td>';
-	 $tabela .= '<td><b>'.$dados['rua'].'</b></td>';
-	 $tabela .= '<td><b>'.$dados['numero'].'</b></td>';
-	 $tabela .= '<td><b>'.$complemento.'</b></td>';
-	 $tabela .= '<td><b>'.$dados['empresa'].'</b></td>';
-	 $tabela .= '<td><b>'.$dados['departamento'].'</b></td>';
-	 $tabela .= '<td><b>'.$dados['cpf'].'</b></td>';
-	 $tabela .= '<td><b>'.$dados['email'].'</b></td>';
-	 $tabela .= '<td><b>'.$dados['id_menu'].'</b></td>';
-	 $tabela .= '<td><b>'.$plano.'</b></td>';
-	 $tabela .= '<td><b>'.$periodo.'</b></td>';
-	 $tabela .= '<td><b>'.$embalagem.'</b></td>';
-	 $tabela .= '<td><b>'.$data_pagamento.'</b></td>';
-	 $tabela .= '<td><b>'.$pagamento.'</b></td>';
-	 $tabela .= '<td><b>'.$data_cadastro.'</b></td>';
-	 $tabela .= '</tr>';
- }
-
- $tabela .= '</table>';
-
- // Força o Download do Arquivo Gerado
- header ('Cache-Control: no-cache, must-revalidate');
- header ('Pragma: no-cache');
- header('Content-Type: application/x-msexcel');
- header ("Content-Disposition: attachment; filename=\"{'Clientes.xls'}\"");
- echo $tabela;
 ?>
