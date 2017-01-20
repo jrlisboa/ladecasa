@@ -21,7 +21,7 @@ echo "<table>";
  echo "</tr>";
 
 // Procurar as informações do BD
-$SQL = "SELECT * FROM user DESC" ;
+$SQL = "SELECT * FROM user ORDER BY id DESC" ;
 $executa = mysql_query($SQL);
 
 while ($resultado = mysql_fetch_array($executa)){
