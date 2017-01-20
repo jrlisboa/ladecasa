@@ -1,4 +1,4 @@
-<?
+<?php
  include "conecta.php";
  $sql = "SELECT * FROM user DESC";
 
