@@ -147,20 +147,19 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
               beforeSend : function(){
                 $('#avisos').openModal();
               }
-              success: function (result){
-                            //alert(result);//Sucesso no AJAX
-                            if(result==1){    
-                              $('#assunto').val("");
-                              $('#mensagem').val("");
-                              $('#contentLoading').hide(100);
-                              $('#contentSucesso').show(100);
-                            }
-                            if(result==0){
-                              $('#contentErro').show(100);
-                            }
-                        }
+            }).done(function (result){
+                //alert(result);
+                if(result==1){    
+                  $('#assunto').val("");
+                  $('#mensagem').val("");
+                  $('#contentLoading').hide(100);
+                  $('#contentSucesso').show(100);
+                }
+                if(result==0){
+                  $('#contentErro').show(100);
+                }
             });
-            return false; //Evita que a página seja atualizada
+            return false;
           });
       </script>
     </body>
