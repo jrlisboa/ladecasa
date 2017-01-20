@@ -4,7 +4,7 @@
   $id=$_GET['id'];
   $pagamento = date("Y/m/d", time());
   //Consulta no banco de dados
-  $sql="UPDATE user SET pagamento = 1, maquininha = 0, data_pagamento = '$pagamento', forma_pagamento = 3 WHERE id= '$id'";
+  $sql="UPDATE user SET pagamento = 1, maquininha = 0, pagseguro = 0, data_pagamento = '$pagamento', forma_pagamento = 3 WHERE id= '$id'";
   $foi = mysql_query($sql)or die (mysql_error());
   if ($foi) {
   	header("Location: ../detalhes_cliente.php?id=".$id);
