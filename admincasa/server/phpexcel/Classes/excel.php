@@ -2,7 +2,7 @@
 echo "teste";
 // Incluimos a classe PHPExcel
 
-include 'PHPExcel.php';
+include 'phpexcel/Classes/PHPExcel.php';
 
 // Instanciamos a classe
 $objPHPExcel = new PHPExcel();
