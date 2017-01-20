@@ -117,11 +117,6 @@ while ($pegou = mysql_fetch_array($executa)){
 	 			echo "<td>".utf8_decode($lista['nome'])."</td>";
 	 }
  echo "</tr>";
-
- 
-
- echo "<tr>";
- echo "</tr>";
 }
 echo "</table>"; 
 ?>
