@@ -1,6 +1,5 @@
 <?php
  include('conecta.php');
- $arquivo = 'Clientes.xls';
 
  // Criamos uma tabela HTML com o formato da planilha para excel
  $tabela = '<table border="1">';
@@ -126,6 +125,6 @@
  header ('Cache-Control: no-cache, must-revalidate');
  header ('Pragma: no-cache');
  header('Content-Type: application/x-msexcel');
- header ("Content-Disposition: attachment; filename=\"{$arquivo}\"");
+ header ("Content-Disposition: attachment; filename=\"{'Clientes.xls'}\"");
  echo $tabela;
 ?>
