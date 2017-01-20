@@ -112,12 +112,12 @@ while ($pegou = mysql_fetch_array($executa)){
  $select = "SELECT * FROM favorito
  INNER JOIN produto ON (produto.id = favorito.id_produto) WHERE id_user='$id_cliente'";
  $vamola = mysql_query($select);
- while($lista = mysql_fetch_array($vamola)){
 
- 		echo "<tr>";
+ echo "<tr>";
+ while($lista = mysql_fetch_array($vamola)){
  			echo "<td>".utf8_decode($lista['nome'])."</td>";
- 		echo "</tr>";
  }
+ echo "</tr>";
 
  echo "<tr>";
  echo "</tr>";
