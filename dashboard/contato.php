@@ -144,10 +144,10 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                 $('#avisos').openModal();
               }
             }).done(function (result){
+                $('#assunto').val("");
+                $('#mensagem').val("");
                 //alert(result);
-                if(result==1){    
-                  $('#assunto').val("");
-                  $('#mensagem').val("");
+                if(result==1){
                   $('#contentLoading').hide(100);
                   $('#contentSucesso').show(100);
                 }
