@@ -1,4 +1,4 @@
 <?php
-	$oi = "ola"
+	$oi = "ola";
 	echo $oi;
 ?>
