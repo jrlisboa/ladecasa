@@ -41,6 +41,7 @@ $SQL = "SELECT * FROM user ORDER BY id DESC" ;
 $executa = mysql_query($SQL);
 
 while ($pegou = mysql_fetch_array($executa)){
+	$id_cliente = $pegou['id'];
 
  if ($pegou['id_periodo'] == 1) {
 	  $periodo = "Manhã";
@@ -83,7 +84,7 @@ while ($pegou = mysql_fetch_array($executa)){
 	  $pagamento = "Não definido"; }
  
  echo "<tr>";
-		echo "<td>".$pegou['id']."</td>";
+		echo "<td>".$id_cliente."</td>";
 		echo "<td>".utf8_decode($pegou['nome'])."</td>";
 		echo "<td>".utf8_decode($pegou['sobrenome'])."</td>";
 		echo "<td>".$pegou['nascimento']."</td>";
@@ -107,6 +108,16 @@ while ($pegou = mysql_fetch_array($executa)){
 		echo "<td>".utf8_decode($embalagem)."</td>";
 		echo "<td>".$pegou['data_cadastro']."</td>";
  echo "</tr>";
+
+ $select = "SELECT * FROM favorito
+ INNER JOIN produto ON (produto.id = favorito.id_produto) WHERE id_user='$id_cliente'";
+ $vamola = mysql_query($select);
+ while($lista = mysql_fetch_array($vamola)){
+
+ 		echo "<tr>";
+ 			echo "<td>".utf8_decode($lista['nome'])."</td>";
+ 		echo "</tr>";
+ }
 
  echo "<tr>";
  echo "</tr>";
