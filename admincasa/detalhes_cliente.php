@@ -89,12 +89,14 @@ $vamo = mysql_query($mudando);
 
                 <div class="col l10 offset-l1 s12 card grey lighten-4" style="padding-bottom: 30px">
 
-                <div class="col l6 s12" align="right">
-                  <h5>Pagamento aprovado?</h5>
-                </div>
-                <div class="col l6 s12">
-                  <a href="server/confirma_boleto.php?id=<?= $dados['id'] ?>" class="btn blue white-text" style="margin-top: 30px">Confirmar pagamento</a>
-                </div>
+                  <div class="col l12 s12" align="center">
+                    <h5>Clique em uma das opções para confirmar o pagamento!</h5>
+                  </div>
+                  <div class="col l12 s12">
+                    <a href="server/confirma_boleto.php?id=<?= $dados['id'] ?>" class="btn blue white-text col l4" style="margin-top: 30px">Transferência (DOC)</a>
+                    <a href="server/confirma_maquininha.php?id=<?= $dados['id'] ?>" class="btn orange white-text col l4" style="margin-top: 30px">Moderninha</a>
+                    <a href="server/confirma_pagseguro.php?id=<?= $dados['id'] ?>" class="btn green white-text col l4" style="margin-top: 30px">PagSeguro</a>
+                  </div>
                   
                 </div>      
 
@@ -146,9 +148,11 @@ $vamo = mysql_query($mudando);
 
             
             if ($pegou['forma_pagamento'] == 1) {
-              $pagamento = "Débito (Boleto ou DOC)";
+              $pagamento = "Transferência (DOC)";
             }elseif ($pegou['forma_pagamento'] == 2) {
-              $pagamento = "Crédito (Via PagSeguro)";
+              $pagamento = "PagSeguro";
+            }elseif ($pegou['forma_pagamento'] == 3) {
+              $pagamento = "Moderninha";
             }else{
               $pagamento = "Não definido"; }
         ?>

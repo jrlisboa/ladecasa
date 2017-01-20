@@ -83,12 +83,14 @@
 		}
 
 
-		if ($dados['forma_pagamento'] == 1) {
-		  $pagamento = "Débito (Boleto ou DOC)";
-		}elseif ($dados['forma_pagamento'] == 2) {
-		  $pagamento = "Crédito (Via PagSeguro)";
-		}else{
-		  $pagamento = "Não definido"; }
+		if ($pegou['forma_pagamento'] == 1) {
+    $pagamento = "Transferência (DOC)";
+  }elseif ($pegou['forma_pagamento'] == 2) {
+    $pagamento = "PagSeguro";
+  }elseif ($pegou['forma_pagamento'] == 3) {
+    $pagamento = "Moderninha";
+  }else{
+    $pagamento = "Não definido"; }
 
 
   $tabela .= '<tr>';

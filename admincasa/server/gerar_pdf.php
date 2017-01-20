@@ -52,9 +52,11 @@ if (empty($pegou['complemento'])) {
 
 
 if ($pegou['forma_pagamento'] == 1) {
-  $pagamento = "Débito (Boleto ou DOC)";
+  $pagamento = "Transferência (DOC)";
 }elseif ($pegou['forma_pagamento'] == 2) {
-  $pagamento = "Crédito (Via PagSeguro)";
+  $pagamento = "PagSeguro";
+}elseif ($pegou['forma_pagamento'] == 3) {
+  $pagamento = "Moderninha";
 }else{
   $pagamento = "Não definido"; }
 
