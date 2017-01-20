@@ -118,6 +118,20 @@ if ($_SESSION['nivel'] != 3) {
                     </td>
                   </tr>                
 
+                  <?php }elseif ($resultado['maquininha'] == 1){ ?>
+
+                  <tr>
+                    <td><?= $novo ?></td>
+                    <td><?= $resultado['nome'] ?></td>
+                    <td><?= $resultado['telefone'] ?></td>
+                    <td><?= $resultado['email'] ?></td>
+                    <td><?= $resultado['cpf'] ?></td>
+                    <td ><div class="orange white-text center">Maquininha Solicitada</div></td>
+                    <td>
+                      <a href="detalhes_cliente.php?id=<?= $resultado['id'] ?>" class="btn-small blue white-text col l12 center">Detalhes</a>
+                    </td>
+                  </tr>
+
                   <?php }elseif ($resultado['pagseguro'] == 1){ ?>
 
                   <tr>

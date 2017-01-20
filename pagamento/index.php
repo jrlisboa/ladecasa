@@ -154,7 +154,7 @@ include "../server/conecta.php";
               <span style="font-size: 18px !important">Clique abaixo para entrar em contato e solicitar esta forma de pagamento!</span>
             </div>
             
-            <a href="../dashboard/contato.php"><div class="col l12 s12 imagemPag"><img class="col s12" src="../img/icones/maquina.png"></div></a>       
+            <a style="cursor: pointer;" id="solicitar"><div class="col l12 s12 imagemPag"><img class="col s12" src="../img/icones/maquina.png"></div></a>       
           </div>
 
           <div class="col l4 s12 menus pagao">
@@ -178,6 +178,26 @@ include "../server/conecta.php";
         $(document).ready(function(){
           $(".button-collapse").sideNav();
         });
+      </script>
+      <script type="text/javascript">
+        ///////// login
+          $('#solicitar').click(function(){
+            $.ajax({
+              url:"../server/maquininha.php",
+              type:"post",
+              data: "email="+1,
+                success: function (result){
+                            //alert(result);
+                            if(result==1){            
+                              alert("Maquininha solicitada com sucesso!");
+                            }else{
+                              alert("Erro ao solicitar maquininha!");
+                              alert(result);
+                            }
+                        }
+            });
+            return false;
+          });
       </script>
     </body>
   </html>

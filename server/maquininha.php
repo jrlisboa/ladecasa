@@ -6,6 +6,8 @@ if (!isset($_SESSION['usuarioID'])) {
         header("Location: ../login/"); exit; 
 }
 
+$email = $_POST['email'];
+
 $id_user = $_SESSION['usuarioID'];
 
 $sql = "UPDATE user SET maquininha = 1 WHERE id = '$id_user'";
