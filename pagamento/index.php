@@ -141,9 +141,10 @@ include "../server/conecta.php";
                     }
                   ?>
 
-                  <li class="collection-item">(11) 96058 - 7920 - VIVO</li>
-                  <li class="collection-item">(11) 5102-4323 - FIXO</li>
-                  <li class="collection-item"><a href="../dashboard/contato.php" class="green btn white-text col l12 s12">Contato pelo site</a></li>
+                  <li class="collection-item">Banco: Itaú</li>
+                  <li class="collection-item">Agência: 0741</li>
+                  <li class="collection-item">Conta: 09781-0</li>
+                  <li class="collection-item">CNPJ: 26.728.698/0001-50</li>
                 </ul>
             </div>
           </div>
