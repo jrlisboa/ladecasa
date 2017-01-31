@@ -122,8 +122,10 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                             //alert(result);     //Sucesso no AJAX
                             if(result==1){            
                               $('#foi').show(100);
+                              $('#erro').hide(100);
                             }
                             if(result==0){
+                              $('#foi').hide(100);
                               $('#erro').show(100);   //Informa o erro
                             }
                         }
