@@ -124,11 +124,13 @@ while ($pegou = mysql_fetch_array($executa)){
 
 			$dnv = mysql_query("SELECT * FROM produto WHERE id_tipo = '$id_tipo'");
 			while ($produtos = mysql_fetch_array($dnv)) {
-				$vamo = mysql_query("SELECT * FROM favorito WHERE id_user = '$id_cliente'");
-				while ($favoritos = mysql_fetch_array($vamo)) {
-					if ($produtos['id'] == $favoritos['id_produto']) {
-						echo "<td>S</td>";
-					}
+				$id_produto = $produtos['id'];
+				$vamo = mysql_query("SELECT * FROM favorito WHERE id_user = '$id_cliente' AND id_produto = '$id_produto'");
+				$favoritos = mysql_fetch_array($vamo);
+				if (@mysql_num_rows($resultados) == 0){
+					echo "<td></td>";
+				}else{
+					echo "<td>S</td>";
 				}
 			}
 		}
