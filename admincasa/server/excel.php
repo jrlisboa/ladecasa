@@ -130,7 +130,7 @@ while ($pegou = mysql_fetch_array($executa)){
 				if (mysql_num_rows($vamo) == 0){
 					echo "<td></td>";
 				}else{
-					echo "<td>S</td>";
+					echo "td align='center'>S</td>";
 				}
 			}
 		}
