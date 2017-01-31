@@ -41,7 +41,7 @@ echo "<table>";
 
 		$dnv = mysql_query("SELECT * FROM produto WHERE id_tipo = '$id_tipo'");
 		while ($produtos = mysql_fetch_array($dnv)) {
-			echo "<td>".$produtos['nome']."</td>";
+			echo "<td>".utf8_decode($produtos['nome'])."</td>";
 		}
 	}
  echo "</tr>";
