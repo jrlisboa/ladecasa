@@ -34,7 +34,16 @@ echo "<table>";
 	echo "<td>FORMA DE PAGAMENTO</td>";
 	echo "<td>EMBALAGEM</td>";
 	echo "<td>DATA DE CADASTRO</td>";
-	echo "<td>FAVORITOS</td>";
+
+	$query = mysql_query("SELECT * FROM tipo");
+	while ($tipos = mysql_fetch_array($query)) {
+		$id_tipo = $tipos['id'];
+
+		$dnv = mysql_query("SELECT * FROM produto WHERE id_tipo = '$id_tipo'");
+		while ($produtos = mysql_fetch_array($dnv)) {
+			echo "<td>".$produtos['nome']."</td>";
+		}
+	}
  echo "</tr>";
 
 // Procurar as informações do BD
@@ -109,13 +118,6 @@ while ($pegou = mysql_fetch_array($executa)){
 		echo "<td>".utf8_decode($embalagem)."</td>";
 		echo "<td>".$pegou['data_cadastro']."</td>";
 
-		$select = "SELECT * FROM favorito
-	 INNER JOIN produto ON (produto.id = favorito.id_produto) WHERE id_user='$id_cliente'";
-	 $vamola = mysql_query($select);
-
-	 while($lista = mysql_fetch_array($vamola)){
-	 			echo "<td>".utf8_decode($lista['nome'])."</td>";
-	 }
  echo "</tr>";
 }
 echo "</table>"; 
