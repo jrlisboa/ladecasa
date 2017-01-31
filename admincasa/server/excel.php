@@ -118,6 +118,21 @@ while ($pegou = mysql_fetch_array($executa)){
 		echo "<td>".utf8_decode($embalagem)."</td>";
 		echo "<td>".$pegou['data_cadastro']."</td>";
 
+		$query = mysql_query("SELECT * FROM tipo");
+		while ($tipos = mysql_fetch_array($query)) {
+			$id_tipo = $tipos['id'];
+
+			$dnv = mysql_query("SELECT * FROM produto WHERE id_tipo = '$id_tipo'");
+			while ($produtos = mysql_fetch_array($dnv)) {
+				$vamo = mysql_query("SELECT * FROM favorito WHERE id_user = '$id_cliente'");
+				while ($favoritos = mysql_fetch_array($vamo)) {
+					if ($produtos['id'] == $favoritos['id_produto']) {
+						echo "<td>S</td>";
+					}
+				}
+			}
+		}
+
  echo "</tr>";
 }
 echo "</table>"; 
