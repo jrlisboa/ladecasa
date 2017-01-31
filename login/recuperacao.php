@@ -86,6 +86,8 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
                 <div class="chip red white-text" id="erro" style="display: none;">Este email não está cadastrado!</div>
 
+                <div class="chip green white-text" id="foi" style="display: none;">Um email com a senha foi enviado!</div>
+
                 <div class="btnBottom row" align="center" >
                   <input style="margin-top: -30px !important;" id="recuperar" class="col l4 offset-l4" type="submit" name="enviar" value="Enviar">
                 </div>
@@ -119,7 +121,7 @@ if (isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                 success: function (result){
                             //alert(result);     //Sucesso no AJAX
                             if(result==1){            
-                              location.href='index.php'  //Redireciona
+                              $('#foi').show(100);
                             }
                             if(result==0){
                               $('#erro').show(100);   //Informa o erro
