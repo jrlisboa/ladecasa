@@ -71,7 +71,7 @@ $vamo = mysql_query($mudando);
 
         <!-- Dropdown Trigger -->
         <div class="col l2">
-          <a class='dropdown-button btn circle' href='#' data-activates='dropdown1'> <i class="material-icons">add</i></a>
+          <a class='dropdown-button btn circle white' href='#' data-activates='dropdown1'> <i class="material-icons black-text">vpn_key</i></a>
 
           <!-- Dropdown Structure -->
           <ul id='dropdown1' class='dropdown-content'>
