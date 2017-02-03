@@ -74,7 +74,7 @@ $vamo = mysql_query($mudando);
           <a class='dropdown-button btn circle white' href='#' data-activates='dropdown1'> <i class="material-icons black-text">vpn_key</i></a>
 
           <!-- Dropdown Structure -->
-          <ul id='dropdown1' class='dropdown-content'>
+          <ul id='dropdown1' class='dropdown-content' style="width: 150px !important">
             <li><a href="#!">Tornar Administrador</a></li>
             <li><a href="#!">Tornar CDC do Blog</a></li>
           </ul>
