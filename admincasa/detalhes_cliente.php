@@ -75,8 +75,8 @@ $vamo = mysql_query($mudando);
 
           <!-- Dropdown Structure -->
           <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="#!">one</a></li>
-            <li><a href="#!">two</a></li>
+            <li><a href="#!">Tornar Administrador</a></li>
+            <li><a href="#!">Tornar CDC do Blog</a></li>
             <li class="divider"></li>
             <li><a href="#!">three</a></li>
           </ul>
