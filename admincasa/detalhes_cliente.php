@@ -77,7 +77,7 @@ $vamo = mysql_query($mudando);
           <?php if ($dados['nivel'] == 3 || $dados['nivel'] == 2): ?>
 
             <ul id='dropdown1' class='dropdown-content'>
-              <li><a href="server/tornar_administrador.php?id=<?= $dados['id'] ?>">Tornar usuário comum</a></li>
+              <li><a href="server/tornar_normal.php?id=<?= $dados['id'] ?>">Tornar usuário comum</a></li>
             </ul>
             
           <?php endif ?>
