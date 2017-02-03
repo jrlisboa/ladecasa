@@ -77,8 +77,6 @@ $vamo = mysql_query($mudando);
           <ul id='dropdown1' class='dropdown-content'>
             <li><a href="#!">Tornar Administrador</a></li>
             <li><a href="#!">Tornar CDC do Blog</a></li>
-            <li class="divider"></li>
-            <li><a href="#!">three</a></li>
           </ul>
         </div>
 
