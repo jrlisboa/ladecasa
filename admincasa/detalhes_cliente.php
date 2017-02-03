@@ -67,10 +67,10 @@ $vamo = mysql_query($mudando);
         $dados = mysql_fetch_array($query);
         error_reporting(0);
         ?>
-        <h2 align="center" class="col l10">Detalhes - <?= $dados['nome'] ?> <?= $dados['sobrenome'] ?></h2>
+        <h2 align="center" class="col l9 offset-l1">Detalhes - <?= $dados['nome'] ?> <?= $dados['sobrenome'] ?></h2>
 
         <!-- Dropdown Trigger -->
-        <div class="col l2">
+        <div class="col l2" style="margin-top: 40px;">
           <a class='dropdown-button btn circle white' href='#' data-activates='dropdown1'> <i class="material-icons black-text">vpn_key</i></a>
 
           <!-- Dropdown Structure -->
