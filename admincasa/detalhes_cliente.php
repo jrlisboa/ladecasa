@@ -67,7 +67,20 @@ $vamo = mysql_query($mudando);
         $dados = mysql_fetch_array($query);
         error_reporting(0);
         ?>
-        <h2 align="center">Detalhes - <?= $dados['nome'] ?> <?= $dados['sobrenome'] ?></h2>
+        <h2 align="center col l10">Detalhes - <?= $dados['nome'] ?> <?= $dados['sobrenome'] ?></h2>
+
+        <!-- Dropdown Trigger -->
+        <div class="col l2">
+          <a class='dropdown-button btn circle' href='#' data-activates='dropdown1'> <i class="material-icons">add</i></a>
+
+          <!-- Dropdown Structure -->
+          <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">one</a></li>
+            <li><a href="#!">two</a></li>
+            <li class="divider"></li>
+            <li><a href="#!">three</a></li>
+          </ul>
+        </div>
 
         <div class="row">
 
