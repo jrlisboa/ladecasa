@@ -67,7 +67,7 @@ $vamo = mysql_query($mudando);
         $dados = mysql_fetch_array($query);
         error_reporting(0);
         ?>
-        <h2 align="center col l10">Detalhes - <?= $dados['nome'] ?> <?= $dados['sobrenome'] ?></h2>
+        <h2 align="center" class="col l10">Detalhes - <?= $dados['nome'] ?> <?= $dados['sobrenome'] ?></h2>
 
         <!-- Dropdown Trigger -->
         <div class="col l2">
