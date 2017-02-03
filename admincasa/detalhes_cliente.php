@@ -70,15 +70,14 @@ $vamo = mysql_query($mudando);
         <h2 align="center" class="col l9">Detalhes - <?= $dados['nome'] ?> <?= $dados['sobrenome'] ?></h2>
 
         <!-- Dropdown Trigger -->
-        <div class="col l3" style="margin-top: 40px;">
-          <a class='dropdown-button btn circle white' href='#' data-activates='dropdown1'> <i class="material-icons black-text">vpn_key</i></a>
+        <div class="col l2" style="margin-top: 40px;">
+          <a class='dropdown-button btn circle white col l12' href='#' data-activates='dropdown1'> <i class="material-icons black-text">vpn_key</i></a>
 
           <!-- Dropdown Structure -->
           <?php if ($dados['nivel'] == 3 || $dados['nivel'] == 2): ?>
 
             <ul id='dropdown1' class='dropdown-content'>
-              <li><a href="server/tornar_administrador.php?id=<?= $dados['id'] ?>">Tornar Administrador</a></li>
-              <li><a href="server/tornar_blog.php?id=<?= $dados['id'] ?>">Tornar CDC do Blog</a></li>
+              <li><a href="server/tornar_administrador.php?id=<?= $dados['id'] ?>">Tornar usuário comum</a></li>
             </ul>
             
           <?php endif ?>
@@ -91,7 +90,7 @@ $vamo = mysql_query($mudando);
             </ul>
             
           <?php endif ?>
-          
+
         </div>
 
         <div class="row">
