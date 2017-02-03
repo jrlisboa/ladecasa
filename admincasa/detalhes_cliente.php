@@ -74,10 +74,24 @@ $vamo = mysql_query($mudando);
           <a class='dropdown-button btn circle white' href='#' data-activates='dropdown1'> <i class="material-icons black-text">vpn_key</i></a>
 
           <!-- Dropdown Structure -->
-          <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="#!">Tornar Administrador</a></li>
-            <li><a href="#!">Tornar CDC do Blog</a></li>
-          </ul>
+          <?php if ($dados['nivel'] == 3 || $dados['nivel'] == 2): ?>
+
+            <ul id='dropdown1' class='dropdown-content'>
+              <li><a href="server/tornar_administrador.php?id=<?= $dados['id'] ?>">Tornar Administrador</a></li>
+              <li><a href="server/tornar_blog.php?id=<?= $dados['id'] ?>">Tornar CDC do Blog</a></li>
+            </ul>
+            
+          <?php endif ?>
+
+          <?php if ($dados['nivel'] == 0): ?>
+
+            <ul id='dropdown1' class='dropdown-content'>
+              <li><a href="server/tornar_administrador.php?id=<?= $dados['id'] ?>">Tornar Administrador</a></li>
+              <li><a href="server/tornar_blog.php?id=<?= $dados['id'] ?>">Tornar CDC do Blog</a></li>
+            </ul>
+            
+          <?php endif ?>
+          
         </div>
 
         <div class="row">
