@@ -2,7 +2,7 @@
 
 include('conecta.php');
 
-$id_user = $_SESSION['usuarioID'];
+$id_user = intval($_SESSION['usuarioID']);
 $titulo = utf8_decode($_POST['titulo']);
 $texto = utf8_decode($_POST['texto']);
 $data = date("Y/m/d", time());
