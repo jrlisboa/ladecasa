@@ -40,6 +40,7 @@ include 'server/conecta.php';
               <li><a href="produtos.php">Produtos</a></li>
               <li><a href="clientes.php">Clientes</a></li>
               <li><a href="sistema.php">Sistema</a></li>
+              <li><a href="dicas.php">Dicas</a></li>
               <li><a class="btn white black-text" href="server/logout.php">Sair</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
@@ -47,6 +48,7 @@ include 'server/conecta.php';
               <li><a href="produtos.php">Produtos</a></li>
               <li><a href="clientes.php">Clientes</a></li>
               <li><a href="sistema.php">Sistema</a></li>
+              <li><a href="dicas.php">Dicas</a></li>
               <li><a class="btn white black-text" href="server/logout.php">Sair</a></li>
             </ul>
           </div>
