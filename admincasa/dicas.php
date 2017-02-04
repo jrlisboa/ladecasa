@@ -43,7 +43,7 @@ if ($_SESSION['nivel'] != 3) {
                 <li><a href="clientes.php">Clientes</a></li>
                 <li><a href="sistema.php">Sistema</a></li>
               <?php endif ?>
-              <li><a href="dicas.php">Dicas</a></li>
+              <li><a href="dicas.php"><?= $_SESSION['nivel'] ?></a></li>
               <li><a class="btn white black-text" href="server/logout.php">Sair</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
