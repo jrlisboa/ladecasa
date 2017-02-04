@@ -89,14 +89,14 @@ if ($_SESSION['nivel'] != 3) {
               <div class="col l12 s12">
                 <h5 >Título:</h5>
                 <div class="input-field col s12">
-                  <input id="first_name" type="text" class="validate" name="nome">
+                  <input id="first_name" type="text" class="validate" name="titulo">
                 </div>
               </div>
 
               <div class="col l12">
                 <h5 >Dica ou Informação:</h5>
                 <div class="input-field col s12">
-                  <textarea name="detalhes"></textarea>
+                  <textarea name="texto"></textarea>
                 </div>
               </div>
 
