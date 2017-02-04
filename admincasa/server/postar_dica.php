@@ -7,11 +7,15 @@ $titulo = utf8_decode($_POST['titulo']);
 $texto = utf8_decode($_POST['texto']);
 $data = date("Y/m/d", time());
 
-mysql_query("
+$foi = mysql_query("
     INSERT INTO post (id_user, titulo, texto, data_post)
     VALUES ('$id_user', '$titulo', '$texto', '$data')");
 
-header("Location: ../dicas.php");
+if ($foi) {
+	echo "foi";
+}
+
+//header("Location: ../dicas.php");
 
    
 ?>
