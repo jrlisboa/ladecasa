@@ -94,13 +94,13 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                 $user = mysql_query("SELECT * FROM user WHERE id = '$autor'");
                 $pega = mysql_fetch_array($user); ?>
 
-                <div class="col s12 m12 l8 offset-l2 card-panel orange" style="margin-top: 60px !important">
+                <div class="col s12 m12 l8 offset-l2 card-panel orange" style="margin-top: 60px !important; padding-bottom: 30px !important">
                   <div class="" style="height: auto !important">
                     <div class="col s6 offset-s3 l2 offset-l5" style="margin-top: -40px;">
                       <img src="../img/perfil/<?= $pega['imagem'] ?>" style="width: 100% !important; border-radius: 1000px; box-shadow: 0 -10px 10px 0 #eee">
                     </div>
                     <h4 class="col l12 s12 white-text center"><?= $dados['titulo'] ?></h4>
-                    <span class="col l12 s12 white-text center">Publicado por <?= $pega['nome'] ?> <?= $pega['sobrenome'] ?> em <?= date('d/m/Y', strtotime($dados['data_post'])) ?></span>
+                    <span class="col l12 s12 white-text center" style="margin-top: -10px !important">Publicado por <?= $pega['nome'] ?> <?= $pega['sobrenome'] ?> em <?= date('d/m/Y', strtotime($dados['data_post'])) ?></span>
                     <p class="col l12 s12 white-text" style="margin-top: 30px !important"><?= $dados['texto'] ?></p>
                   </div>
                 </div>
