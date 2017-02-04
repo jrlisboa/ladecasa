@@ -37,17 +37,24 @@ if ($_SESSION['nivel'] != 3 || $_SESSION['nivel'] != 2) {
             <a href="#!" class="brand-logo">La de Casa</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-              <li><a href="galeria.php">Galeria</a></li>
-              <li><a href="produtos.php">Produtos</a></li>
-              <li><a href="clientes.php">Clientes</a></li>
-              <li><a href="sistema.php">Sistema</a></li>
+              <?php if ($_SESSION['nivel'] != 3): ?>
+                <li><a href="galeria.php">Galeria</a></li>
+                <li><a href="produtos.php">Produtos</a></li>
+                <li><a href="clientes.php">Clientes</a></li>
+                <li><a href="sistema.php">Sistema</a></li>
+              <?php endif ?>
+              <li><a href="dicas.php">Dicas</a></li>
               <li><a class="btn white black-text" href="server/logout.php">Sair</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
-              <li><a href="galeria.php">Galeria</a></li>
-              <li><a href="produtos.php">Produtos</a></li>
-              <li><a href="clientes.php">Clientes</a></li>
-              <li><a href="sistema.php">Sistema</a></li>
+
+              <?php if ($_SESSION['nivel'] != 3): ?>
+                <li><a href="galeria.php">Galeria</a></li>
+                <li><a href="produtos.php">Produtos</a></li>
+                <li><a href="clientes.php">Clientes</a></li>
+                <li><a href="sistema.php">Sistema</a></li>
+              <?php endif ?>
+              <li><a href="dicas.php">Dicas</a></li>
               <li><a class="btn white black-text" href="server/logout.php">Sair</a></li>
             </ul>
           </div>
