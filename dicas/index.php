@@ -89,9 +89,12 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
               <div class="col s12 m12 l8 offset-l2">
                 <div class="card-panel orange">
-                  <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-                  I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-                  </span>
+                  <div class="col s6 offset-s3 l2 offset-l5 circle" style="margin-top: -40px;">
+                    <img src="../img/perfil/perfil.jpg">
+                  </div>
+                  <h4 class="col l8 s12">Título do Post aqui</h4>
+                  <span class="col l8 s12">13/08/2016</span>
+                  <p>Loren ipsun um cartão muito simples. Eu sou bom para conter pequenas informações. Eu sou conveniente por que eu preciso de muito pouca marcação para ser usado efetivamente.</p>
                 </div>
               </div>
 
