@@ -5,7 +5,7 @@
   $senha=$_POST['senha'];
   
   //Consulta no banco de dados
-  $sql="select * from user where email='".$email."' and senha='".$senha."' and nivel=3"; 
+  $sql="select * from user where email='".$email."' and senha='".$senha."'"; 
   $resultados = mysql_query($sql)or die (mysql_error());
   $res=mysql_fetch_array($resultados); //
 	if (@mysql_num_rows($resultados) == 0){
