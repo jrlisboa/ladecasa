@@ -7,9 +7,7 @@ $titulo = utf8_decode($_POST['titulo']);
 $texto = utf8_decode($_POST['texto']);
 $data = date("Y/m/d", time());
 
-$foi = mysql_query("
-    INSERT INTO post (id_user, titulo, texto, data_post)
-    VALUES ('$id_user', '$titulo', '$texto', '$data')");
+$foi = mysql_query("INSERT INTO post (id_user, titulo, texto, data_post) VALUES ('$id_user', '$titulo', '$texto', '$data')");
 
 if ($foi) {
 	echo "foi";
