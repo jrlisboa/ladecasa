@@ -24,7 +24,6 @@ if ($_SESSION['nivel'] != 3) {
       <meta charset="utf-8">
 
       <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-      <script>tinymce.init({ selector:'textarea' });</script>
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -85,6 +84,13 @@ if ($_SESSION['nivel'] != 3) {
           <!-- CADASTRO DE IMAGENS -->
           <div id="test2" class="col s12 l10 offset-l1 grey lighten-3">
             <form class="row" action="server/postar_dica.php" method="post" enctype="multipart/form-data">
+
+              <div class="col l12 s12" hidden="">
+                <h5 >ID:</h5>
+                <div class="input-field col s12">
+                  <input id="first_name" value="<?= $_SESSION['usuarioID'] ?>" type="text" class="validate" name="id">
+                </div>
+              </div>
 
               <div class="col l12 s12">
                 <h5 >Título:</h5>
