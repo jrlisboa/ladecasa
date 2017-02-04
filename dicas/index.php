@@ -99,7 +99,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                     <div class="col s6 offset-s3 l2 offset-l5" style="margin-top: -40px;">
                       <img src="../img/perfil/<?= $pega['imagem'] ?>" style="width: 100% !important; border-radius: 1000px; box-shadow: 0 -10px 10px 0 #eee">
                     </div>
-                    <h4 class="col l8 s12 white-text"><?= $dados['titulo'] ?></h4>
+                    <h4 class="col l8 s12 white-text center"><?= $dados['titulo'] ?></h4>
                     <span class="col l8 s12 white-text">Publicado por <?= $pega['nome'] ?> <?= $pega['sobrenome'] ?> em <?= date('d/m/Y', strtotime($dados['data_post'])) ?></span>
                     <p class="col l12 s12 white-text"><?= $dados['texto'] ?></p>
                   </div>
