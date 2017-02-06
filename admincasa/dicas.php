@@ -65,7 +65,6 @@ include 'server/conecta.php';
               
 
                 <div class="row">
-                  <div class="container">
 
                   <?php
                     $query = mysql_query("SELECT * FROM post ORDER BY id DESC");
@@ -91,7 +90,6 @@ include 'server/conecta.php';
                     
 
                   </div>
-                </div>
 
 
             </div>
