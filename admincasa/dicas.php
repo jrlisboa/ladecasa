@@ -5,6 +5,8 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
         header("Location: index.php"); exit; //Redireciona o visitante para login
 }
 
+include 'conecta.php';
+
 if ($_SESSION['nivel'] != 3) {
   session_destroy();
   header("Location: index.php"); exit;
@@ -50,68 +52,123 @@ if ($_SESSION['nivel'] != 3) {
         </div>
       </nav>
 
-
       <div class="container">
         <h2 align="center">Postar Dica ou Informativo</h2>
 
         <div class="row">
+          <div class="col s12">
+            <ul class="tabs">
+              <li class="tab col s6"><a class="active" href="#test1">Posts</a></li>
+              <li class="tab col s6"><a href="#test2">Novo Post</a></li>
+            </ul>
+          </div>
 
-          <?php
 
-          include "server/conecta.php";
+          <!-- GALERIA DE IMAGENS -->
+          <div id="test1" class="col s12 l12 grey lighten-5">
+            <div class="fotos"  style="margin-top: 50px;">
+              
 
-          $id=$_POST['id'];
+                <div class="row">
+                  <div class="container">
 
-          $sql = "SELECT * FROM produto WHERE id='$id'";
-          $resultado= mysql_query($sql) or die (mysql_error());
-          $info = mysql_fetch_array($resultado);
+                  <?php
+                    $query = mysql_query("SELECT * FROM post ORDER BY id DESC");
+                    while ($dados = mysql_fetch_array($query)) {
+                      $autor = $dados['id_user'];
+                      $user = mysql_query("SELECT * FROM user WHERE id = '$autor'");
+                      $pega = mysql_fetch_array($user); ?>
 
-          $id_produto = $info['id'];
+                      <div class="col s12 m12 l8 offset-l2 card-panel orange" style="margin-top: 60px !important; padding-bottom: 30px !important">
+                        <div class="" style="height: auto !important">
+                          <div class="col s6 offset-s3 l2 offset-l5" style="margin-top: -40px;">
+                            <img src="../img/perfil/<?= $pega['imagem'] ?>" style="width: 100% !important; border-radius: 1000px; box-shadow: 0 -10px 10px 0 #eee">
+                          </div>
+                          <h4 class="col l12 s12 white-text center"><?= $dados['titulo'] ?></h4>
+                          <span class="col l12 s12 white-text center" style="margin-top: -10px !important">Publicado por <?= $pega['nome'] ?> <?= $pega['sobrenome'] ?> em <?= date('d/m/Y', strtotime($dados['data_post'])) ?></span>
+                          <p class="col l12 s12 white-text" style="margin-top: 30px !important"><?= $dados['texto'] ?></p>
+                        </div>
+                      </div>
 
-          ?>
+                    <?php }
+                  ?>
+
+                    
+
+                  </div>
+                </div>
+
+
+            </div>
+          </div>
 
 
           <!-- CADASTRO DE IMAGENS -->
           <div id="test2" class="col s12 l10 offset-l1 grey lighten-3">
-            <form class="row" action="server/postar_dica.php" method="post" enctype="multipart/form-data">
+            <div class="container">
+              <h2 align="center">Postar Dica ou Informativo</h2>
 
-              <div class="col l12 s12" hidden="">
-                <h5 >ID:</h5>
-                <div class="input-field col s12">
-                  <input id="first_name" value="<?= $_SESSION['usuarioID'] ?>" type="text" class="validate" name="id">
+              <div class="row">
+
+                <?php
+
+                include "server/conecta.php";
+
+                $id=$_POST['id'];
+
+                $sql = "SELECT * FROM produto WHERE id='$id'";
+                $resultado= mysql_query($sql) or die (mysql_error());
+                $info = mysql_fetch_array($resultado);
+
+                $id_produto = $info['id'];
+
+                ?>
+
+
+                <!-- CADASTRO DE IMAGENS -->
+                <div id="test2" class="col s12 l10 offset-l1 grey lighten-3">
+                  <form class="row" action="server/postar_dica.php" method="post" enctype="multipart/form-data">
+
+                    <div class="col l12 s12" hidden="">
+                      <h5 >ID:</h5>
+                      <div class="input-field col s12">
+                        <input id="first_name" value="<?= $_SESSION['usuarioID'] ?>" type="text" class="validate" name="id">
+                      </div>
+                    </div>
+
+                    <div class="col l12 s12">
+                      <h5 >Título:</h5>
+                      <div class="input-field col s12">
+                        <input id="first_name" type="text" class="validate" name="titulo">
+                      </div>
+                    </div>
+
+                    <div class="col l12">
+                      <h5 >Dica ou Informação:</h5>
+                      <div class="input-field col s12">
+                        <textarea name="texto"></textarea>
+                      </div>
+                    </div>
+
+                    
+                    <div class="col l12 eoq">
+                      <input type="submit" class="btn grey darken-2 col l4 offset-l4" name="" value="Cadastrar">
+                    </div>
+                    
+                    
+                  </form>
                 </div>
-              </div>
 
-              <div class="col l12 s12">
-                <h5 >Título:</h5>
-                <div class="input-field col s12">
-                  <input id="first_name" type="text" class="validate" name="titulo">
-                </div>
-              </div>
 
-              <div class="col l12">
-                <h5 >Dica ou Informação:</h5>
-                <div class="input-field col s12">
-                  <textarea name="texto"></textarea>
-                </div>
-              </div>
 
-              
-              <div class="col l12 eoq">
-                <input type="submit" class="btn grey darken-2 col l4 offset-l4" name="" value="Cadastrar">
               </div>
-              
-              
-            </form>
+            </div>
           </div>
 
 
 
         </div>
-      </div>
-    
-
-    
+      </div>    
 
 
     <body>
