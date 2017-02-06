@@ -105,11 +105,7 @@ if ($_SESSION['nivel'] != 3) {
 
           <!-- CADASTRO DE IMAGENS -->
           <div id="test2" class="col s12 l10 offset-l1 grey lighten-3">
-            <div class="container">
-              <h2 align="center">Postar Dica ou Informativo</h2>
-
               <div class="row">
-
                 <?php
 
                 include "server/conecta.php";
@@ -162,7 +158,6 @@ if ($_SESSION['nivel'] != 3) {
 
 
               </div>
-            </div>
           </div>
 
 
