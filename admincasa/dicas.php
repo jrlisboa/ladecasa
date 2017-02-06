@@ -82,6 +82,7 @@ include 'server/conecta.php';
                           <h4 class="col l12 s12 white-text center"><?= $dados['titulo'] ?></h4>
                           <span class="col l12 s12 white-text center" style="margin-top: -10px !important">Publicado por <?= $pega['nome'] ?> <?= $pega['sobrenome'] ?> em <?= date('d/m/Y', strtotime($dados['data_post'])) ?></span>
                           <p class="col l12 s12 white-text" style="margin-top: 30px !important"><?= $dados['texto'] ?></p>
+                          <a style="margin-top: 10px;" href="server/deleta_post.php?id=<?= $dados['id'] ?>" class="red btn white-text col l6 offset-l3">Deletar</a>
                         </div>
                       </div>
 
