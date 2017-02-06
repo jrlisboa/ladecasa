@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 if (!isset($_SESSION['usuarioID']) && $_SESSION['nivel'] != 3) { 
         session_destroy();
         header("Location: galeria.php"); exit; 
