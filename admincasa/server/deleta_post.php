@@ -1,7 +1,7 @@
 <?php
   include "conecta.php";
   
-  $id=$_POST['id'];
+  $id=$_GET['id'];
   
   //Consulta no banco de dados
   $sql="DELETE FROM post WHERE id='$id'";
