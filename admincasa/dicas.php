@@ -5,7 +5,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
         header("Location: index.php"); exit; //Redireciona o visitante para login
 }
 
-include 'conecta.php';
+include 'server/conecta.php';
 
 if ($_SESSION['nivel'] != 3) {
   session_destroy();
