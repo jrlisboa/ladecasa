@@ -179,7 +179,7 @@
 	}
 
 	.textoContainer span{
-		font-size: 20px;
+		font-size: 16px;
 		font-weight: 300;
 
 	}
@@ -1551,7 +1551,7 @@
 
 	.funciona{
 
-		height: 100vh;
+		height: 110vh;
 		background-color: #f7f7f7;
 		top: 0px;
 		padding-top: 60px;
