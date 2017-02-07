@@ -103,7 +103,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
           </div>
 
           <div class="textoContainer col l6 offset-l3">
-            <span>Não conhece o Lá de Casa? Vamos explicar como ele funciona pra você... É bem simples, e você vai amar de montão.</span>
+            <span style="font-size: 18px">Não conhece o Lá de Casa? Vamos explicar como ele funciona pra você. Nós preparamos aquele lanchinho que é tão difícil organizar no dia-a-dia. Você faz sua assinatura e recebe um Kit contendo: um ítem salgado, uma fruta, uma bebida, um ítem adicional e <strong class="tooltipped" data-position="top" data-delay="50" data-tooltip="De 2 a 3 vezes na semana." style="cursor: pointer;">eventualmente</strong> um docinho.</span>
           </div>
 
           <div class="gridComo container">
@@ -130,9 +130,17 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
           </div>
 
+          <div class="textoContainer col l12 " style=" margin-top: 20px;">
+            <span style="font-size: 18px">Você escolhe um dos nossos cardápios e seleciona todos os produtos que você gosta.
+            </span>
+          </div>
 
           <div class="pequenoCad row">
-            <span class="col l12">Quer experimentar? É fácil, basta se cadastrar clicando <a href="login"><span class="aqui">aqui</span></a></span>
+            <span class="col l12" style="margin-top: 20px !important">Quer experimentar? É fácil, basta se cadastrar clicando <a href="login"><span class="aqui">aqui</span></a></span>
+          </div>
+
+          <div class="btnBottom row">
+            <span id="abreFotos" style="margin-top: -20px;" class="col l2 offset-l5 s8 offset-s2">Conheça Mais</span>
           </div>
           
         </div>
