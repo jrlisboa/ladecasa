@@ -58,6 +58,7 @@ $menu = $_SESSION['menu'];
                   <li><a class="menuItem" href="../#comofunciona">Como funciona</a></li>
                   <li><a class="menuItem" href="../#quemsomos">Quem Somos</a></li>
                   <li><a class="menuItem" href="../#ondeestamos">Onde estamos</a></li>
+                  <li><a class="menuItem" href="../dicas">Dicas</a></li>
                   <li><a class="menuItem" href="../menus">Cardápios</a></li>
                   <li><a class="loginBtn btn" href="../login">Olá, <?= $_SESSION['nomeUsuario'] ?></a></li>
                 </ul>
@@ -66,6 +67,7 @@ $menu = $_SESSION['menu'];
                   <li><a class="menuItem" href="../#comofunciona">Como funciona</a></li>
                   <li><a class="menuItem" href="../#quemsomos">Quem Somos</a></li>
                   <li><a class="menuItem" href="../#ondeestamos">Onde estamos</a></li>
+                  <li><a class="menuItem" href="../dicas">Dicas</a></li>
                   <li><a class="menuItem" href="../menus">Cardápios</a></li>
                   <li><a class="loginBtn btn" href="../login">Olá, <?= $_SESSION['nomeUsuario'] ?></a></li>
                 </ul>

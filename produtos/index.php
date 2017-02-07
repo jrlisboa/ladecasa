@@ -61,6 +61,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                   <li><a class="menuItem" href="../#comofunciona">Como funciona</a></li>
                   <li><a class="menuItem" href="../#quemsomos">Quem Somos</a></li>
                   <li><a class="menuItem" href="../#ondeestamos">Onde estamos</a></li>
+                  <li><a class="menuItem" href="../dicas">Dicas</a></li>
                   <li><a class="menuItem" href="../menus">Cardápios</a></li>
                   <?php if ($semSessao == 1) { ?>
                   <li><a class="loginBtn btn" href="../login">Login</a></li>
@@ -73,6 +74,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                   <li><a class="menuItem" href="../#comofunciona">Como funciona</a></li>
                   <li><a class="menuItem" href="../#quemsomos">Quem Somos</a></li>
                   <li><a class="menuItem" href="../#ondeestamos">Onde estamos</a></li>
+                  <li><a class="menuItem" href="../dicas">Dicas</a></li>
                   <li><a class="menuItem" href="../menus">Cardápios</a></li>
                   <?php if ($semSessao == 1) { ?>
                   <li><a class="loginBtn btn" href="../login">Login</a></li>
