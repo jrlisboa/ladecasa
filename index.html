@@ -131,7 +131,7 @@
           </div>
 
           <div class="btnBottom row">
-            <span id="abreFotos" style="margin-top: -20px;" class="col l2 offset-l5 s8 offset-s2">Conheça Mais</span>
+            <span id="abre2" style="margin-top: -20px;" class="col l2 offset-l5 s8 offset-s2">Conheça Mais</span>
           </div>
           
         </div>
@@ -340,6 +340,12 @@
             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
           </div>
         </div>
+
+        <!-- Modal Structure -->
+        <div id="modal2" class="modal bottom-sheet row">
+            <img id="desk" class="col s12 m12 l8 offset-l2" src="img/inicio.png">
+            <img id="mobile" class="col s12 m12 l8 offset-l2" src="img/mobile.png">     
+        </div>
         
         
       </div>
@@ -404,6 +410,10 @@
 
         $('#abreFotos').click(function(){
           $('#fotos').openModal();
+        });
+
+        $('#abre2').click(function(){
+          $('#modal2').openModal();
         });
       </script>
     </body>

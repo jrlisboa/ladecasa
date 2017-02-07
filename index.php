@@ -140,7 +140,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
           </div>
 
           <div class="btnBottom row">
-            <span id="abreFotos" style="margin-top: -20px;" class="col l2 offset-l5 s8 offset-s2">Conheça Mais</span>
+            <span id="abre2" style="margin-top: -20px;" class="col l2 offset-l5 s8 offset-s2">Conheça Mais</span>
           </div>
           
         </div>
@@ -352,6 +352,12 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
           </div>
         </div>
 
+        <!-- Modal Structure -->
+        <div id="modal2" class="modal bottom-sheet row">
+            <img id="desk" class="col s12 m12 l8 offset-l2" src="img/inicio.png">
+            <img id="mobile" class="col s12 m12 l8 offset-l2" src="img/mobile.png">        
+        </div>
+
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="js/jquery.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
@@ -413,6 +419,10 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
         $('#abreFotos').click(function(){
           $('#fotos').openModal();
+        });
+
+        $('#abre2').click(function(){
+          $('#modal2').openModal();
         });
       </script>
     </body>
