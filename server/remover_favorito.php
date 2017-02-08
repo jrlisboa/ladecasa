@@ -14,7 +14,7 @@
   $sql="DELETE FROM favorito WHERE id_produto = '$id_produto' AND id_user = '$id_user'";
   $foi = mysql_query($sql)or die (mysql_error());
   if ($foi) {
-  	header("Location: ../favoritos/");
+  	header("Location: ../favoritos/#".$id_produto);
     
   }else{
   	echo "erro";

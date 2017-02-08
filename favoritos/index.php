@@ -46,7 +46,13 @@ $menu = $_SESSION['menu'];
 
     <body>
 
-      <div class="tudo row">
+      <div id="loader" style="height: 100vh; padding-top: 25vh" class=" row">
+        <div class="col col col l2 offset-l5 s6 offset-s3 of " style="height: 100px" >
+          <img src="../img/load.gif" class="col l12 s12">
+        </div>
+      </div>
+
+      <div id="geral" class="tudo row" hidden>
 
           <div class="navbar-fixed">
             <nav id="navbar" class="navMenus">
@@ -115,16 +121,28 @@ $menu = $_SESSION['menu'];
                             if ($dados['id_produto'] == $id_produto) {
                               $foram[] = array();
                               if (!in_array($id_produto, $foram)) {
-                                                    
-                            ?>
-                              <div class="btnProduto btnItem4Produto col l3 s6" style="margin-bottom: 100px !important;">
-                                <!--<div class="col l12 s12 saberMais">Saber mais</div>-->
-                                <div class="col l12 s12 imgProduto favProduto"><img src="../img/produtos/<?= $resultado['imagem'] ?>"></div>
-                                <a href="../server/favoritar.php?id=<?= $resultado['id'] ?>"><div class="col l12 s12 red saberMais">Favoritar</div></a>                                
-                                <span class="col l12 s12"><?= $resultado['nome'] ?></span>
-                                
-                              </div>
-                            <?php
+                                $selcionando = mysql_query("SELECT * FROM favorito WHERE id_user = '$id_user' AND id_produto = '$id_produto'");
+                                if (@mysql_num_rows($selcionando) == 0){
+                                  ?>
+                                    <div class="btnProduto btnItem4Produto col l3 s6" style="margin-bottom: 100px !important;">
+                                      <!--<div class="col l12 s12 saberMais">Saber mais</div>-->
+                                      <div class="col l12 s12 imgProduto favProduto"><img src="../img/produtos/<?= $resultado['imagem'] ?>"></div>
+                                      <a name="<?= $resultado['id'] ?>" href="../server/favoritar.php?id=<?= $resultado['id'] ?>"><div class="col l12 s12 red saberMais">Favoritar</div></a>                                
+                                      <span class="col l12 s12"><?= $resultado['nome'] ?></span>
+                                      
+                                    </div>
+                                  <?php
+                                }else{
+                                  ?>
+                                    <div class="btnProduto btnItem4Produto col l3 s6" style="margin-bottom: 100px !important;">
+                                      <!--<div class="col l12 s12 saberMais">Saber mais</div>-->
+                                      <div class="col l12 s12 imgProduto favProduto"><img src="../img/produtos/<?= $resultado['imagem'] ?>"></div>
+                                      <a name="<?= $resultado['id'] ?>" href="../server/remover_favorito.php?id_produto=<?= $resultado['id'] ?>&id_user=<?= $id_user ?>"><div class="col l12 s12 green saberMais">Escolhido</div></a>                                
+                                      <span class="col l12 s12"><?= $resultado['nome'] ?></span>
+                                      
+                                    </div>
+                                  <?php
+                                }
                                 $foram[] = $id_produto;
                               }
                               
@@ -190,23 +208,6 @@ $menu = $_SESSION['menu'];
               </div>
 
           </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         
       </div>
 
@@ -216,6 +217,13 @@ $menu = $_SESSION['menu'];
       <script type="text/javascript">
         $(document).ready(function(){
           $(".button-collapse").sideNav();
+        });
+      </script>
+
+      <script type="text/javascript">
+        jQuery(window).load(function() {
+          jQuery("#loader").fadeOut("slow");
+          jQuery("#geral").show();
         });
       </script>
 

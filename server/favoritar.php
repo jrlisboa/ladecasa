@@ -14,7 +14,7 @@
   $sql="INSERT INTO favorito (id_user, id_produto, data) VALUES ('$id_user', '$id', '$data')"; 
   $foi = mysql_query($sql)or die (mysql_error());
   if ($foi) {
-  	header("Location: ../favoritos/");
+  	header("Location: ../favoritos/#".$id);
   }else{
   	echo "erro";
   }
