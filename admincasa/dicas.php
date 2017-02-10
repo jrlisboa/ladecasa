@@ -7,7 +7,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 }
 
 if ($_SESSION['nivel'] == 2) {
-  echo "Nível CDC";
+  $cdc = true;
 }elseif ($_SESSION['nivel'] != 3) {
   session_destroy();
   header("Location: index.php"); exit;
