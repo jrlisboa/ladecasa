@@ -41,13 +41,13 @@ include 'server/conecta.php';
             <a href="index.php" class="brand-logo">La de Casa</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-              <li><a href="index.php">Voltar</a></li>
+              <li><a href="galeria.php">Voltar</a></li>
               <li><a href="dicas.php">Dicas</a></li>
               <li><a class="btn white black-text" href="server/logout.php">Sair</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
 
-              <li><a href="index.php">Voltar</a></li>
+              <li><a href="galeria.php">Voltar</a></li>
               <li><a href="dicas.php">Dicas</a></li>
               <li><a class="btn white black-text" href="server/logout.php">Sair</a></li>
             </ul>
