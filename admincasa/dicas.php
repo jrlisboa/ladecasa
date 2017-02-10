@@ -1,9 +1,16 @@
 <?php
 session_start();
 error_reporting(0);
-if (!isset($_SESSION['usuarioID']) && $_SESSION['nivel'] != 3) { 
-        session_destroy();
-        header("Location: galeria.php"); exit; 
+if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
+        session_destroy();//Destroi a seção por segurança
+        header("Location: index.php"); exit; //Redireciona o visitante para login
+}
+
+if ($_SESSION['nivel'] == 2) {
+  echo "Nível CDC";
+}elseif ($_SESSION['nivel'] != 3) {
+  session_destroy();
+  header("Location: index.php"); exit;
 }
 
 include 'server/conecta.php';

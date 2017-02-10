@@ -35,8 +35,6 @@
 		$erros++;
 	}else if (empty($telefone)) {
 		$erros++;
-	}else if (empty($ramal)) {
-		$erros++;
 	}else if (empty($empresa)) {
 		$erros++;
 	}else if (empty($departamento)) {
