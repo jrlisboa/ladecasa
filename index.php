@@ -405,6 +405,17 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
               }
             }
           });
+
+
+          $('#limitarInicio').empty(); //Limpando a tabela
+          $.ajax({
+            type:'post',
+            dataType: 'text',
+            url: 'server/notinha.php',
+            success: function(dados){
+              $('#limitarInicio').text(dados);
+            }
+          });
         });
       </script>
       <script type="text/javascript">
