@@ -78,7 +78,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
           <div class="col l2 offset-l1 card notinha" style="height: auto; position: absolute; margin-top: 100px; border-radius: 50px 0px 50px 0px; background-color: #FEC632">
             <h1 style="font-family: 'Sue Ellen Francisco', cursive; font-size: 40px; text-align: center; margin-bottom: -6px;">Notinha:</h1>
-            <p id="limitarInicio" style="font-size: 18px; ">
+            <p id="notinha" style="font-size: 18px; ">
             </p>
           </div>
           <div class="col l12 s12">
@@ -407,13 +407,13 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
           });
 
 
-          $('#limitarInicio').empty(); //Limpando a tabela
+          $('#notinha').empty(); //Limpando a tabela
           $.ajax({
             type:'post',
             dataType: 'text',
             url: 'server/notinha.php',
             success: function(dados){
-              $('#limitarInicio').text(dados);
+              $('#notinha').text(dados);
             }
           });
         });
