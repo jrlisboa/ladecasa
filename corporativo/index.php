@@ -89,21 +89,24 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
           <div class="col l12 s12">
 
-            <div class="logoGrande col l2 offset-l5 s6 offset-s3 m2 offset-m5">
-              <img src="../img/icones/logo.png">
-            </div>
-
-            <div class="textTopo col l12 s12 m12">
+            <div class="textTopo textTopoCorp col l12 s12 m12">
               <span>Levamos um lanchinho até você<br>Porque a gente se preocupa com a sua saúde</span>
             </div>
 
             <div class="divisor col l4 offset-l4 s12 m6 offset-m3"></div>
 
-            <div class="seta col l4 offset-l4 s12 m4 offset-m4"></div>
             
           </div>
           
         </div>
+
+
+
+
+
+
+
+        <!-- PRODUTOS -->
 
 
 
