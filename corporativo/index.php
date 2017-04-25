@@ -58,12 +58,12 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                 <a href="#" class="brand-logo">Lá de Casa</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                  <li><a class="menuItem" href="#">Home</a></li>
-                  <li><a class="menuItem" href="#comofunciona">Como funciona</a></li>
-                  <li><a class="menuItem" href="#quemsomos">Quem Somos</a></li>
-                  <li><a class="menuItem" href="#ondeestamos">Onde estamos</a></li>
-                  <li><a class="menuItem" href="dicas">Dicas</a></li>
-                  <li><a class="menuItem" href="menus">Cardápios</a></li>
+                  <li><a class="menuItem" href="../#">Home</a></li>
+                  <li><a class="menuItem" href="../#comofunciona">Como funciona</a></li>
+                  <li><a class="menuItem" href="../#quemsomos">Quem Somos</a></li>
+                  <li><a class="menuItem" href="../#ondeestamos">Onde estamos</a></li>
+                  <li><a class="menuItem" href="../dicas">Dicas</a></li>
+                  <li><a class="menuItem" href="../menus">Cardápios</a></li>
                   <?php if ($semSessao == 1) { ?>
                   <li><a class="loginBtn btn" href="../login">Login</a></li>
                   <?php }else{ ?>
@@ -71,12 +71,12 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                   <?php } ?>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                  <li><a class="menuItem" href="#">Home</a></li>
-                  <li><a class="menuItem" href="#comofunciona">Como funciona</a></li>
-                  <li><a class="menuItem" href="#quemsomos">Quem Somos</a></li>
-                  <li><a class="menuItem" href="#ondeestamos">Onde estamos</a></li>
-                  <li><a class="menuItem" href="dicas">Dicas</a></li>
-                  <li><a class="menuItem" href="menus">Cardápios</a></li>
+                  <li><a class="menuItem" href="../#">Home</a></li>
+                  <li><a class="menuItem" href="../#comofunciona">Como funciona</a></li>
+                  <li><a class="menuItem" href="../#quemsomos">Quem Somos</a></li>
+                  <li><a class="menuItem" href="../#ondeestamos">Onde estamos</a></li>
+                  <li><a class="menuItem" href="../dicas">Dicas</a></li>
+                  <li><a class="menuItem" href="../">Cardápios</a></li>
                   <?php if ($semSessao == 1) { ?>
                   <li><a class="loginBtn btn" href="../login">Login</a></li>
                   <?php }else{ ?>
@@ -145,13 +145,13 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                 <h5 class="white-text">Redes Sociais:</h5>
                 <div class="row redes">
                   <div class="redeIcon col l4 s4">
-                    <a href="https://www.facebook.com/L%C3%A1-de-Casa-Comida-Saud%C3%A1vel-1851501558470438/"><img src="img/icones/facebook.svg"></a>
+                    <a href="https://www.facebook.com/L%C3%A1-de-Casa-Comida-Saud%C3%A1vel-1851501558470438/"><img src="../img/icones/facebook.svg"></a>
                   </div>
                   <div class="redeIcon col l4 s4">
-                    <a href=""><img src="img/icones/instagram.svg"></a>
+                    <a href=""><img src="../img/icones/instagram.svg"></a>
                   </div>
                   <div class="redeIcon col l4 s4">
-                    <a href="https://www.linkedin.com/company/la-de-casa-comida-saud%C3%A1vel?trk=nav_account_sub_nav_company_admin"><img src="img/icones/twitter.svg"></a>
+                    <a href="https://www.linkedin.com/company/la-de-casa-comida-saud%C3%A1vel?trk=nav_account_sub_nav_company_admin"><img src="../img/icones/twitter.svg"></a>
                   </div>
                 </div>
               </div>

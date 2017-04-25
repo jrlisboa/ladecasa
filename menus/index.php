@@ -89,7 +89,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
             
             <div class="tituloMenus">
               <h4>Menus Disponíveis:</h4>
-              <span>Clique sobre um menu para ver os produtos</span>
+              <span>Passe o Mouse ou clique sobre os pacotes para mais informações.</span>
             </div>
 
             <div class="btnMenus row">
@@ -102,11 +102,21 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                   
               ?>
               
-                <a href="../produtos/index.php?menu=<?= $res['id'] ?>" class="col l3 s12 linkMenu">
-                  <div class="btnItem itemcardapios" style="height: 230px !important">
+                <a href="../produtos/index.php?menu=<?= $res['id'] ?>" class="col l4 s12 linkMenu">
+                  <div class="btnItem itemcardapios">
+
                     <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
                     <span class="col l12 s12">Menu <?= $res['nome'] ?></span>
+
                     <span class="col l8 offset-l2 s8 offset-s2 chip chipmenu" style="background-color: <?= $res['cor'] ?> !important">&cong; R$<?= number_format($res['diario'], 2, ',', '.'); ?> / dia</span>
+
+                    <span class="card white col l10 offset-l1 s10 offset-s1 center" style="height: 40%; background-color: <?= $res['cor'] ?> !important; padding-top: 15px;">
+                      <div class="tooltipped" data-position="top" data-delay="50" data-tooltip="10 dias úteis.">Pacote Quinzenal:<br>
+                      <strong>R$<?= number_format($res['quinzenal'], 2, ',', '.'); ?><strong></div><br><br>
+                      <div class="tooltipped" style="margin-top: -30px;" data-position="top" data-delay="50" data-tooltip="Todos os dias úteis do mês.">Pacote Mensal:<br>
+                      <strong>R$<?= number_format($res['mensal'], 2, ',', '.'); ?></strong></div>
+                    </span>
+
                   </div>
                 </a>
 

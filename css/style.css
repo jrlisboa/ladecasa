@@ -584,6 +584,10 @@
     	transition: 0.2s;
   	}
 
+    .itemcardapios{
+      height: 400px !important;
+    }
+
   	.linkMenu{
 
   		padding: 0px !important;
@@ -2020,7 +2024,7 @@
   	.menus{
 
   		text-align: center;
-  		margin-top: 15vh;
+  		margin-top: 5vh;
   	}
 
 
@@ -2036,7 +2040,7 @@
   	}
 
     .itemcardapios{
-      height: 230px !important;
+      height: 400px !important;
     }
 
   	.linkMenu{
