@@ -94,7 +94,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
             <div class="divisor col l4 offset-l4 s12 m6 offset-m3"></div>
 
             <div class="textTopoCorp col l12 s12 m12">
-              <span>Agora oferecemos serviços para os coffees e brunchs da sua empresa.<br>Torne tudo mais gostoso.</span>
+              <span>Agora oferecemos serviços para os coffees e brunchs da sua empresa.<br>Torne tudo mais gostoso.<br>Contate-nos em: contato@ladecasa.net.br</span>
             </div>
 
           </div>
