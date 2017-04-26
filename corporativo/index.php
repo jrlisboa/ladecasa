@@ -23,19 +23,19 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
       <meta charset="utf-8">
 
-      <link rel="apple-touch-icon" sizes="57x57" href="img/fav/apple-icon-57x57.png">
-      <link rel="apple-touch-icon" sizes="60x60" href="img/fav/apple-icon-60x60.png">
-      <link rel="apple-touch-icon" sizes="72x72" href="img/fav/apple-icon-72x72.png">
-      <link rel="apple-touch-icon" sizes="76x76" href="img/fav/apple-icon-76x76.png">
-      <link rel="apple-touch-icon" sizes="114x114" href="img/fav/apple-icon-114x114.png">
-      <link rel="apple-touch-icon" sizes="120x120" href="img/fav/apple-icon-120x120.png">
-      <link rel="apple-touch-icon" sizes="144x144" href="img/fav/apple-icon-144x144.png">
-      <link rel="apple-touch-icon" sizes="152x152" href="img/fav/apple-icon-152x152.png">
-      <link rel="apple-touch-icon" sizes="180x180" href="img/fav/apple-icon-180x180.png">
-      <link rel="icon" type="image/png" sizes="192x192"  href="img/fav/android-icon-192x192.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="img/fav/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="96x96" href="img/fav/favicon-96x96.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="img/fav/favicon-16x16.png">
+      <link rel="apple-touch-icon" sizes="57x57" href="../img/fav/apple-icon-57x57.png">
+      <link rel="apple-touch-icon" sizes="60x60" href="../img/fav/apple-icon-60x60.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="../img/fav/apple-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="76x76" href="../img/fav/apple-icon-76x76.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="../img/fav/apple-icon-114x114.png">
+      <link rel="apple-touch-icon" sizes="120x120" href="../img/fav/apple-icon-120x120.png">
+      <link rel="apple-touch-icon" sizes="144x144" href="../img/fav/apple-icon-144x144.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="../img/fav/apple-icon-152x152.png">
+      <link rel="apple-touch-icon" sizes="180x180" href="../img/fav/apple-icon-180x180.png">
+      <link rel="icon" type="image/png" sizes="192x192"  href="../img/fav/android-icon-192x192.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="../img/fav/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="96x96" href="../img/fav/favicon-96x96.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../img/fav/favicon-16x16.png">
       <link rel="manifest" href="img/fav/manifest.json">
       <meta name="msapplication-TileColor" content="#ffffff">
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
@@ -89,13 +89,14 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
           <div class="col l12 s12">
 
-            <div class="textTopo textTopoCorp col l12 s12 m12">
-              <span>Levamos um lanchinho até você<br>Porque a gente se preocupa com a sua saúde</span>
-            </div>
+            <h1 class="tituloCorp">Coffees e brunchs corporativos</h1>
 
             <div class="divisor col l4 offset-l4 s12 m6 offset-m3"></div>
 
-            
+            <div class="textTopoCorp col l12 s12 m12">
+              <span>Agora oferecemos serviços para os coffees e brunchs da sua empresa.<br>Torne tudo mais gostoso.</span>
+            </div>
+
           </div>
           
         </div>
@@ -109,8 +110,79 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
         <!-- PRODUTOS -->
 
 
+          <div class="col l12 s12">
+            <h3 class="subCorp">Produtos da linha corporativa:</h3>
+          </div>
 
 
+
+          <div class="container col l6 offset-l3 s12 produtos">
+          
+            <?php
+
+            $menu = 1;
+            $qryLista = "SELECT * FROM tipo";
+            $query = mysql_query($qryLista) or die(mysql_error());
+            
+            
+            while ($final = mysql_fetch_array($query)) { 
+              $tipos[] = $final;
+              $id_tipo = $final['id'];
+            ?>
+
+            <br><br>
+
+            <div class="tituloMenus produtosTitulo categoriaTitulo">
+              <h4><?= $final['nome']; ?></h4>              
+            </div>
+
+            <div class="btnMenus row">
+                <?php
+
+                $qryLista = "SELECT * FROM produto where id_tipo='$id_tipo'";
+                $sql = mysql_query($qryLista) or die(mysql_error());
+                while ($resultado = mysql_fetch_array($sql)) { 
+                  $vetor[] = $resultado;
+                  $id_produto = $resultado['id'];
+
+                  $novoSql="SELECT * FROM produto_menu WHERE id_menu='$menu'";
+                  $novaQuery= mysql_query($novoSql) or die(mysql_error());
+                  while ($dados = mysql_fetch_array($novaQuery)) {
+                    
+                    if ($dados['id_produto'] == $id_produto) {
+                      $foram[] = array();
+                      if (!in_array($id_produto, $foram)) {
+                        if (($id_produto == 154 || $id_produto == 155 || $id_produto == 156 || $id_produto == 157 || $id_produto == 158 || $id_produto == 159) && ($menu != 4)) {
+
+                          ?>              
+                            <div class="btnProduto btnItem4Produto col l3 s6">
+                              <a href="../detalhes/index.php?id=<?= $resultado['id'] ?>"><div class="col l12 s12 saberMais">Saber mais</div></a>
+                              <div class="col l12 s12 imgProduto"><img src="../img/produtos/<?= $resultado['imagem'] ?>"></div>
+                              <span class="col l12 s12" style="font-family: 'Montserrat', sans-serif; line-height: 100% !important;">Recheio <?= $resultado['nome'] ?></span>
+                            </div>
+                          <?php
+                          
+                        }else{
+                          ?>              
+                            <div class="btnProduto btnItem4Produto col l3 s6">
+                              <a href="../detalhes/index.php?id=<?= $resultado['id'] ?>"><div class="col l12 s12 saberMais">Saber mais</div></a>
+                              <div class="col l12 s12 imgProduto"><img src="../img/produtos/<?= $resultado['imagem'] ?>"></div>
+                              <span class="col l12 s12" style="font-family: 'Montserrat', sans-serif; line-height: 100% !important;"><?= $resultado['nome'] ?></span>
+                            </div>
+                          <?php
+                        }
+                        $foram[] = $id_produto;
+                      }
+                    }
+                  }
+                }
+                ?>              
+            </div>
+
+          <?php                   
+          }
+          ?>
+          </div>
 
 
 
