@@ -120,7 +120,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
           
             <?php
 
-            $menu = 1;
+            $menu = 15;
             $qryLista = "SELECT * FROM tipo";
             $query = mysql_query($qryLista) or die(mysql_error());
             
