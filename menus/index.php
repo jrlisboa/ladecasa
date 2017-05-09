@@ -65,7 +65,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                   <?php }else{ ?>
                   <li><a class="loginBtn btn" href="../login">Olá, <?= $_SESSION['nomeUsuario'] ?></a></li>
                   <?php } ?>
-                  
+
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                   <li><a class="menuItem" href="../">Home</a></li>
@@ -86,7 +86,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
 
           <div class="container row menus">
-            
+
             <div class="tituloMenus">
               <h4>Menus Disponíveis:</h4>
               <span>Passe o Mouse ou clique sobre os pacotes para mais informações.</span>
@@ -122,8 +122,8 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
                  <?php }else{
                   ?>
-              
-                  <a href="../corporativo ?>" class="col l4 s12 linkMenu">
+
+                  <a href="../corporativo" class="col l4 s12 linkMenu">
                     <div class="btnItem itemcardapios">
 
                       <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
@@ -147,7 +147,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
 
             </div>
           </div>
-        
+
       </div>
 
       <!--Import jQuery before materialize.js-->
