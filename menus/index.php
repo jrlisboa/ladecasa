@@ -123,7 +123,7 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                  <?php }else{
                   ?>
 
-                  <a href="../corporativo" class="col l4 s12 linkMenu">
+                  <a href="" class="col l4 s12 linkMenu tooltipped" data-position="top" data-delay="50" data-tooltip="Em Breve.">
                     <div class="btnItem itemcardapios">
 
                       <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
