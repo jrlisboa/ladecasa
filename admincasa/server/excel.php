@@ -14,6 +14,7 @@ echo "<table>";
 	echo "<td>ID</td>";
 	echo "<td>NOME</td>";
 	echo "<td>SOBRENOME</td>";
+	echo "<td>OBS</td>";
 	echo "<td>DATA DE NASCIMENTO</td>";
 	echo "<td>TELEFONE</td>";
 	echo "<td>CELULAR</td>";
@@ -97,6 +98,7 @@ while ($pegou = mysql_fetch_array($executa)){
 		echo "<td>".$id_cliente."</td>";
 		echo "<td>".utf8_decode($pegou['nome'])."</td>";
 		echo "<td>".utf8_decode($pegou['sobrenome'])."</td>";
+		echo "<td>".utf8_decode($pegou['observ'])."</td>";
 		echo "<td>".$pegou['nascimento']."</td>";
 		echo "<td>".$pegou['telefone']."</td>";
 		echo "<td>".$pegou['celular']."</td>";
