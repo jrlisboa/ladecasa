@@ -244,49 +244,6 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
       <script type="text/javascript">
         $(document).ready(function(){
           $(".button-collapse").sideNav();
-
-
-          $('#galeria').empty(); //Limpando a tabela
-          $.ajax({
-            type:'post',    //Definimos o método HTTP usado
-            dataType: 'json', //Definimos o tipo de retorno
-            url: 'server/galeria.php',//Definindo o arquivo onde serão buscados os dados
-            success: function(dados){
-              for(var i=1;3>=i;i++){
-                //Adicionando registros retornados na tabela
-
-                //mostrando categoria
-                $('#galeria').append('<div class="itemGaleria col l3 s12"><img src="img/galeria/'+dados[i].imagem+'"></div>');       
-              }
-            }
-          });
-
-
-          $('#fotosModal').empty(); //Limpando a tabela
-          $.ajax({
-            type:'post',    //Definimos o método HTTP usado
-            dataType: 'json', //Definimos o tipo de retorno
-            url: 'server/galeria.php',//Definindo o arquivo onde serão buscados os dados
-            success: function(dados){
-              for(var i=1;dados.length>=i;i++){
-                //Adicionando registros retornados na tabela
-
-                //mostrando categoria
-                $('#fotosModal').append('<div class="imagemModal col l6 s12"><img src="img/galeria/'+dados[i].imagem+'"></div>');       
-              }
-            }
-          });
-
-
-          $('#notinha').empty(); //Limpando a tabela
-          $.ajax({
-            type:'post',
-            dataType: 'text',
-            url: 'server/notinha.php',
-            success: function(dados){
-              $('#notinha').text(dados);
-            }
-          });
         });
       </script>
       <script type="text/javascript">
@@ -305,15 +262,6 @@ if (!isset($_SESSION['usuarioID'])) {   //Verifica se há seções
                   //$('#navbar').css('position','static'); ou altere o estilo
               }
           });
-        });
-
-
-        $('#abreFotos').click(function(){
-          $('#fotos').openModal();
-        });
-
-        $('#abre2').click(function(){
-          $('#modal2').openModal();
         });
       </script>
     </body>

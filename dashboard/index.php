@@ -502,71 +502,72 @@ if ($_SESSION['plano']== 1) {
                   $sql = "SELECT * FROM menu";
                   $query = mysql_query($sql);
                   while ($res = mysql_fetch_array($query)) {
-                  
-                  if ($_SESSION['pagamento'] == 1) {
-                   if ($res['id'] == $_SESSION['menu']) {
-                  
-                  ?>
+                  if($res['id'] != 15){
+                    if ($_SESSION['pagamento'] == 1) {
+                     if ($res['id'] == $_SESSION['menu']) {
+                    
+                    ?>
 
-                      <a style="cursor: pointer;" onclick="Materialize.toast('Você só pode alterar o menu após o vencimento do seu plano atual!', 4000)" class="col l3 s12 linkMenu" id="selectMenu">
-                        <div class="btnItem selectDash btnItemDash" style="height: 235px !important; padding-top: 10px !important">
-                          <span class="col l8 offset-l2 s8 offset-s2 chip white-text chipmenu" style="background-color: <?= $res['cor'] ?> !important; margin-bottom: 10px !important">&cong; R$<?= number_format($res['diario'], 2, ',', '.'); ?> / dia</span>
-                          <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
-                          <span class="col l12 s12">Menu <?= $res['nome'] ?></span>
-                        </div>
-                      </a>
+                        <a style="cursor: pointer;" onclick="Materialize.toast('Você só pode alterar o menu após o vencimento do seu plano atual!', 4000)" class="col l3 s12 linkMenu" id="selectMenu">
+                          <div class="btnItem selectDash btnItemDash" style="height: 235px !important; padding-top: 10px !important">
+                            <span class="col l8 offset-l2 s8 offset-s2 chip white-text chipmenu" style="background-color: <?= $res['cor'] ?> !important; margin-bottom: 10px !important">&cong; R$<?= number_format($res['diario'], 2, ',', '.'); ?> / dia</span>
+                            <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
+                            <span class="col l12 s12">Menu <?= $res['nome'] ?></span>
+                          </div>
+                        </a>
 
-                  <?php
+                    <?php
 
+                      }else{
+
+                    ?>
+
+                        <input type="text" name="id" id="idMenu" value="<?= $res['id'] ?>" hidden>
+
+                        <a style="cursor: pointer;" onclick="Materialize.toast('Você só pode alterar o menu após o vencimento do seu plano atual!', 4000)"  class="col l3 s12 linkMenu" id="selectMenu">
+                          <div class="btnItem btnItemDash" style="height: 235px !important; padding-top: 10px !important">
+                            <span class="col l8 offset-l2 s8 offset-s2 chip white-text chipmenu" style="background-color: <?= $res['cor'] ?> !important; margin-bottom: 10px !important">&cong; R$<?= number_format($res['diario'], 2, ',', '.'); ?> / dia</span>
+                            <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
+                            <span class="col l12 s12">Menu <?= $res['nome'] ?></span>
+                          </div>
+                        </a>
+
+                    <?php
+
+                       }
                     }else{
+                      if ($res['id'] == $_SESSION['menu']) {
+                    
+                    ?>
 
-                  ?>
+                        <a href="../server/altera_menu.php?id=<?= $res['id'] ?>" class="col l3 s12 linkMenu" id="selectMenu">
+                          <div class="btnItem selectDash btnItemDash" style="height: 235px !important; padding-top: 10px !important">
+                            <span class="col l8 offset-l2 s8 offset-s2 chip white-text chipmenu" style="background-color: <?= $res['cor'] ?> !important; margin-bottom: 10px !important">&cong; R$<?= number_format($res['diario'], 2, ',', '.'); ?> / dia</span>
+                            <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
+                            <span class="col l12 s12">Menu <?= $res['nome'] ?></span>
+                          </div>
+                        </a>
 
-                      <input type="text" name="id" id="idMenu" value="<?= $res['id'] ?>" hidden>
+                    <?php
 
-                      <a style="cursor: pointer;" onclick="Materialize.toast('Você só pode alterar o menu após o vencimento do seu plano atual!', 4000)"  class="col l3 s12 linkMenu" id="selectMenu">
-                        <div class="btnItem btnItemDash" style="height: 235px !important; padding-top: 10px !important">
-                          <span class="col l8 offset-l2 s8 offset-s2 chip white-text chipmenu" style="background-color: <?= $res['cor'] ?> !important; margin-bottom: 10px !important">&cong; R$<?= number_format($res['diario'], 2, ',', '.'); ?> / dia</span>
-                          <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
-                          <span class="col l12 s12">Menu <?= $res['nome'] ?></span>
-                        </div>
-                      </a>
+                      }else{
 
-                  <?php
+                    ?>
 
-                     }
-                  }else{
-                    if ($res['id'] == $_SESSION['menu']) {
-                  
-                  ?>
+                        <input type="text" name="id" id="idMenu" value="<?= $res['id'] ?>" hidden>
 
-                      <a href="../server/altera_menu.php?id=<?= $res['id'] ?>" class="col l3 s12 linkMenu" id="selectMenu">
-                        <div class="btnItem selectDash btnItemDash" style="height: 235px !important; padding-top: 10px !important">
-                          <span class="col l8 offset-l2 s8 offset-s2 chip white-text chipmenu" style="background-color: <?= $res['cor'] ?> !important; margin-bottom: 10px !important">&cong; R$<?= number_format($res['diario'], 2, ',', '.'); ?> / dia</span>
-                          <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
-                          <span class="col l12 s12">Menu <?= $res['nome'] ?></span>
-                        </div>
-                      </a>
+                        <a href="../server/altera_menu.php?id=<?= $res['id'] ?>" class="col l3 s12 linkMenu" id="selectMenu">
+                          <div class="btnItem btnItemDash" style="height: 235px !important; padding-top: 10px !important">
+                            <span class="col l8 offset-l2 s8 offset-s2 chip white-text chipmenu" style="background-color: <?= $res['cor'] ?> !important; margin-bottom: 10px !important">&cong; R$<?= number_format($res['diario'], 2, ',', '.'); ?> / dia</span>
+                            <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
+                            <span class="col l12 s12">Menu <?= $res['nome'] ?></span>
+                          </div>
+                        </a>
 
-                  <?php
+                    <?php
 
-                    }else{
-
-                  ?>
-
-                      <input type="text" name="id" id="idMenu" value="<?= $res['id'] ?>" hidden>
-
-                      <a href="../server/altera_menu.php?id=<?= $res['id'] ?>" class="col l3 s12 linkMenu" id="selectMenu">
-                        <div class="btnItem btnItemDash" style="height: 235px !important; padding-top: 10px !important">
-                          <span class="col l8 offset-l2 s8 offset-s2 chip white-text chipmenu" style="background-color: <?= $res['cor'] ?> !important; margin-bottom: 10px !important">&cong; R$<?= number_format($res['diario'], 2, ',', '.'); ?> / dia</span>
-                          <div class="col l12 s12"><img src="../img/icones/menu.svg"></div>
-                          <span class="col l12 s12">Menu <?= $res['nome'] ?></span>
-                        </div>
-                      </a>
-
-                  <?php
-
-                     }
+                       }
+                      }
                     }
                   }
                   ?>

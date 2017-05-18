@@ -47,7 +47,7 @@ echo "<table>";
  echo "</tr>";
 
 // Procurar as informações do BD
-$SQL = "SELECT * FROM user ORDER BY id DESC" ;
+$SQL = "SELECT * FROM user WHERE ativo = 1 ORDER BY id DESC" ;
 $executa = mysql_query($SQL);
 
 while ($pegou = mysql_fetch_array($executa)){

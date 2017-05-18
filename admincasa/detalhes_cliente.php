@@ -133,6 +133,11 @@ $vamo = mysql_query($mudando);
         </div>
 
 
+        <div class="row">
+          <h5 style="margin-top: -5px" class="col l8 offset-l2"> <strong>Observação:</strong> <?= $dados['observ'] ?> </h4>
+        </div>
+
+
 
 
         <div class="print" id="printable">
@@ -238,9 +243,25 @@ $vamo = mysql_query($mudando);
               </li> 
           </ul>
 
+          <div class="col l12 card" style="margin-bottom: 30px; background-color: #f7f7f7; padding-bottom: 20px">
+            <form method="POST" action="server/observacao_cliente.php">
+              <input type="text" name="observacao" class="col l12" placeholder="Observação sobre este cliente">
+              <input type="text" name="id" value="<?= $id_cliente ?>" style="display: none;">
+              <input type="submit" class="btn orange white-text col l6 offset-l3" name="">
+            </form>
+          </div>
 
           <div class="col l12">
-            <a class="btn blue white-text col l6 offset-l3" href="server/gerar_pdf.php?id=<?= $id_cliente ?>">Gerar Relatório</a>
+            <a class="btn blue white-text col l6" href="server/gerar_pdf.php?id=<?= $id_cliente ?>">Gerar Relatório</a>
+
+            <?php
+              if ($pegou['ativo'] == 0) {
+                echo '<a class="btn green white-text col l6" href="server/ativo.php?id='.$id_cliente.'">Ativar Cliente</a>';
+              }else{
+                echo '<a class="btn red white-text col l6" href="server/inativo.php?id='.$id_cliente.'">Desativar Cliente</a>';
+              }
+            ?>
+            
           </div>
         </div>
 
