@@ -84,10 +84,11 @@ if ($_SESSION['nivel'] != 3) {
             <thead>
               <tr>
                   <th data-field="id">Novo</th>
+                  <th data-field="id">Ativo</th>
                   <th data-field="id">Nome</th>
-                  <th data-field="name">Telefone</th>
                   <th data-field="price">Email</th>
                   <th data-field="price">CPF</th>
+                  <th data-field="name">Vencimento</th>
                   <th data-field="price">Pendências</th>
                   <th data-field="price">Ações</th>
               </tr>
@@ -108,14 +109,46 @@ if ($_SESSION['nivel'] != 3) {
                   $novo = "";
                 }
 
+                if ($resultado['id_plano'] == 1) {
+
+                  $vencido = date('Y/m/d', time()) > date('Y/m/d', strtotime("+14 days",strtotime($resultado['data_pagamento'])));
+
+                }elseif ($resultado['id_plano']== 2){
+                  $vencido = date('Y/m/d', time()) > date('Y/m/d', strtotime("+30 days",strtotime($resultado['data_pagamento'])));
+                }
+
+                if ($resultado['pagamento'] == 1) {
+                  $dataPagamento = date('d/m/Y', strtotime($resultado['data_pagamento']));
+                }else{
+                  $dataPagamento = "Nulo";
+                }
+
+                if ($resultado['ativo'] == 1) {
+                  $ativo = "<div style='height: 30px; width: 30px;' class='chip orange' class='tooltipped' data-position='top' data-delay='50' data-tooltip='Clique para desativar.'><i class='material-icons' style='font-size: 20px; margin-top: 5px; margin-left: -6px; color: white'>done</i></div>";
+                }else{
+                  $ativo = "";
+                }
+
                 if ($resultado['pagamento'] == 1){ ?>
 
                   <tr>
                     <td><?= $novo ?></td>
+                    <td><?= $ativo ?></td>
                     <td><?= $resultado['nome'] ?></td>
-                    <td><?= $resultado['telefone'] ?></td>
                     <td><?= $resultado['email'] ?></td>
                     <td><?= $resultado['cpf'] ?></td>
+                    <td><?php
+                    if ($vencido == true) {
+                      if ($dataPagamento == "Nulo") {
+                        echo $dataPagamento;
+                      }else{
+                        echo '<div class="red white-text center">'.$dataPagamento.'</div>';
+                      }
+                    }else{
+                      echo $dataPagamento;
+                    }
+                    ?>
+                    </td>
                     <td><div class="green white-text center">Pagamento em dia</div></td>
                     <td>
                       <a href="detalhes_cliente.php?id=<?= $resultado['id'] ?>" class="btn-small blue white-text col l12 center">Detalhes</a>                  
@@ -126,10 +159,22 @@ if ($_SESSION['nivel'] != 3) {
 
                   <tr>
                     <td><?= $novo ?></td>
+                    <td><?= $ativo ?></td>
                     <td><?= $resultado['nome'] ?></td>
-                    <td><?= $resultado['telefone'] ?></td>
                     <td><?= $resultado['email'] ?></td>
                     <td><?= $resultado['cpf'] ?></td>
+                    <td><?php
+                    if ($vencido == true) {
+                      if ($dataPagamento == "Nulo") {
+                        echo $dataPagamento;
+                      }else{
+                        echo '<div class="red white-text center">'.$dataPagamento.'</div>';
+                      }
+                    }else{
+                      echo $dataPagamento;
+                    }
+                    ?>
+                    </td>
                     <td ><div class="orange white-text center">Maquininha Solicitada</div></td>
                     <td>
                       <a href="detalhes_cliente.php?id=<?= $resultado['id'] ?>" class="btn-small blue white-text col l12 center">Detalhes</a>
@@ -140,10 +185,22 @@ if ($_SESSION['nivel'] != 3) {
 
                   <tr>
                     <td><?= $novo ?></td>
+                    <td><?= $ativo ?></td>
                     <td><?= $resultado['nome'] ?></td>
-                    <td><?= $resultado['telefone'] ?></td>
                     <td><?= $resultado['email'] ?></td>
                     <td><?= $resultado['cpf'] ?></td>
+                    <td><?php
+                    if ($vencido == true) {
+                      if ($dataPagamento == "Nulo") {
+                        echo $dataPagamento;
+                      }else{
+                        echo '<div class="red white-text center">'.$dataPagamento.'</div>';
+                      }
+                    }else{
+                      echo $dataPagamento;
+                    }
+                    ?>
+                    </td>
                     <td ><div class="teal white-text center">PagSeguro pendente</div></td>
                     <td>
                       <a href="detalhes_cliente.php?id=<?= $resultado['id'] ?>" class="btn-small blue white-text col l12 center">Detalhes</a>                  
@@ -154,10 +211,22 @@ if ($_SESSION['nivel'] != 3) {
 
                   <tr>
                     <td><?= $novo ?></td>
+                    <td><?= $ativo ?></td>
                     <td><?= $resultado['nome'] ?></td>
-                    <td><?= $resultado['telefone'] ?></td>
                     <td><?= $resultado['email'] ?></td>
                     <td><?= $resultado['cpf'] ?></td>
+                    <td><?php
+                    if ($vencido == true) {
+                      if ($dataPagamento == "Nulo") {
+                        echo $dataPagamento;
+                      }else{
+                        echo '<div class="red white-text center">'.$dataPagamento.'</div>';
+                      }
+                    }else{
+                      echo $dataPagamento;
+                    }
+                    ?>
+                    </td>
                     <td></td>
                     <td>
                       <a href="detalhes_cliente.php?id=<?= $resultado['id'] ?>" class="btn-small blue white-text col l12 center">Detalhes</a>                  

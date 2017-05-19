@@ -15,7 +15,7 @@ $_SESSION['pagamento']=$dado['pagamento'];
 
 
 if ($_SESSION['plano']== 1) {
-  if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+15 days",strtotime($dado['data_pagamento'])))) {
+  if (date('Y/m/d', time()) > date('Y/m/d', strtotime("+14 days",strtotime($dado['data_pagamento'])))) {
     $seleciona = "UPDATE user SET pagamento = 0, forma_pagamento = 0, pagseguro = 0 WHERE id = '$id_user' ";
     $vai = mysql_query($seleciona) or die(mysql_error());
     $_SESSION['pagamento'] = 0;
